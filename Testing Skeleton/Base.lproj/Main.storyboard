@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="CUu-DM-DGe">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="fti-8D-onH">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
@@ -341,7 +341,11 @@
                     </view>
                     <navigationItem key="navigationItem" title="Daftar" id="3FY-Rz-0bY"/>
                     <connections>
+                        <outlet property="addressTextField" destination="Ytj-3y-QjQ" id="4NJ-qh-MYE"/>
+                        <outlet property="birthDateTextField" destination="E9U-xp-ePz" id="w19-Td-eJl"/>
+                        <outlet property="confirmationPasswordTextField" destination="Rcq-b4-ieH" id="emy-Nl-Bgu"/>
                         <outlet property="emailTextField" destination="VTT-Ty-G71" id="bJ3-Pf-Qzi"/>
+                        <outlet property="genderTextField" destination="eUu-bb-FGb" id="w0V-XS-PBa"/>
                         <outlet property="nameTextField" destination="Lwm-dp-qHb" id="J6l-Q4-nR4"/>
                         <outlet property="passwordTextField" destination="AnZ-gI-3Jr" id="PFY-Hr-tij"/>
                     </connections>
@@ -790,7 +794,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uoq-w7-jfJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1833.3333333333335" y="1528.7946428571429"/>
+            <point key="canvasLocation" x="1832" y="1529"/>
         </scene>
         <!--Artikel-->
         <scene sceneID="Z3i-pl-vSr">
@@ -812,7 +816,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HRo-ec-pIr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="96" y="1530"/>
+            <point key="canvasLocation" x="67" y="1529"/>
         </scene>
         <!--Profil-->
         <scene sceneID="0Lc-5G-3cF">
@@ -1126,7 +1130,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4xJ-6c-BtP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2793" y="3251"/>
+            <point key="canvasLocation" x="2722" y="3246"/>
         </scene>
         <!--Profil-->
         <scene sceneID="97W-m1-X7J">
@@ -1244,8 +1248,8 @@
         <image name="cross" catalog="system" width="128" height="116"/>
         <image name="doctor" width="1023" height="711"/>
         <image name="person.circle" catalog="system" width="128" height="121"/>
-        <image name="person.circle.fill" catalog="system" width="32" height="32"/>
-        <image name="stethoscope" catalog="system" width="32" height="32"/>
+        <image name="person.circle.fill" catalog="system" width="128" height="121"/>
+        <image name="stethoscope" catalog="system" width="128" height="96"/>
         <systemColor name="linkColor">
             <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

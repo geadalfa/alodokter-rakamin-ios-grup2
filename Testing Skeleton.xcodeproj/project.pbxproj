@@ -171,7 +171,6 @@
 				9F8A68D52755D9C40005E329 /* Assets.xcassets */,
 				9F8A68D72755D9C40005E329 /* LaunchScreen.storyboard */,
 				9F8A68DA2755D9C40005E329 /* Info.plist */,
-				9F89269C2757B8D000354385 /* Doctor */,
 			);
 			path = "Testing Skeleton";
 			sourceTree = "<group>";
@@ -179,6 +178,7 @@
 		9FE7B10B2758A59F00D74FFB /* View */ = {
 			isa = PBXGroup;
 			children = (
+				9F89269C2757B8D000354385 /* Doctor */,
 				9F7258612757ABD1001AEC39 /* Article */,
 			);
 			path = View;
