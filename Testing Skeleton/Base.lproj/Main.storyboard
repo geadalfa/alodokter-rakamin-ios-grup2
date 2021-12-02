@@ -702,7 +702,7 @@
                     <connections>
                         <outlet property="articleCollectionView" destination="Si5-hc-dYG" id="zPn-a4-wnq"/>
                         <outlet property="articleTableView" destination="gWa-Yb-ib3" id="aEu-M1-YTb"/>
-                        <segue destination="4xv-tx-OIK" kind="show" id="n5c-Fe-9Wc"/>
+                        <segue destination="4xv-tx-OIK" kind="show" identifier="" id="n5c-Fe-9Wc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="w1r-Zn-88c" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -712,7 +712,7 @@
         <!--Detail Artikel-->
         <scene sceneID="NFh-fE-bOr">
             <objects>
-                <viewController id="4xv-tx-OIK" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="detailArticle" id="4xv-tx-OIK" customClass="DetailArticleViewController" customModule="Testing_Skeleton" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="n3A-8B-PwB">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -774,6 +774,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Detail Artikel" id="F4z-Wa-4Ni"/>
+                    <connections>
+                        <outlet property="articleContentLabel" destination="4gL-yh-vfe" id="UCd-BZ-ehj"/>
+                        <outlet property="articleImageView" destination="U4A-tk-Ejl" id="X4T-Ld-qQx"/>
+                        <outlet property="articleTitleLabel" destination="oLo-Un-y7V" id="lx8-tF-AOd"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uoq-w7-jfJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

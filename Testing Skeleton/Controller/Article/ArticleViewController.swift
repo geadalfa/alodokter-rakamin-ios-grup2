@@ -8,7 +8,7 @@
 import UIKit
 
 class ArticleViewController: UIViewController {
-
+    
     // Outlets
     @IBOutlet weak var articleCollectionView: UICollectionView!
     @IBOutlet weak var articleTableView: UITableView!
@@ -19,12 +19,12 @@ class ArticleViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         articleTableView.register(UINib(nibName: "ArticleCell", bundle: nil), forCellReuseIdentifier: "articleIdentifier")
         articleTableView.rowHeight = 90
     }
     
-
+    
 }
 
 // MARK: - UICollectionView
@@ -43,6 +43,17 @@ extension ArticleViewController: UICollectionViewDelegate, UICollectionViewDataS
         
         return cellArticle
         
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let indexPath = articleModel.article[indexPath.row]
+        
+        let detailArticleVC = storyboard?.instantiateViewController(identifier: "detailArticle") as! DetailArticleViewController
+        detailArticleVC.articleTitle = indexPath.title
+        detailArticleVC.articleImage = indexPath.image
+        detailArticleVC.articleContent = indexPath.content
+        
+        self.navigationController?.pushViewController(detailArticleVC, animated: true)
     }
     
     
