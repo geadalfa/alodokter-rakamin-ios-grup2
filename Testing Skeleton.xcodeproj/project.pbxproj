@@ -11,6 +11,10 @@
 		9F01DDBF27587145006FCE6E /* ArticleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F01DDBE27587145006FCE6E /* ArticleViewController.swift */; };
 		9F01DDC127587437006FCE6E /* ArticleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F01DDC027587437006FCE6E /* ArticleTableViewCell.swift */; };
 		9F23E66527578BE500E5D041 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F23E66427578BE500E5D041 /* HomeViewController.swift */; };
+		9F4D02CA2758D62B00094C1A /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F4D02C92758D62B00094C1A /* Constant.swift */; };
+		9F4D02CD2758D70300094C1A /* RegisterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F4D02CC2758D70300094C1A /* RegisterModel.swift */; };
+		9F4D02CF2758D73A00094C1A /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F4D02CE2758D73A00094C1A /* APIManager.swift */; };
+		9F4D02D12758D96600094C1A /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F4D02D02758D96600094C1A /* RegisterViewController.swift */; };
 		9F601A1B275834570066D41D /* ArticleCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9F7258622757ABD1001AEC39 /* ArticleCell.xib */; };
 		9F601A1C275834640066D41D /* ArticleCellCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F7258632757ABD1001AEC39 /* ArticleCellCollection.swift */; };
 		9F8A68CD2755D9C20005E329 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F8A68CC2755D9C20005E329 /* AppDelegate.swift */; };
@@ -34,6 +38,10 @@
 		9F01DDBE27587145006FCE6E /* ArticleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleViewController.swift; sourceTree = "<group>"; };
 		9F01DDC027587437006FCE6E /* ArticleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleTableViewCell.swift; sourceTree = "<group>"; };
 		9F23E66427578BE500E5D041 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		9F4D02C92758D62B00094C1A /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
+		9F4D02CC2758D70300094C1A /* RegisterModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterModel.swift; sourceTree = "<group>"; };
+		9F4D02CE2758D73A00094C1A /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
+		9F4D02D02758D96600094C1A /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		9F7258622757ABD1001AEC39 /* ArticleCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ArticleCell.xib; sourceTree = "<group>"; };
 		9F7258632757ABD1001AEC39 /* ArticleCellCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleCellCollection.swift; sourceTree = "<group>"; };
 		9F89269D2757B8E100354385 /* DoctorCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DoctorCell.xib; sourceTree = "<group>"; };
@@ -73,9 +81,27 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		9F4D02C82758D61200094C1A /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				9F4D02C92758D62B00094C1A /* Constant.swift */,
+				9F4D02CE2758D73A00094C1A /* APIManager.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		9F4D02CB2758D6F700094C1A /* Register */ = {
+			isa = PBXGroup;
+			children = (
+				9F4D02CC2758D70300094C1A /* RegisterModel.swift */,
+			);
+			path = Register;
+			sourceTree = "<group>";
+		};
 		9F601A182758307A0066D41D /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				9F4D02CB2758D6F700094C1A /* Register */,
 				9FFD38632758431D003EC14A /* ArticleModel.swift */,
 				9FFD386527584343003EC14A /* Article.swift */,
 				9FFD386827584942003EC14A /* Doctor.swift */,
@@ -89,6 +115,7 @@
 			children = (
 				9F8A68D02755D9C20005E329 /* LoginViewController.swift */,
 				9F23E66427578BE500E5D041 /* HomeViewController.swift */,
+				9F4D02D02758D96600094C1A /* RegisterViewController.swift */,
 				9FE7B10C2758A5DD00D74FFB /* Article */,
 			);
 			path = Controller;
@@ -134,6 +161,7 @@
 		9F8A68CB2755D9C20005E329 /* Testing Skeleton */ = {
 			isa = PBXGroup;
 			children = (
+				9F4D02C82758D61200094C1A /* Services */,
 				9F601A182758307A0066D41D /* Model */,
 				9FE7B10B2758A59F00D74FFB /* View */,
 				9F601A1A2758308E0066D41D /* Controller */,
@@ -171,7 +199,6 @@
 				45F5C13A364CD51D6296FDE0 /* Pods-Testing Skeleton.debug.xcconfig */,
 				93696B5F7ABA25E0F8A8EA05 /* Pods-Testing Skeleton.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -291,6 +318,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9F4D02CF2758D73A00094C1A /* APIManager.swift in Sources */,
 				9FFD386627584343003EC14A /* Article.swift in Sources */,
 				9F8A68D12755D9C20005E329 /* LoginViewController.swift in Sources */,
 				9F8A68CD2755D9C20005E329 /* AppDelegate.swift in Sources */,
@@ -298,9 +326,12 @@
 				9F8A68CF2755D9C20005E329 /* SceneDelegate.swift in Sources */,
 				9F01DDC127587437006FCE6E /* ArticleTableViewCell.swift in Sources */,
 				9F601A1C275834640066D41D /* ArticleCellCollection.swift in Sources */,
+				9F4D02CA2758D62B00094C1A /* Constant.swift in Sources */,
 				9F01DDBF27587145006FCE6E /* ArticleViewController.swift in Sources */,
 				9FFD386927584942003EC14A /* Doctor.swift in Sources */,
 				9FFD386B2758496D003EC14A /* DoctorModel.swift in Sources */,
+				9F4D02CD2758D70300094C1A /* RegisterModel.swift in Sources */,
+				9F4D02D12758D96600094C1A /* RegisterViewController.swift in Sources */,
 				9FFD38642758431D003EC14A /* ArticleModel.swift in Sources */,
 				9FFD38672758485B003EC14A /* DoctorCell.swift in Sources */,
 				9F23E66527578BE500E5D041 /* HomeViewController.swift in Sources */,

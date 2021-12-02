@@ -2,8 +2,7 @@
 //  ArticleCell.swift
 //  Testing Skeleton
 //
-//  Created by Prince Alvin Yusuf on 02/04/21.
-//  Copyright © 2021 Muhammad Harviando. All rights reserved.
+//  Created by Prince Alvin Yusuf on 02/12/21.
 //
 
 import UIKit
