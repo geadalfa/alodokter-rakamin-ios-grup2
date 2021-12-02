@@ -701,7 +701,7 @@
                     <navigationItem key="navigationItem" title="Artikel" id="0v6-44-sce"/>
                     <connections>
                         <outlet property="articleCollectionView" destination="Si5-hc-dYG" id="zPn-a4-wnq"/>
-                        <outlet property="articleTableView" destination="gWa-Yb-ib3" id="aEu-M1-YTb"/>
+                        <outlet property="articleTableView" destination="gWa-Yb-ib3" id="RMs-BM-Pwt"/>
                         <segue destination="4xv-tx-OIK" kind="show" identifier="" id="n5c-Fe-9Wc"/>
                     </connections>
                 </viewController>

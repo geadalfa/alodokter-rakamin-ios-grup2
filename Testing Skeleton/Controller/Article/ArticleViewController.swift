@@ -13,6 +13,7 @@ class ArticleViewController: UIViewController {
     @IBOutlet weak var articleCollectionView: UICollectionView!
     @IBOutlet weak var articleTableView: UITableView!
     
+    
     // Variables
     let articleModel = ArticleModel()
     
@@ -21,7 +22,7 @@ class ArticleViewController: UIViewController {
         super.viewDidLoad()
         
         articleTableView.register(UINib(nibName: "ArticleCell", bundle: nil), forCellReuseIdentifier: "articleIdentifier")
-        articleTableView.rowHeight = 90
+        articleTableView.rowHeight = 100
     }
     
     
@@ -75,6 +76,20 @@ extension ArticleViewController: UITableViewDelegate, UITableViewDataSource {
         cell.articleContentLabel.text = index.content
         
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        let index = articleModel.article[indexPath.row]
+        
+        let detailArticleVC = storyboard?.instantiateViewController(identifier: "detailArticle") as! DetailArticleViewController
+        detailArticleVC.articleTitle = index.title
+        detailArticleVC.articleImage = index.image
+        detailArticleVC.articleContent = index.content
+        
+        self.navigationController?.pushViewController(detailArticleVC, animated: true)
+        self.articleTableView.deselectRow(at: indexPath, animated: true)
+        
     }
     
     
