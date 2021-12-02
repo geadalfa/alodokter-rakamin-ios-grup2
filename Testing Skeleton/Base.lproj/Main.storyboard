@@ -649,8 +649,8 @@
                                                     <rect key="frame" x="0.0" y="0.0" width="176" height="104.5"/>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lorem ipsum dolor sit amet ipsum chembar mono ipsum" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WBw-Re-N9K">
-                                                    <rect key="frame" x="18" y="109.5" width="150" height="68.5"/>
-                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                                                    <rect key="frame" x="8" y="104.5" width="160" height="43"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -658,16 +658,19 @@
                                             <color key="backgroundColor" systemColor="systemGray6Color"/>
                                             <constraints>
                                                 <constraint firstAttribute="trailing" secondItem="HEI-TJ-yhx" secondAttribute="trailing" id="0KX-iP-3a1"/>
-                                                <constraint firstAttribute="bottom" secondItem="WBw-Re-N9K" secondAttribute="bottom" constant="5" id="A42-k5-Evc"/>
-                                                <constraint firstItem="WBw-Re-N9K" firstAttribute="leading" secondItem="Ufy-gN-tFf" secondAttribute="leadingMargin" constant="10" id="Bte-C4-YYD"/>
+                                                <constraint firstItem="WBw-Re-N9K" firstAttribute="leading" secondItem="Ufy-gN-tFf" secondAttribute="leadingMargin" id="Bte-C4-YYD"/>
                                                 <constraint firstItem="HEI-TJ-yhx" firstAttribute="top" secondItem="Ufy-gN-tFf" secondAttribute="top" id="N99-d8-stD"/>
                                                 <constraint firstItem="HEI-TJ-yhx" firstAttribute="leading" secondItem="Ufy-gN-tFf" secondAttribute="leading" id="NiL-37-A0D"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="WBw-Re-N9K" secondAttribute="trailing" id="OKs-Sy-M42"/>
-                                                <constraint firstItem="WBw-Re-N9K" firstAttribute="top" secondItem="HEI-TJ-yhx" secondAttribute="bottom" constant="5" id="izm-LO-TkT"/>
+                                                <constraint firstItem="WBw-Re-N9K" firstAttribute="top" secondItem="HEI-TJ-yhx" secondAttribute="bottom" id="izm-LO-TkT"/>
                                                 <constraint firstItem="HEI-TJ-yhx" firstAttribute="height" secondItem="Ufy-gN-tFf" secondAttribute="height" multiplier="0.571429" id="ytk-7q-u7a"/>
                                             </constraints>
                                         </collectionViewCellContentView>
                                         <size key="customSize" width="176" height="183"/>
+                                        <connections>
+                                            <outlet property="articleImageView" destination="HEI-TJ-yhx" id="knX-JB-1sU"/>
+                                            <outlet property="articleLabel" destination="WBw-Re-N9K" id="gRl-UW-OmU"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                                 <connections>
