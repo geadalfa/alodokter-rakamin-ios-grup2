@@ -84,19 +84,16 @@ class RegisterViewController: UIViewController {
         
         if safePassword == safeConfirmation && safePassword != "" {
             let register = RegisterModel(name: safeName, email: safeEmail, password: safePassword, address: safeAddress, gender: safeGender, birthDate: safeBirthDate)
-            APIManager.shareInstance.callingRegisterAPI(register: register)
-            
-            let alertController = UIAlertController(title: "Terima Kasih", message:
-                                                        "Terima Kasih Sudah Mendaftar di AloDokter", preferredStyle: .alert)
-            
-            let action = UIAlertAction(title: "Close", style: .default) { (action) in
-                
-                self.navigationController?.popViewController(animated: true)
-                
+            APIManager.shareInstance.callingRegisterAPI(register: register) { isSuccess in
+                if isSuccess {
+                    self.alert(title: "Terima Kasih", message: "Terima Kasih Sudah Mendaftar di AloDokter")
+                    
+                } else {
+                    self.alert(title: "Terjadi Kesalahan", message: "Mohon periksa kembali data anda")
+                }
             }
             
-            alertController.addAction(action)
-            self.present(alertController, animated: true, completion: nil)
+            
             
         } else {
             let alertController = UIAlertController(title: "Perhatian!", message:
@@ -115,6 +112,17 @@ class RegisterViewController: UIViewController {
             
         }
         
+    }
+    
+    func alert(title: String, message: String) {
+        let alertController = UIAlertController(title: title, message:
+                                                    message, preferredStyle: .alert)
+        let action = UIAlertAction(title: "Close", style: .default) { (action) in
+            self.navigationController?.popViewController(animated: true)
+        }
+        
+        alertController.addAction(action)
+        self.present(alertController, animated: true, completion: nil)
     }
     
 }
