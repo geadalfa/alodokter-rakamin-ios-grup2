@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -16,29 +17,18 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="splash" translatesAutoresizingMaskIntoConstraints="NO" id="oX6-xx-MDG">
-                                <rect key="frame" x="127" y="368" width="160" height="160"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="160" id="PZs-5l-iaU"/>
-                                    <constraint firstAttribute="width" constant="160" id="wgd-in-vrC"/>
-                                </constraints>
-                            </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Alodokter by 2nd Group" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NqL-K3-Rb8">
-                                <rect key="frame" x="74" y="552" width="266" height="29"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Alodokter by 2nd Group" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NqL-K3-Rb8">
+                                <rect key="frame" x="74.5" y="433.5" width="265.5" height="29"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" systemColor="linkColor"/>
                         <constraints>
-                            <constraint firstItem="NqL-K3-Rb8" firstAttribute="top" secondItem="oX6-xx-MDG" secondAttribute="bottom" constant="24" id="Wjo-Jr-M8r"/>
+                            <constraint firstItem="NqL-K3-Rb8" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="NGH-Zy-igP"/>
                             <constraint firstItem="NqL-K3-Rb8" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="de0-Wg-uVb"/>
-                            <constraint firstItem="oX6-xx-MDG" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="iKA-AV-y3e"/>
-                            <constraint firstItem="oX6-xx-MDG" firstAttribute="height" secondItem="Ze5-6b-2t3" secondAttribute="height" multiplier="0.178571" id="uGy-jK-PfR"/>
-                            <constraint firstItem="oX6-xx-MDG" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="xWz-w0-UDQ"/>
-                            <constraint firstItem="oX6-xx-MDG" firstAttribute="width" secondItem="Ze5-6b-2t3" secondAttribute="width" multiplier="0.386473" id="xrS-NE-59M"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -48,9 +38,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="splash" width="3000" height="3000"/>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        <systemColor name="linkColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
