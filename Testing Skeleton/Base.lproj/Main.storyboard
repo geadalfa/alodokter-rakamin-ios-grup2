@@ -736,60 +736,86 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Judul Artikel" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oLo-Un-y7V">
-                                <rect key="frame" x="20" y="104" width="374" height="29"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Penulis: ..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UTV-vN-s40">
-                                <rect key="frame" x="20" y="141" width="374" height="19.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tanggal: ..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XYm-xL-uqj">
-                                <rect key="frame" x="20" y="168.5" width="374" height="19.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="banner" translatesAutoresizingMaskIntoConstraints="NO" id="U4A-tk-Ejl">
-                                <rect key="frame" x="20" y="204" width="374" height="242"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                        <integer key="value" value="16"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4gL-yh-vfe">
-                                <rect key="frame" x="20" y="470" width="374" height="203"/>
-                                <string key="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</string>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DUd-f7-41K">
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="h1L-nm-m07" userLabel="Content View">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="1000"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Judul Artikel" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oLo-Un-y7V">
+                                                <rect key="frame" x="20" y="16" width="374" height="29"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Penulis: ..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UTV-vN-s40">
+                                                <rect key="frame" x="20" y="53" width="374" height="19.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tanggal: ..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XYm-xL-uqj">
+                                                <rect key="frame" x="20" y="80.5" width="374" height="19.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="banner" translatesAutoresizingMaskIntoConstraints="NO" id="U4A-tk-Ejl">
+                                                <rect key="frame" x="20" y="116" width="374" height="531"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                        <integer key="value" value="16"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4gL-yh-vfe">
+                                                <rect key="frame" x="20" y="671" width="374" height="203"/>
+                                                <string key="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</string>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstItem="XYm-xL-uqj" firstAttribute="leading" secondItem="h1L-nm-m07" secondAttribute="leading" constant="20" id="4sq-cv-pui"/>
+                                            <constraint firstItem="U4A-tk-Ejl" firstAttribute="top" secondItem="XYm-xL-uqj" secondAttribute="bottom" constant="16" id="9dG-kQ-7s5"/>
+                                            <constraint firstItem="4gL-yh-vfe" firstAttribute="leading" secondItem="h1L-nm-m07" secondAttribute="leading" constant="20" id="9hW-ev-9Ih"/>
+                                            <constraint firstItem="U4A-tk-Ejl" firstAttribute="leading" secondItem="h1L-nm-m07" secondAttribute="leading" constant="20" id="F3s-Jp-Dws"/>
+                                            <constraint firstAttribute="trailing" secondItem="U4A-tk-Ejl" secondAttribute="trailing" constant="20" id="KWg-Uk-pGS"/>
+                                            <constraint firstAttribute="trailing" secondItem="UTV-vN-s40" secondAttribute="trailing" constant="20" id="Lxa-fu-7os"/>
+                                            <constraint firstItem="UTV-vN-s40" firstAttribute="top" secondItem="oLo-Un-y7V" secondAttribute="bottom" constant="8" id="Orf-Ks-Dqn"/>
+                                            <constraint firstItem="oLo-Un-y7V" firstAttribute="leading" secondItem="h1L-nm-m07" secondAttribute="leading" constant="20" id="PGN-Hx-sME"/>
+                                            <constraint firstItem="UTV-vN-s40" firstAttribute="leading" secondItem="h1L-nm-m07" secondAttribute="leading" constant="20" id="PMU-36-zjf"/>
+                                            <constraint firstItem="oLo-Un-y7V" firstAttribute="top" secondItem="h1L-nm-m07" secondAttribute="top" constant="16" id="Xb7-ET-LFb"/>
+                                            <constraint firstItem="XYm-xL-uqj" firstAttribute="top" secondItem="UTV-vN-s40" secondAttribute="bottom" constant="8" id="YYC-kH-rTw"/>
+                                            <constraint firstItem="4gL-yh-vfe" firstAttribute="top" secondItem="U4A-tk-Ejl" secondAttribute="bottom" constant="24" id="fqw-sl-ZA3"/>
+                                            <constraint firstAttribute="trailing" secondItem="4gL-yh-vfe" secondAttribute="trailing" constant="20" id="hHR-ls-zSa"/>
+                                            <constraint firstAttribute="height" constant="1000" id="hfH-Qg-bnE"/>
+                                            <constraint firstItem="oLo-Un-y7V" firstAttribute="centerX" secondItem="h1L-nm-m07" secondAttribute="centerX" id="luI-l5-e5V"/>
+                                            <constraint firstAttribute="trailing" secondItem="XYm-xL-uqj" secondAttribute="trailing" constant="20" id="v6Q-M5-CfP"/>
+                                            <constraint firstAttribute="trailing" secondItem="oLo-Un-y7V" secondAttribute="trailing" constant="20" id="xxq-c4-Gwd"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="h1L-nm-m07" firstAttribute="leading" secondItem="X7L-YB-a7Y" secondAttribute="leading" id="0Ik-Cw-qc0"/>
+                                    <constraint firstItem="X7L-YB-a7Y" firstAttribute="trailing" secondItem="h1L-nm-m07" secondAttribute="trailing" id="1ci-3R-qFB"/>
+                                    <constraint firstItem="X7L-YB-a7Y" firstAttribute="bottom" secondItem="h1L-nm-m07" secondAttribute="bottom" id="PcC-Rw-Pjk"/>
+                                    <constraint firstItem="2Gr-mh-X3P" firstAttribute="width" secondItem="h1L-nm-m07" secondAttribute="width" id="lG7-0a-AZF"/>
+                                    <constraint firstItem="h1L-nm-m07" firstAttribute="top" secondItem="X7L-YB-a7Y" secondAttribute="top" id="mJc-uZ-UHZ"/>
+                                </constraints>
+                                <viewLayoutGuide key="contentLayoutGuide" id="X7L-YB-a7Y"/>
+                                <viewLayoutGuide key="frameLayoutGuide" id="2Gr-mh-X3P"/>
+                            </scrollView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="1yh-py-gfz"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="1yh-py-gfz" firstAttribute="trailing" secondItem="4gL-yh-vfe" secondAttribute="trailing" constant="20" id="7za-Fa-h7P"/>
-                            <constraint firstItem="U4A-tk-Ejl" firstAttribute="height" secondItem="n3A-8B-PwB" secondAttribute="height" multiplier="0.270089" id="9f9-Pt-nGZ"/>
-                            <constraint firstItem="XYm-xL-uqj" firstAttribute="leading" secondItem="1yh-py-gfz" secondAttribute="leading" constant="20" id="CUR-mZ-LbY"/>
-                            <constraint firstItem="1yh-py-gfz" firstAttribute="trailing" secondItem="XYm-xL-uqj" secondAttribute="trailing" constant="20" id="GOO-JV-jUZ"/>
-                            <constraint firstItem="1yh-py-gfz" firstAttribute="trailing" secondItem="UTV-vN-s40" secondAttribute="trailing" constant="20" id="ISx-O0-SS1"/>
-                            <constraint firstItem="UTV-vN-s40" firstAttribute="leading" secondItem="1yh-py-gfz" secondAttribute="leading" constant="20" id="QnL-kS-xbP"/>
-                            <constraint firstItem="UTV-vN-s40" firstAttribute="top" secondItem="oLo-Un-y7V" secondAttribute="bottom" constant="8" id="TLU-8X-0Ws"/>
-                            <constraint firstItem="1yh-py-gfz" firstAttribute="trailing" secondItem="oLo-Un-y7V" secondAttribute="trailing" constant="20" id="ZFH-H8-9XC"/>
-                            <constraint firstItem="U4A-tk-Ejl" firstAttribute="top" secondItem="XYm-xL-uqj" secondAttribute="bottom" constant="16" id="d92-P0-t2S"/>
-                            <constraint firstItem="oLo-Un-y7V" firstAttribute="top" secondItem="1yh-py-gfz" secondAttribute="top" constant="16" id="dOp-I1-bhA"/>
-                            <constraint firstItem="1yh-py-gfz" firstAttribute="trailing" secondItem="U4A-tk-Ejl" secondAttribute="trailing" constant="20" id="emG-pa-3Lv"/>
-                            <constraint firstItem="4gL-yh-vfe" firstAttribute="top" secondItem="U4A-tk-Ejl" secondAttribute="bottom" constant="24" id="fap-y0-GFd"/>
-                            <constraint firstItem="4gL-yh-vfe" firstAttribute="leading" secondItem="1yh-py-gfz" secondAttribute="leading" constant="20" id="h8v-5j-oCE"/>
-                            <constraint firstItem="XYm-xL-uqj" firstAttribute="top" secondItem="UTV-vN-s40" secondAttribute="bottom" constant="8" symbolic="YES" id="ldr-EV-FlJ"/>
-                            <constraint firstItem="oLo-Un-y7V" firstAttribute="leading" secondItem="1yh-py-gfz" secondAttribute="leading" constant="20" id="lhi-ie-HvR"/>
-                            <constraint firstItem="U4A-tk-Ejl" firstAttribute="leading" secondItem="1yh-py-gfz" secondAttribute="leading" constant="20" id="mbg-3Z-kjY"/>
-                            <constraint firstItem="oLo-Un-y7V" firstAttribute="centerX" secondItem="n3A-8B-PwB" secondAttribute="centerX" id="zDv-bb-A1H"/>
+                            <constraint firstItem="DUd-f7-41K" firstAttribute="leading" secondItem="1yh-py-gfz" secondAttribute="leading" id="6fZ-eY-gn0"/>
+                            <constraint firstItem="DUd-f7-41K" firstAttribute="bottom" secondItem="1yh-py-gfz" secondAttribute="bottom" id="ODV-GL-Qvc"/>
+                            <constraint firstItem="DUd-f7-41K" firstAttribute="trailing" secondItem="1yh-py-gfz" secondAttribute="trailing" id="euZ-uB-HTB"/>
+                            <constraint firstItem="DUd-f7-41K" firstAttribute="top" secondItem="1yh-py-gfz" secondAttribute="top" id="goi-nx-0J6"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Detail Artikel" id="F4z-Wa-4Ni"/>
@@ -801,7 +827,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uoq-w7-jfJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1832" y="1529"/>
+            <point key="canvasLocation" x="1831.8840579710147" y="1528.7946428571429"/>
         </scene>
         <!--Artikel-->
         <scene sceneID="Z3i-pl-vSr">
