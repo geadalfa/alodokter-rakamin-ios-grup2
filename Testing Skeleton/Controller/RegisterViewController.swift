@@ -84,12 +84,12 @@ class RegisterViewController: UIViewController {
         
         if safePassword == safeConfirmation && safePassword != "" {
             let register = RegisterModel(name: safeName, email: safeEmail, password: safePassword, address: safeAddress, gender: safeGender, birthDate: safeBirthDate)
-            APIManager.shareInstance.callingRegisterAPI(register: register) { isSuccess in
+            APIManager.shareInstance.callingRegisterAPI(register: register) { isSuccess, str in
                 if isSuccess {
-                    self.alert(title: "Terima Kasih", message: "Terima Kasih Sudah Mendaftar di AloDokter")
+                    self.alert(title: "Terima Kasih", message: str)
                     
                 } else {
-                    self.alert(title: "Terjadi Kesalahan", message: "Mohon periksa kembali data anda")
+                    self.alert(title: "Terjadi Kesalahan", message: str)
                 }
             }
             
