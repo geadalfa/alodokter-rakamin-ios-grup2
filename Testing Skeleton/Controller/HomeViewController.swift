@@ -78,6 +78,17 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
         return UICollectionViewCell()
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let indexPath = articleModel.article[indexPath.row]
+        
+        let detailArticleVC = storyboard?.instantiateViewController(identifier: "detailArticle") as! DetailArticleViewController
+        detailArticleVC.articleTitle = indexPath.title
+        detailArticleVC.articleImage = indexPath.image
+        detailArticleVC.articleContent = indexPath.content
+        
+        self.navigationController?.pushViewController(detailArticleVC, animated: true)
+    }
+    
     
     
 }
