@@ -16,13 +16,14 @@ class HomeViewController: UIViewController {
     // Variables
     let articleModel = ArticleModel()
     let doctorModel = DoctorModel()
+    let userDefault = UserDefaults.standard
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         let label = UILabel()
         label.textColor = UIColor.black
-        label.text = "Hi, Prince Alvin"
+        label.text = "Hi, \(userDefault.string(forKey: "userName") ?? "Guest")"
         label.font = UIFont.boldSystemFont(ofSize: 24.0)
         self.navigationItem.leftBarButtonItem = UIBarButtonItem.init(customView: label)
         
@@ -30,7 +31,7 @@ class HomeViewController: UIViewController {
 
     }
     
-    @IBAction func allArticle(_ sender: UIButton) { // Function for "Lihat Semua" button to navigate to artikel screen
+    @IBAction func allArticle(_ sender: UIButton) {
         self.performSegue(withIdentifier: "goToArticle", sender: self)
     }
     
@@ -67,7 +68,7 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
         }
         
         if collectionView == self.doctorCollectionView {
-            let cellDoctor = collectionView.dequeueReusableCell(withReuseIdentifier: "doctorCollectionIdentifier", for: indexPath) as! DoctorCell
+            let cellDoctor = collectionView.dequeueReusableCell(withReuseIdentifier: "doctorCollectionIdentifier", for: indexPath) as! DoctorCellCollection
             let index = doctorModel.doctor[indexPath.row]
             let image = UIImage(named: "\(index.image)")
             cellDoctor.doctorImageView.image = image

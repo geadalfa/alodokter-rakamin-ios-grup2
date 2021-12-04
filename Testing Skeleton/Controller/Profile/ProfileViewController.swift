@@ -8,6 +8,9 @@
 import UIKit
 
 class ProfileViewController: UIViewController {
+    
+    // Variables
+    let userDefault = UserDefaults.standard
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,5 +42,19 @@ class ProfileViewController: UIViewController {
     }
     
     
+    
+    
+    @IBAction func logOutPressed(_ sender: UIButton) {
+        APIManager.shareInstance.callingLogoutAPI(self)
+        userDefault.removeObject(forKey: "userName")
+        print("Keluar Pressed")
+    }
+    
+}
 
+
+extension ProfileViewController {
+    static func shareInstance() -> ProfileViewController {
+        return ProfileViewController()
+    }
 }

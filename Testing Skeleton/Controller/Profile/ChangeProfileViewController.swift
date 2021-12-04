@@ -129,6 +129,7 @@ extension ChangeProfileViewController: UIImagePickerControllerDelegate, UINaviga
     
 }
 
+// MARK: - UIPickerView
 extension ChangeProfileViewController: UIPickerViewDelegate, UIPickerViewDataSource {
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
