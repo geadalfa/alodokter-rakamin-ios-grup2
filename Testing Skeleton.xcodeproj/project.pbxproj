@@ -33,6 +33,7 @@
 		9FA485C2275B815000FD3404 /* DoctorCellTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FA485C1275B815000FD3404 /* DoctorCellTable.swift */; };
 		9FA485C8275B884800FD3404 /* Doctor.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9FA485C7275B884800FD3404 /* Doctor.xib */; };
 		9FE7B10E2758A5F300D74FFB /* DetailArticleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FE7B10D2758A5F300D74FFB /* DetailArticleViewController.swift */; };
+		9FEACE5A275C2BD200EE3FF2 /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FEACE59275C2BD200EE3FF2 /* Token.swift */; };
 		9FFD38642758431D003EC14A /* ArticleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FFD38632758431D003EC14A /* ArticleModel.swift */; };
 		9FFD386627584343003EC14A /* Article.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FFD386527584343003EC14A /* Article.swift */; };
 		9FFD38672758485B003EC14A /* DoctorCellCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F89269E2757B8E100354385 /* DoctorCellCollection.swift */; };
@@ -72,6 +73,7 @@
 		9FA485C1275B815000FD3404 /* DoctorCellTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoctorCellTable.swift; sourceTree = "<group>"; };
 		9FA485C7275B884800FD3404 /* Doctor.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Doctor.xib; sourceTree = "<group>"; };
 		9FE7B10D2758A5F300D74FFB /* DetailArticleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailArticleViewController.swift; sourceTree = "<group>"; };
+		9FEACE59275C2BD200EE3FF2 /* Token.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Token.swift; sourceTree = "<group>"; };
 		9FFD38632758431D003EC14A /* ArticleModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleModel.swift; sourceTree = "<group>"; };
 		9FFD386527584343003EC14A /* Article.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Article.swift; sourceTree = "<group>"; };
 		9FFD386827584942003EC14A /* Doctor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Doctor.swift; sourceTree = "<group>"; };
@@ -122,6 +124,7 @@
 			children = (
 				9F4D02C92758D62B00094C1A /* Constant.swift */,
 				9F4D02CE2758D73A00094C1A /* APIManager.swift */,
+				9FEACE59275C2BD200EE3FF2 /* Token.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -371,6 +374,7 @@
 				9FA485C2275B815000FD3404 /* DoctorCellTable.swift in Sources */,
 				9F4D02CA2758D62B00094C1A /* Constant.swift in Sources */,
 				9F01DDBF27587145006FCE6E /* ArticleViewController.swift in Sources */,
+				9FEACE5A275C2BD200EE3FF2 /* Token.swift in Sources */,
 				9FFD386927584942003EC14A /* Doctor.swift in Sources */,
 				423B9B7B275B62A400484795 /* ChangePasswordViewController.swift in Sources */,
 				9F4B8F832759FEAB007376FA /* LoginResponseModel.swift in Sources */,

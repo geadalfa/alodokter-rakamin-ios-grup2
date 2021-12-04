@@ -9,9 +9,12 @@ import UIKit
 
 class LoginViewController: UIViewController {
 
+    // Outlets
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     
+    // Variables
+    let userDefault = UserDefaults.standard
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,7 +37,12 @@ class LoginViewController: UIViewController {
                 print(json)
                 let name = (json as! ResponseModel).name
                 let email = (json as! ResponseModel).email
-                print(name)
+                let userToken = (json as! ResponseModel).userToken
+                
+                self.userDefault.set(name, forKey: "userName")
+                
+                Token.tokenInstance.saveToken(token: userToken)
+
 //                print(json as AnyObject)
 //                let email = (json as AnyObject).value(forKey: "email") as! String
 //                let name = (json as AnyObject).value(forKey: "name") as! String
@@ -43,6 +51,12 @@ class LoginViewController: UIViewController {
                 self.performSegue(withIdentifier: "goToHome", sender: self)
             case .failure(let error):
                 print(error.localizedDescription)
+                let alertController = UIAlertController(title: "Terjadi Kesalahan", message:
+                                                            "Mohon Periksa Kembali Data dan Jaringan Internet Anda", preferredStyle: .alert)
+                let action = UIAlertAction(title: "Tutup", style: .default)
+                
+                alertController.addAction(action)
+                self.present(alertController, animated: true, completion: nil)
             }
         }
         
@@ -52,5 +66,6 @@ class LoginViewController: UIViewController {
         print("BT prssed")
         self.performSegue(withIdentifier: "goToRegister", sender: self)
     }
+    
 }
 

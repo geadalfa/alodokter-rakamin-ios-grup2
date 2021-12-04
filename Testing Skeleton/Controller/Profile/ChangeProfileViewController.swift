@@ -74,6 +74,7 @@ class ChangeProfileViewController: UIViewController {
 }
 
 
+// MARK: - UIPickerView
 extension ChangeProfileViewController: UIPickerViewDelegate, UIPickerViewDataSource {
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {

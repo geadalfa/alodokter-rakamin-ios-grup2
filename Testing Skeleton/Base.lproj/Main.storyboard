@@ -962,6 +962,9 @@
                                         <integer key="value" value="16"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="logOutPressed:" destination="CwI-4p-xkv" eventType="touchUpInside" id="Tfl-EX-29y"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="njn-Vb-OyC"/>
