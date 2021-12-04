@@ -31,7 +31,7 @@ class HomeViewController: UIViewController {
     }
     
     @IBAction func allArticle(_ sender: UIButton) { // Function for "Lihat Semua" button to navigate to artikel screen
-        performSegue(withIdentifier: "goToArticle", sender: self)
+        self.performSegue(withIdentifier: "goToArticle", sender: self)
     }
     
 
