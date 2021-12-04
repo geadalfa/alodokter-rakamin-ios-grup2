@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		2CDED1EA6F8A38D72263FF60 /* Pods_Testing_Skeleton.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14B83281B16D8FCBB9B7D7CF /* Pods_Testing_Skeleton.framework */; };
+		423B9B79275B628900484795 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423B9B78275B628900484795 /* ProfileViewController.swift */; };
+		423B9B7B275B62A400484795 /* ChangePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423B9B7A275B62A400484795 /* ChangePasswordViewController.swift */; };
+		423B9B7D275B62B700484795 /* ChangeProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423B9B7C275B62B700484795 /* ChangeProfileViewController.swift */; };
 		9F01DDBF27587145006FCE6E /* ArticleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F01DDBE27587145006FCE6E /* ArticleViewController.swift */; };
 		9F01DDC127587437006FCE6E /* ArticleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F01DDC027587437006FCE6E /* ArticleTableViewCell.swift */; };
 		9F23E66527578BE500E5D041 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F23E66427578BE500E5D041 /* HomeViewController.swift */; };
@@ -36,6 +39,9 @@
 
 /* Begin PBXFileReference section */
 		14B83281B16D8FCBB9B7D7CF /* Pods_Testing_Skeleton.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Testing_Skeleton.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		423B9B78275B628900484795 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		423B9B7A275B62A400484795 /* ChangePasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordViewController.swift; sourceTree = "<group>"; };
+		423B9B7C275B62B700484795 /* ChangeProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeProfileViewController.swift; sourceTree = "<group>"; };
 		45F5C13A364CD51D6296FDE0 /* Pods-Testing Skeleton.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Testing Skeleton.debug.xcconfig"; path = "Target Support Files/Pods-Testing Skeleton/Pods-Testing Skeleton.debug.xcconfig"; sourceTree = "<group>"; };
 		93696B5F7ABA25E0F8A8EA05 /* Pods-Testing Skeleton.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Testing Skeleton.release.xcconfig"; path = "Target Support Files/Pods-Testing Skeleton/Pods-Testing Skeleton.release.xcconfig"; sourceTree = "<group>"; };
 		9F01DDBE27587145006FCE6E /* ArticleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleViewController.swift; sourceTree = "<group>"; };
@@ -79,6 +85,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		423B9B77275B625500484795 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				423B9B78275B628900484795 /* ProfileViewController.swift */,
+				423B9B7A275B62A400484795 /* ChangePasswordViewController.swift */,
+				423B9B7C275B62B700484795 /* ChangeProfileViewController.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
 		54E7F5C26CC7B4289BC4F16E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -134,6 +150,7 @@
 				9F23E66427578BE500E5D041 /* HomeViewController.swift */,
 				9F4D02D02758D96600094C1A /* RegisterViewController.swift */,
 				9FE7B10C2758A5DD00D74FFB /* Article */,
+				423B9B77275B625500484795 /* Profile */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -346,13 +363,16 @@
 				9F4D02CA2758D62B00094C1A /* Constant.swift in Sources */,
 				9F01DDBF27587145006FCE6E /* ArticleViewController.swift in Sources */,
 				9FFD386927584942003EC14A /* Doctor.swift in Sources */,
+				423B9B7B275B62A400484795 /* ChangePasswordViewController.swift in Sources */,
 				9F4B8F832759FEAB007376FA /* LoginResponseModel.swift in Sources */,
 				9FFD386B2758496D003EC14A /* DoctorModel.swift in Sources */,
 				9F4D02CD2758D70300094C1A /* RegisterModel.swift in Sources */,
 				9F4B8F802759FA38007376FA /* LoginModel.swift in Sources */,
 				9F4D02D12758D96600094C1A /* RegisterViewController.swift in Sources */,
 				9FFD38642758431D003EC14A /* ArticleModel.swift in Sources */,
+				423B9B7D275B62B700484795 /* ChangeProfileViewController.swift in Sources */,
 				9FFD38672758485B003EC14A /* DoctorCell.swift in Sources */,
+				423B9B79275B628900484795 /* ProfileViewController.swift in Sources */,
 				9F4B8F85275A032E007376FA /* ResponseModel.swift in Sources */,
 				9F23E66527578BE500E5D041 /* HomeViewController.swift in Sources */,
 			);
