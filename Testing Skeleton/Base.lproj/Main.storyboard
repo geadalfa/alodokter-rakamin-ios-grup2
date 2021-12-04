@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="fti-8D-onH">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="fti-8D-onH">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
@@ -515,7 +515,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="doctorCollectionIdentifier" id="SsZ-QS-Jab" customClass="DoctorCell" customModule="Testing_Skeleton" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="doctorCollectionIdentifier" id="SsZ-QS-Jab" customClass="DoctorCellCollection" customModule="Testing_Skeleton" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="25.5" width="176" height="183"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="VLS-s2-ffS">
@@ -1226,53 +1226,12 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="XOD-9Y-EU0" kind="relationship" relationship="rootViewController" id="j4i-2b-5YE"/>
+                        <segue destination="enK-0N-8mc" kind="relationship" relationship="rootViewController" id="d18-nd-1o0"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="P9w-lw-dbo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="96" y="2374"/>
-        </scene>
-        <!--Cari Dokter-->
-        <scene sceneID="Jt2-4b-KF8">
-            <objects>
-                <viewController id="XOD-9Y-EU0" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="CTw-7g-ano">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="kGq-Ji-Tnk">
-                                <rect key="frame" x="0.0" y="138" width="414" height="758"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <connections>
-                                    <outlet property="dataSource" destination="XOD-9Y-EU0" id="ZA9-Dw-cEH"/>
-                                    <outlet property="delegate" destination="XOD-9Y-EU0" id="Jxi-9W-Yoo"/>
-                                </connections>
-                            </tableView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Semua Artikel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zl9-xw-Vzs">
-                                <rect key="frame" x="20" y="104" width="374" height="26"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="21"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="q5K-Na-0Gf"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="kGq-Ji-Tnk" firstAttribute="leading" secondItem="q5K-Na-0Gf" secondAttribute="leading" id="5ge-rp-z1c"/>
-                            <constraint firstItem="q5K-Na-0Gf" firstAttribute="trailing" secondItem="kGq-Ji-Tnk" secondAttribute="trailing" id="9Hp-Xp-KkI"/>
-                            <constraint firstItem="q5K-Na-0Gf" firstAttribute="trailing" secondItem="zl9-xw-Vzs" secondAttribute="trailing" constant="20" id="Qwx-Ul-3dO"/>
-                            <constraint firstItem="kGq-Ji-Tnk" firstAttribute="top" secondItem="zl9-xw-Vzs" secondAttribute="bottom" constant="8" id="boN-Pe-CyE"/>
-                            <constraint firstAttribute="bottom" secondItem="kGq-Ji-Tnk" secondAttribute="bottom" id="dPN-Hr-x45"/>
-                            <constraint firstItem="zl9-xw-Vzs" firstAttribute="leading" secondItem="q5K-Na-0Gf" secondAttribute="leading" constant="20" id="m6P-l7-qT0"/>
-                            <constraint firstItem="zl9-xw-Vzs" firstAttribute="top" secondItem="q5K-Na-0Gf" secondAttribute="top" constant="16" id="mrT-Ss-h79"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" title="Cari Dokter" id="p4E-oW-xFe"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ryF-Nc-uvo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="929" y="2374"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="KWz-d2-q1Q">
@@ -1296,6 +1255,41 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IIt-qh-nXg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-2068" y="880"/>
+        </scene>
+        <!--Cari Dokter-->
+        <scene sceneID="wDy-rY-fLk">
+            <objects>
+                <viewController id="enK-0N-8mc" customClass="DoctorViewController" customModule="Testing_Skeleton" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="amn-mM-93k">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="3sB-DC-z1G">
+                                <rect key="frame" x="0.0" y="88" width="414" height="808"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="enK-0N-8mc" id="ARS-zq-X4c"/>
+                                    <outlet property="delegate" destination="enK-0N-8mc" id="1zu-Vj-Fw4"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="fxZ-A9-NTC"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="fxZ-A9-NTC" firstAttribute="trailing" secondItem="3sB-DC-z1G" secondAttribute="trailing" id="GH6-TL-6PP"/>
+                            <constraint firstItem="3sB-DC-z1G" firstAttribute="leading" secondItem="fxZ-A9-NTC" secondAttribute="leading" id="Ydz-OH-Ihc"/>
+                            <constraint firstItem="3sB-DC-z1G" firstAttribute="top" secondItem="fxZ-A9-NTC" secondAttribute="top" id="b6C-0h-Q8V"/>
+                            <constraint firstAttribute="bottom" secondItem="3sB-DC-z1G" secondAttribute="bottom" id="dy9-FB-ZjF"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Cari Dokter" id="z9f-8t-uyT"/>
+                    <connections>
+                        <outlet property="tableView" destination="3sB-DC-z1G" id="fj1-mY-hr7"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DAj-U7-O50" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="962" y="2374"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>

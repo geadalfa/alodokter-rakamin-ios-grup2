@@ -7,7 +7,7 @@
 
 import UIKit
 
-class DoctorCell: UICollectionViewCell {
+class DoctorCellCollection: UICollectionViewCell {
 
     @IBOutlet weak var doctorImageView: UIImageView!
     @IBOutlet weak var doctorNameLabel: UILabel!

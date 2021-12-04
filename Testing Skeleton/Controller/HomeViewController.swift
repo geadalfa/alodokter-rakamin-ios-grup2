@@ -67,7 +67,7 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
         }
         
         if collectionView == self.doctorCollectionView {
-            let cellDoctor = collectionView.dequeueReusableCell(withReuseIdentifier: "doctorCollectionIdentifier", for: indexPath) as! DoctorCell
+            let cellDoctor = collectionView.dequeueReusableCell(withReuseIdentifier: "doctorCollectionIdentifier", for: indexPath) as! DoctorCellCollection
             let index = doctorModel.doctor[indexPath.row]
             let image = UIImage(named: "\(index.image)")
             cellDoctor.doctorImageView.image = image

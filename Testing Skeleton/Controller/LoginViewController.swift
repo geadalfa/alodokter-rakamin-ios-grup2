@@ -34,6 +34,7 @@ class LoginViewController: UIViewController {
                 print(json)
                 let name = (json as! ResponseModel).name
                 let email = (json as! ResponseModel).email
+                print(name)
 //                print(json as AnyObject)
 //                let email = (json as AnyObject).value(forKey: "email") as! String
 //                let name = (json as AnyObject).value(forKey: "name") as! String
