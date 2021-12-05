@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Article {
+struct Articles {
     let image: String
     let title: String
     let content: String

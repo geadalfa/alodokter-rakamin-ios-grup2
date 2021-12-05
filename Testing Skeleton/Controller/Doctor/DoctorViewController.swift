@@ -20,11 +20,10 @@ class DoctorViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         tableView.register(UINib(nibName: "Doctor", bundle: nil), forCellReuseIdentifier: "cellIdentifier")
         tableView.rowHeight = 120
         tableView.separatorStyle = .none
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -57,10 +56,23 @@ extension DoctorViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cellIdentifier", for: indexPath) as! DoctorCellTable
-        let index = doctorModel.doctor[indexPath.row]
-        cell.doctorNameLabel.text = index.name
-        cell.doctorProfessionLabel.text = index.profession
-        cell.doctorImageView.image = UIImage(named: "\(index.image)")
+        var title: String?
+        var content: String?
+        APIManager.shareInstance.callingDoctorAPI() { (result) in
+            switch result {
+            case .success(let json):
+                title = (json as! DoctorModelAPI).articles[indexPath.row].content
+                content = (json as! DoctorModelAPI).articles[indexPath.row].content
+                print(title)
+                
+            case .failure(let error):
+                print(error.localizedDescription)
+                
+            }
+        }
+        cell.doctorNameLabel.text = title
+        cell.doctorProfessionLabel.text = content
+//        cell.doctorImageView.image = UIImage(named: "\(index.image)")
         
         return cell
     }
