@@ -43,7 +43,7 @@ class HomeViewController: UIViewController {
     @IBAction func signInButton(_ sender: Any) {
         let storyBoard: UIStoryboard = UIStoryboard(name: "Login", bundle: nil)
         let loginView = storyBoard.instantiateViewController(identifier: "LoginViewController") as! LoginViewController
-        //loginView.fromHome = true
+        loginView.fromHome = true
         self.navigationController?.pushViewController(loginView, animated: true)
     }
     
