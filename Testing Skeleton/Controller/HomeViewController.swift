@@ -64,7 +64,7 @@ class HomeViewController: UIViewController {
     }
     
     @IBAction func allArticle(_ sender: Any) {
-        
+        self.tabBarController?.selectedIndex = 1
     }
     
 }
