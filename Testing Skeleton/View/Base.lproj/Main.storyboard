@@ -49,6 +49,9 @@
                                         <buttonConfiguration key="configuration" style="plain" title="Lihat Selengkapnya" buttonSize="mini" titleAlignment="trailing">
                                             <fontDescription key="titleFontDescription" type="boldSystem" pointSize="12"/>
                                         </buttonConfiguration>
+                                        <connections>
+                                            <action selector="seeMore:" destination="LtX-C6-Wjy" eventType="touchUpInside" id="s6V-0l-bfR"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -78,7 +81,7 @@
                                             <fontDescription key="titleFontDescription" type="boldSystem" pointSize="12"/>
                                         </buttonConfiguration>
                                         <connections>
-                                            <action selector="allArticle:" destination="LtX-C6-Wjy" eventType="touchUpInside" id="q11-H5-xIY"/>
+                                            <action selector="allArticle:" destination="LtX-C6-Wjy" eventType="touchUpInside" id="yqx-TF-Hyc"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -247,7 +250,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Vxp-zW-hZN">
-                        <barButtonItem key="rightBarButtonItem" title="Masuk" id="wfE-m9-VBG"/>
+                        <barButtonItem key="rightBarButtonItem" title="Masuk" id="wfE-m9-VBG">
+                            <connections>
+                                <action selector="signInButton:" destination="LtX-C6-Wjy" id="NIQ-vX-Bf2"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="articleCollectionView" destination="OW3-dk-bLK" id="Xnh-jX-ykE"/>
