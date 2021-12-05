@@ -30,11 +30,7 @@ class HomeViewController: UIViewController {
         
 
     }
-    
-    @IBAction func allArticle(_ sender: UIButton) {
-        self.performSegue(withIdentifier: "goToArticle", sender: self)
-    }
-    
+  
 
 }
 
@@ -85,7 +81,8 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let indexPath = articleModel.article[indexPath.row]
         
-        let detailArticleVC = storyboard?.instantiateViewController(identifier: "detailArticle") as! DetailArticleViewController
+        let storyBoard: UIStoryboard = UIStoryboard(name: "Article", bundle: nil)
+        let detailArticleVC = storyBoard.instantiateViewController(withIdentifier: "DetailArticleController") as! DetailArticleViewController
         detailArticleVC.articleTitle = indexPath.title
         detailArticleVC.articleImage = indexPath.image
         detailArticleVC.articleContent = indexPath.content

@@ -49,7 +49,8 @@ extension ArticleViewController: UICollectionViewDelegate, UICollectionViewDataS
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let indexPath = articleModel.article[indexPath.row]
         
-        let detailArticleVC = storyboard?.instantiateViewController(identifier: "detailArticle") as! DetailArticleViewController
+        let storyBoard: UIStoryboard = UIStoryboard(name: "Article", bundle: nil)
+        let detailArticleVC = storyBoard.instantiateViewController(withIdentifier: "DetailArticleController") as! DetailArticleViewController
         detailArticleVC.articleTitle = indexPath.title
         detailArticleVC.articleImage = indexPath.image
         detailArticleVC.articleContent = indexPath.content
@@ -82,7 +83,8 @@ extension ArticleViewController: UITableViewDelegate, UITableViewDataSource {
         
         let index = articleModel.article[indexPath.row]
         
-        let detailArticleVC = storyboard?.instantiateViewController(identifier: "detailArticle") as! DetailArticleViewController
+        let storyBoard: UIStoryboard = UIStoryboard(name: "Article", bundle: nil)
+        let detailArticleVC = storyBoard.instantiateViewController(withIdentifier: "DetailArticleController") as! DetailArticleViewController
         detailArticleVC.articleTitle = index.title
         detailArticleVC.articleImage = index.image
         detailArticleVC.articleContent = index.content

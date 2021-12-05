@@ -23,7 +23,10 @@ class LoginViewController: UIViewController {
 
     @IBAction func skipPressed(_ sender: UIBarButtonItem) {
         print("Skip Pressed")
-        self.performSegue(withIdentifier: "goToHome", sender: self)
+        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let viewController = storyBoard.instantiateViewController(withIdentifier: "HomeViewController")
+        viewController.modalPresentationStyle = .fullScreen
+        self.present(viewController, animated: true)
     }
     
     @IBAction func loginPressed(_ sender: UIButton) {
@@ -42,13 +45,11 @@ class LoginViewController: UIViewController {
                 self.userDefault.set(name, forKey: "userName")
                 
                 Token.tokenInstance.saveToken(token: userToken)
-
-//                print(json as AnyObject)
-//                let email = (json as AnyObject).value(forKey: "email") as! String
-//                let name = (json as AnyObject).value(forKey: "name") as! String
-//                let loginResponseModel = LoginResponseModel(name: name, email: email)
-//                print(loginResponseModel)
-                self.performSegue(withIdentifier: "goToHome", sender: self)
+                let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+                let viewController = storyBoard.instantiateViewController(withIdentifier: "HomeViewController")
+                viewController.modalPresentationStyle = .fullScreen
+                self.present(viewController, animated: true)
+                
             case .failure(let error):
                 print(error.localizedDescription)
                 let alertController = UIAlertController(title: "Terjadi Kesalahan", message:
@@ -64,7 +65,9 @@ class LoginViewController: UIViewController {
     
     @IBAction func registerPressed(_ sender: UIButton) {
         print("BT prssed")
-        self.performSegue(withIdentifier: "goToRegister", sender: self)
+        let storyBoard: UIStoryboard = UIStoryboard(name: "Register", bundle: nil)
+        let viewController = storyBoard.instantiateViewController(withIdentifier: "RegisterViewController") as! RegisterViewController
+        self.navigationController?.pushViewController(viewController, animated: true)
     }
     
 }

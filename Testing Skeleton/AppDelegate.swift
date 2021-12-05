@@ -14,6 +14,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let loginStoryboard = UIStoryboard(name: "Login", bundle: nil)
         
         if Token.tokenInstance.checkForLogin() {
             print("Login To Main")
@@ -28,7 +29,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             
         } else {
             print("Logout to Login")
-            let rootViewController = mainStoryboard.instantiateViewController(withIdentifier: "LoginViewController") as? UIViewController
+            let rootViewController = loginStoryboard.instantiateViewController(withIdentifier: "LoginViewController") as? UIViewController
             
             let navigationController = UINavigationController(rootViewController: rootViewController!)
             
@@ -36,10 +37,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             self.window!.rootViewController = navigationController
             self.window!.makeKeyAndVisible()
         }
-
-        
-    
-
             
         return true
     }

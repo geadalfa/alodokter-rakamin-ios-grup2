@@ -13,6 +13,11 @@
 		423B9B7D275B62B700484795 /* ChangeProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423B9B7C275B62B700484795 /* ChangeProfileViewController.swift */; };
 		9F01DDBF27587145006FCE6E /* ArticleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F01DDBE27587145006FCE6E /* ArticleViewController.swift */; };
 		9F01DDC127587437006FCE6E /* ArticleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F01DDC027587437006FCE6E /* ArticleTableViewCell.swift */; };
+		9F201D5E275C8FA700D44C8A /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9F201D5D275C8FA700D44C8A /* Login.storyboard */; };
+		9F201D60275C8FBF00D44C8A /* Register.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9F201D5F275C8FBF00D44C8A /* Register.storyboard */; };
+		9F201D63275C94F500D44C8A /* Article.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9F201D62275C94F500D44C8A /* Article.storyboard */; };
+		9F201D65275C98AE00D44C8A /* ChangePassword.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9F201D64275C98AE00D44C8A /* ChangePassword.storyboard */; };
+		9F201D67275C98E400D44C8A /* ChangeProfile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9F201D66275C98E400D44C8A /* ChangeProfile.storyboard */; };
 		9F23E66527578BE500E5D041 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F23E66427578BE500E5D041 /* HomeViewController.swift */; };
 		9F4B8F802759FA38007376FA /* LoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F4B8F7F2759FA38007376FA /* LoginModel.swift */; };
 		9F4B8F832759FEAB007376FA /* LoginResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F4B8F822759FEAB007376FA /* LoginResponseModel.swift */; };
@@ -49,6 +54,11 @@
 		93696B5F7ABA25E0F8A8EA05 /* Pods-Testing Skeleton.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Testing Skeleton.release.xcconfig"; path = "Target Support Files/Pods-Testing Skeleton/Pods-Testing Skeleton.release.xcconfig"; sourceTree = "<group>"; };
 		9F01DDBE27587145006FCE6E /* ArticleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleViewController.swift; sourceTree = "<group>"; };
 		9F01DDC027587437006FCE6E /* ArticleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleTableViewCell.swift; sourceTree = "<group>"; };
+		9F201D5D275C8FA700D44C8A /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
+		9F201D5F275C8FBF00D44C8A /* Register.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Register.storyboard; sourceTree = "<group>"; };
+		9F201D62275C94F500D44C8A /* Article.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Article.storyboard; sourceTree = "<group>"; };
+		9F201D64275C98AE00D44C8A /* ChangePassword.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ChangePassword.storyboard; sourceTree = "<group>"; };
+		9F201D66275C98E400D44C8A /* ChangeProfile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ChangeProfile.storyboard; sourceTree = "<group>"; };
 		9F23E66427578BE500E5D041 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		9F4B8F7F2759FA38007376FA /* LoginModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginModel.swift; sourceTree = "<group>"; };
 		9F4B8F822759FEAB007376FA /* LoginResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginResponseModel.swift; sourceTree = "<group>"; };
@@ -90,14 +100,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		423B9B77275B625500484795 /* Profile */ = {
+		423B9B77275B625500484795 /* User */ = {
 			isa = PBXGroup;
 			children = (
 				423B9B78275B628900484795 /* ProfileViewController.swift */,
 				423B9B7A275B62A400484795 /* ChangePasswordViewController.swift */,
 				423B9B7C275B62B700484795 /* ChangeProfileViewController.swift */,
 			);
-			path = Profile;
+			path = User;
 			sourceTree = "<group>";
 		};
 		54E7F5C26CC7B4289BC4F16E /* Frameworks */ = {
@@ -106,6 +116,55 @@
 				14B83281B16D8FCBB9B7D7CF /* Pods_Testing_Skeleton.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		9F201D68275C993B00D44C8A /* User */ = {
+			isa = PBXGroup;
+			children = (
+				9F201D64275C98AE00D44C8A /* ChangePassword.storyboard */,
+				9F201D66275C98E400D44C8A /* ChangeProfile.storyboard */,
+			);
+			path = User;
+			sourceTree = "<group>";
+		};
+		9F201D69275C995100D44C8A /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				9F201D5D275C8FA700D44C8A /* Login.storyboard */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		9F201D6A275C995600D44C8A /* Register */ = {
+			isa = PBXGroup;
+			children = (
+				9F201D5F275C8FBF00D44C8A /* Register.storyboard */,
+			);
+			path = Register;
+			sourceTree = "<group>";
+		};
+		9F201D6B275C999300D44C8A /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				9F8A68D02755D9C20005E329 /* LoginViewController.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		9F201D6C275C999B00D44C8A /* Register */ = {
+			isa = PBXGroup;
+			children = (
+				9F4D02D02758D96600094C1A /* RegisterViewController.swift */,
+			);
+			path = Register;
+			sourceTree = "<group>";
+		};
+		9F201D6D275C99AF00D44C8A /* Doctor */ = {
+			isa = PBXGroup;
+			children = (
+				9FA485BF275B7AC200FD3404 /* DoctorViewController.swift */,
+			);
+			path = Doctor;
 			sourceTree = "<group>";
 		};
 		9F4B8F812759FA3E007376FA /* Login */ = {
@@ -152,12 +211,12 @@
 		9F601A1A2758308E0066D41D /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				9F8A68D02755D9C20005E329 /* LoginViewController.swift */,
+				9F201D6D275C99AF00D44C8A /* Doctor */,
+				9F201D6C275C999B00D44C8A /* Register */,
+				9F201D6B275C999300D44C8A /* Login */,
 				9F23E66427578BE500E5D041 /* HomeViewController.swift */,
-				9F4D02D02758D96600094C1A /* RegisterViewController.swift */,
-				9FA485BF275B7AC200FD3404 /* DoctorViewController.swift */,
 				9FE7B10C2758A5DD00D74FFB /* Article */,
-				423B9B77275B625500484795 /* Profile */,
+				423B9B77275B625500484795 /* User */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -168,6 +227,7 @@
 				9F7258632757ABD1001AEC39 /* ArticleCellCollection.swift */,
 				9F01DDC027587437006FCE6E /* ArticleTableViewCell.swift */,
 				9F7258622757ABD1001AEC39 /* ArticleCell.xib */,
+				9F201D62275C94F500D44C8A /* Article.storyboard */,
 			);
 			path = Article;
 			sourceTree = "<group>";
@@ -208,7 +268,6 @@
 				9FE7B10B2758A59F00D74FFB /* View */,
 				9F601A1A2758308E0066D41D /* Controller */,
 				9F8A68CC2755D9C20005E329 /* AppDelegate.swift */,
-				9F8A68D22755D9C20005E329 /* Main.storyboard */,
 				9F8A68D52755D9C40005E329 /* Assets.xcassets */,
 				9F8A68D72755D9C40005E329 /* LaunchScreen.storyboard */,
 				9F8A68DA2755D9C40005E329 /* Info.plist */,
@@ -219,8 +278,12 @@
 		9FE7B10B2758A59F00D74FFB /* View */ = {
 			isa = PBXGroup;
 			children = (
+				9F201D6A275C995600D44C8A /* Register */,
+				9F201D69275C995100D44C8A /* Login */,
 				9F89269C2757B8D000354385 /* Doctor */,
 				9F7258612757ABD1001AEC39 /* Article */,
+				9F8A68D22755D9C20005E329 /* Main.storyboard */,
+				9F201D68275C993B00D44C8A /* User */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -305,7 +368,12 @@
 			files = (
 				9FA485C8275B884800FD3404 /* Doctor.xib in Resources */,
 				9F601A1B275834570066D41D /* ArticleCell.xib in Resources */,
+				9F201D60275C8FBF00D44C8A /* Register.storyboard in Resources */,
+				9F201D65275C98AE00D44C8A /* ChangePassword.storyboard in Resources */,
+				9F201D5E275C8FA700D44C8A /* Login.storyboard in Resources */,
+				9F201D67275C98E400D44C8A /* ChangeProfile.storyboard in Resources */,
 				9F8A68D92755D9C40005E329 /* LaunchScreen.storyboard in Resources */,
+				9F201D63275C94F500D44C8A /* Article.storyboard in Resources */,
 				9F8A68D62755D9C40005E329 /* Assets.xcassets in Resources */,
 				9F8A68D42755D9C20005E329 /* Main.storyboard in Resources */,
 			);
@@ -534,7 +602,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = UPHGSM79H9;
+				DEVELOPMENT_TEAM = KL6VLPSW8Q;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Testing Skeleton/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -564,7 +632,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = UPHGSM79H9;
+				DEVELOPMENT_TEAM = KL6VLPSW8Q;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Testing Skeleton/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
