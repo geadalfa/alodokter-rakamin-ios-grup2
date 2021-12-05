@@ -22,7 +22,7 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         if (fromHome) {
-            skipButton.isEnabled = false
+            skipButton.isEnabled = true
             self.navigationItem.setRightBarButton(nil, animated: true)
         }
     }

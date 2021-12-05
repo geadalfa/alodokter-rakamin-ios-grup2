@@ -59,8 +59,6 @@ class APIManager {
                 do {
                     let json = try JSONDecoder().decode(ResponseModel.self, from: data!)
                     print(json)
-//                    let json = try JSONSerialization.jsonObject(with: data!, options: [])
-
                     if response.response?.statusCode == 200 {
                         completionHandler(.success(json))
 
@@ -88,10 +86,32 @@ class APIManager {
             switch response.result {
             case .success(_):
                 Token.tokenInstance.removeToken()
-//                viewController.dismiss(animated: true, completion: nil)
             case .failure(let error):
                 print(error.localizedDescription)
                 
+            }
+        }
+    }
+    
+    
+    
+    func callingDoctorAPI(completionHandler: @escaping Handler) {
+        
+        AF.request(doctorURL).response { response in
+            debugPrint(response)
+            switch response.result {
+            case .success(let data):
+                do {
+                    let json = try JSONDecoder().decode(DoctorModelAPI.self, from: data!)
+                    if response.response?.statusCode == 200 {
+                        completionHandler(.success(json))
+
+                    }
+                } catch {
+                    print(error.localizedDescription)
+                }
+            case .failure(let error):
+                print(error.localizedDescription)
             }
         }
     }

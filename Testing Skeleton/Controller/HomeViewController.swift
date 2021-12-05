@@ -118,6 +118,7 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
             detailArticleVC.articleTitle = indexPath.title
             detailArticleVC.articleImage = indexPath.image
             detailArticleVC.articleContent = indexPath.content
+            detailArticleVC.hidesBottomBarWhenPushed = true // hide bottom bar in detail article screen
             
             self.navigationController?.pushViewController(detailArticleVC, animated: true)
         }
