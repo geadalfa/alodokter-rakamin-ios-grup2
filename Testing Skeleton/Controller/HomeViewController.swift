@@ -12,6 +12,7 @@ class HomeViewController: UIViewController {
     // Outlets
     @IBOutlet weak var articleCollectionView: UICollectionView!
     @IBOutlet weak var doctorCollectionView: UICollectionView!
+    @IBOutlet weak var signInButton: UIBarButtonItem!
     
     // Variables
     let articleModel = ArticleModel()
@@ -26,12 +27,11 @@ class HomeViewController: UIViewController {
         label.text = "Hi, \(userDefault.string(forKey: "userName") ?? "Guest")"
         label.font = UIFont.boldSystemFont(ofSize: 24.0)
         self.navigationItem.leftBarButtonItem = UIBarButtonItem.init(customView: label)
-        
-        
-
+        if (userDefault.string(forKey: "userName") != nil) {
+            signInButton.isEnabled = false
+            self.navigationItem.setRightBarButton(nil, animated: true)
+        }
     }
-  
-
 }
 
 // MARK: - UICollectionView
