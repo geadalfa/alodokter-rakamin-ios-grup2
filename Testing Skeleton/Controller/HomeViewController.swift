@@ -44,6 +44,7 @@ class HomeViewController: UIViewController {
         let storyBoard: UIStoryboard = UIStoryboard(name: "Login", bundle: nil)
         let loginView = storyBoard.instantiateViewController(identifier: "LoginViewController") as! LoginViewController
         loginView.fromHome = true
+        loginView.hidesBottomBarWhenPushed = true
         self.navigationController?.pushViewController(loginView, animated: true)
     }
     
