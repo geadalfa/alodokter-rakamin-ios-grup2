@@ -21,7 +21,7 @@ class HomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         let label = UILabel()
         label.textColor = UIColor.black
         label.text = "Hi, \(userDefault.string(forKey: "userName") ?? "Guest")"
@@ -48,19 +48,16 @@ class HomeViewController: UIViewController {
     }
     
     @IBAction func seeMore(_ sender: Any) {
-        //if UserDefaults.standard.string(forKey: "userName") != nil {
-            let data = articleModel.article[0]
-            let storyboard: UIStoryboard = UIStoryboard(name: "Article", bundle: nil)
-            let detailArticleVC = storyboard.instantiateViewController(withIdentifier: "DetailArticleController") as! DetailArticleViewController
-            detailArticleVC.articleTitle = data.title
-            detailArticleVC.articleImage = data.image
-            detailArticleVC.articleContent = data.content
-            
-            self.navigationController?.pushViewController(detailArticleVC, animated: true)
-        //}
-        //else {
-        //    showAlert(type: "Headline")
-        //}
+        
+        let data = articleModel.article[0]
+        let storyboard: UIStoryboard = UIStoryboard(name: "Article", bundle: nil)
+        let detailArticleVC = storyboard.instantiateViewController(withIdentifier: "DetailArticleController") as! DetailArticleViewController
+        detailArticleVC.articleTitle = data.title
+        detailArticleVC.articleImage = data.image
+        detailArticleVC.articleContent = data.content
+        
+        self.navigationController?.pushViewController(detailArticleVC, animated: true)
+        
     }
     
     @IBAction func allArticle(_ sender: Any) {
@@ -114,9 +111,8 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        //if UserDefaults.standard.string(forKey: "userName") != nil {
+        if collectionView == self.articleCollectionView {
             let indexPath = articleModel.article[indexPath.row]
-            
             let storyBoard: UIStoryboard = UIStoryboard(name: "Article", bundle: nil)
             let detailArticleVC = storyBoard.instantiateViewController(withIdentifier: "DetailArticleController") as! DetailArticleViewController
             detailArticleVC.articleTitle = indexPath.title
@@ -124,15 +120,19 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
             detailArticleVC.articleContent = indexPath.content
             
             self.navigationController?.pushViewController(detailArticleVC, animated: true)
-        //}
-        //else {
-        //    showAlert(type: "Artikel")
-        //}
-        
+        }
+        else if collectionView == self.doctorCollectionView {
+            if UserDefaults.standard.string(forKey: "userName") != nil {
+                let indexPath = doctorModel.doctor[indexPath.row]
+                let storyBoard: UIStoryboard = UIStoryboard(name: "Doctor", bundle: nil)
+                //let detailDoctorVC = storyBoard.instantiateViewController(withIdentifier: "") as! ViewController
+                //self.navigationController?.pushViewController(detailDoctorVC, animated: true)
+            }
+            else {
+                showAlert(type: "Dokter")
+            }
+        }
     }
-    
-    
-    
 }
 
 extension HomeViewController {
