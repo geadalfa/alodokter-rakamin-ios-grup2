@@ -50,7 +50,8 @@ class HomeViewController: UIViewController {
     @IBAction func seeMore(_ sender: Any) {
         if UserDefaults.standard.string(forKey: "userName") != nil {
             let data = articleModel.article[0]
-            let detailArticleVC = storyboard?.instantiateViewController(identifier: "detailArticle") as! DetailArticleViewController
+            let storyboard: UIStoryboard = UIStoryboard(name: "Article", bundle: nil)
+            let detailArticleVC = storyboard.instantiateViewController(withIdentifier: "DetailArticleController") as! DetailArticleViewController
             detailArticleVC.articleTitle = data.title
             detailArticleVC.articleImage = data.image
             detailArticleVC.articleContent = data.content
