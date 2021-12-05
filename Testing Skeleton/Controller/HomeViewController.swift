@@ -48,7 +48,7 @@ class HomeViewController: UIViewController {
     }
     
     @IBAction func seeMore(_ sender: Any) {
-        if UserDefaults.standard.string(forKey: "userName") != nil {
+        //if UserDefaults.standard.string(forKey: "userName") != nil {
             let data = articleModel.article[0]
             let storyboard: UIStoryboard = UIStoryboard(name: "Article", bundle: nil)
             let detailArticleVC = storyboard.instantiateViewController(withIdentifier: "DetailArticleController") as! DetailArticleViewController
@@ -57,10 +57,10 @@ class HomeViewController: UIViewController {
             detailArticleVC.articleContent = data.content
             
             self.navigationController?.pushViewController(detailArticleVC, animated: true)
-        }
-        else {
-            showAlert(type: "Headline")
-        }
+        //}
+        //else {
+        //    showAlert(type: "Headline")
+        //}
     }
     
     @IBAction func allArticle(_ sender: Any) {
@@ -114,7 +114,7 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        if UserDefaults.standard.string(forKey: "userName") != nil {
+        //if UserDefaults.standard.string(forKey: "userName") != nil {
             let indexPath = articleModel.article[indexPath.row]
             
             let storyBoard: UIStoryboard = UIStoryboard(name: "Article", bundle: nil)
@@ -124,10 +124,10 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
             detailArticleVC.articleContent = indexPath.content
             
             self.navigationController?.pushViewController(detailArticleVC, animated: true)
-        }
-        else {
-            showAlert(type: "Artikel")
-        }
+        //}
+        //else {
+        //    showAlert(type: "Artikel")
+        //}
         
     }
     
