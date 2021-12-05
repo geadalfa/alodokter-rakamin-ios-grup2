@@ -12,7 +12,6 @@
         <!--Daftar-->
         <scene sceneID="90c-m0-XZL">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="9I7-l1-2Zs" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="RegisterViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="EmX-6o-W4P" customClass="RegisterViewController" customModule="Testing_Skeleton" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="p6r-hA-XTx">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
@@ -182,6 +181,7 @@
                         <outlet property="passwordTextField" destination="Sp8-wu-euD" id="1RM-S1-IHv"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9I7-l1-2Zs" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="930" y="91"/>
         </scene>
