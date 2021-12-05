@@ -40,7 +40,9 @@ class ProfileViewController: UIViewController {
         let storyBoard: UIStoryboard = UIStoryboard(name: "Login", bundle: nil)
         let viewController = storyBoard.instantiateViewController(withIdentifier: "LoginViewController")
         viewController.modalPresentationStyle = .fullScreen
-        self.present(viewController, animated: true)
+        viewController.navigationItem.hidesBackButton = true
+        viewController.hidesBottomBarWhenPushed = true
+        self.navigationController?.pushViewController(viewController, animated: true)
     }
     
 }
