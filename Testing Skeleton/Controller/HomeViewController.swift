@@ -56,6 +56,7 @@ class HomeViewController: UIViewController {
         detailArticleVC.articleTitle = data.title
         detailArticleVC.articleImage = data.image
         detailArticleVC.articleContent = data.content
+        detailArticleVC.hidesBottomBarWhenPushed = true
         
         self.navigationController?.pushViewController(detailArticleVC, animated: true)
         
@@ -63,6 +64,10 @@ class HomeViewController: UIViewController {
     
     @IBAction func allArticle(_ sender: Any) {
         self.tabBarController?.selectedIndex = 1
+    }
+    
+    @IBAction func allDoctor(_ sender: Any) {
+        self.tabBarController?.selectedIndex = 2
     }
     
 }
