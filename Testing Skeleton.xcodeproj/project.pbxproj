@@ -24,7 +24,6 @@
 		9F601A1B275834570066D41D /* ArticleCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9F7258622757ABD1001AEC39 /* ArticleCell.xib */; };
 		9F601A1C275834640066D41D /* ArticleCellCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F7258632757ABD1001AEC39 /* ArticleCellCollection.swift */; };
 		9F8A68CD2755D9C20005E329 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F8A68CC2755D9C20005E329 /* AppDelegate.swift */; };
-		9F8A68CF2755D9C20005E329 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F8A68CE2755D9C20005E329 /* SceneDelegate.swift */; };
 		9F8A68D12755D9C20005E329 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F8A68D02755D9C20005E329 /* LoginViewController.swift */; };
 		9F8A68D42755D9C20005E329 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9F8A68D22755D9C20005E329 /* Main.storyboard */; };
 		9F8A68D62755D9C40005E329 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9F8A68D52755D9C40005E329 /* Assets.xcassets */; };
@@ -63,7 +62,6 @@
 		9F89269E2757B8E100354385 /* DoctorCellCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoctorCellCollection.swift; sourceTree = "<group>"; };
 		9F8A68C92755D9C20005E329 /* Testing Skeleton.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Testing Skeleton.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9F8A68CC2755D9C20005E329 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		9F8A68CE2755D9C20005E329 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		9F8A68D02755D9C20005E329 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		9F8A68D32755D9C20005E329 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		9F8A68D52755D9C40005E329 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -210,7 +208,6 @@
 				9FE7B10B2758A59F00D74FFB /* View */,
 				9F601A1A2758308E0066D41D /* Controller */,
 				9F8A68CC2755D9C20005E329 /* AppDelegate.swift */,
-				9F8A68CE2755D9C20005E329 /* SceneDelegate.swift */,
 				9F8A68D22755D9C20005E329 /* Main.storyboard */,
 				9F8A68D52755D9C40005E329 /* Assets.xcassets */,
 				9F8A68D72755D9C40005E329 /* LaunchScreen.storyboard */,
@@ -368,7 +365,6 @@
 				9F8A68D12755D9C20005E329 /* LoginViewController.swift in Sources */,
 				9F8A68CD2755D9C20005E329 /* AppDelegate.swift in Sources */,
 				9FE7B10E2758A5F300D74FFB /* DetailArticleViewController.swift in Sources */,
-				9F8A68CF2755D9C20005E329 /* SceneDelegate.swift in Sources */,
 				9F01DDC127587437006FCE6E /* ArticleTableViewCell.swift in Sources */,
 				9F601A1C275834640066D41D /* ArticleCellCollection.swift in Sources */,
 				9FA485C2275B815000FD3404 /* DoctorCellTable.swift in Sources */,

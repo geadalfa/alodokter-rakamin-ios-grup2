@@ -88,7 +88,7 @@ class APIManager {
             switch response.result {
             case .success(_):
                 Token.tokenInstance.removeToken()
-                viewController.dismiss(animated: true, completion: nil)
+//                viewController.dismiss(animated: true, completion: nil)
             case .failure(let error):
                 print(error.localizedDescription)
                 

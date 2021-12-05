@@ -48,13 +48,12 @@ class ProfileViewController: UIViewController {
         APIManager.shareInstance.callingLogoutAPI(self)
         userDefault.removeObject(forKey: "userName")
         print("Keluar Pressed")
+        
+        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let viewController = storyBoard.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
+//        viewController.tabBarController?.tabBar.isHidden = true
+        self.navigationController?.pushViewController(viewController, animated: true)
     }
     
 }
 
-
-extension ProfileViewController {
-    static func shareInstance() -> ProfileViewController {
-        return ProfileViewController()
-    }
-}

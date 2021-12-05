@@ -96,3 +96,9 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
     
     
 }
+
+extension HomeViewController {
+    static func shareInstance() -> HomeViewController {
+        return HomeViewController()
+    }
+}
