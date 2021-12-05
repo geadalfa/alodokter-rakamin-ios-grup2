@@ -21,6 +21,7 @@ class ArticleViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
         articleTableView.register(UINib(nibName: "ArticleCell", bundle: nil), forCellReuseIdentifier: "articleIdentifier")
         articleTableView.rowHeight = 100
     }
@@ -54,7 +55,7 @@ extension ArticleViewController: UICollectionViewDelegate, UICollectionViewDataS
         detailArticleVC.articleTitle = indexPath.title
         detailArticleVC.articleImage = indexPath.image
         detailArticleVC.articleContent = indexPath.content
-        
+        detailArticleVC.hidesBottomBarWhenPushed = true // Removing bottom bar in detail article screen
         self.navigationController?.pushViewController(detailArticleVC, animated: true)
     }
     
@@ -88,7 +89,7 @@ extension ArticleViewController: UITableViewDelegate, UITableViewDataSource {
         detailArticleVC.articleTitle = index.title
         detailArticleVC.articleImage = index.image
         detailArticleVC.articleContent = index.content
-        
+        detailArticleVC.hidesBottomBarWhenPushed = true // Removing bottom bar in detail article screen
         self.navigationController?.pushViewController(detailArticleVC, animated: true)
         self.articleTableView.deselectRow(at: indexPath, animated: true)
         
