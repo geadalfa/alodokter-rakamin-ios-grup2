@@ -12,13 +12,18 @@ class LoginViewController: UIViewController {
     // Outlets
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
+    @IBOutlet weak var skipButton: UIBarButtonItem!
     
     // Variables
     let userDefault = UserDefaults.standard
+    var fromHome: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        if (fromHome) {
+            skipButton.isEnabled = false
+            self.navigationItem.setRightBarButton(nil, animated: true)
+        }
     }
 
     @IBAction func skipPressed(_ sender: UIBarButtonItem) {

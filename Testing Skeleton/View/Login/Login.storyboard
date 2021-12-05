@@ -12,7 +12,6 @@
         <!--Login View Controller-->
         <scene sceneID="M7a-P5-tzN">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="An6-we-mmn" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="LoginViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="u6b-6l-vkr" customClass="LoginViewController" customModule="Testing_Skeleton" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="HW3-wQ-egU">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
@@ -152,15 +151,16 @@
                     <connections>
                         <outlet property="emailTextField" destination="ZKh-v5-pv7" id="FVw-sD-ai1"/>
                         <outlet property="passwordTextField" destination="1kU-ct-6XV" id="rsH-wh-amg"/>
+                        <outlet property="skipButton" destination="ubw-bI-9mW" id="FQY-dP-gRW"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="An6-we-mmn" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="928.98550724637687" y="79.6875"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="0T6-q1-qZb">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="E2v-2y-mUC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ZXV-iW-Yx3" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="VEw-td-jbE">
@@ -175,6 +175,7 @@
                         <segue destination="u6b-6l-vkr" kind="relationship" relationship="rootViewController" id="gN2-6O-u1d"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="E2v-2y-mUC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="18.840579710144929" y="79.6875"/>
         </scene>
