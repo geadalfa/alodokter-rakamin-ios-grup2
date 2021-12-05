@@ -32,6 +32,40 @@ class HomeViewController: UIViewController {
             self.navigationItem.setRightBarButton(nil, animated: true)
         }
     }
+    
+    func showAlert(type: String) {
+        let showAlert = UIAlertController(title: "Belum Sign-In", message: "Mohon Sign In terlebih dahulu untuk melihat \(type) ini", preferredStyle: .alert)
+        let action = UIAlertAction(title: "Close", style: .default)
+        showAlert.addAction(action)
+        self.present(showAlert, animated: true, completion: nil)
+    }
+    
+    @IBAction func signInButton(_ sender: Any) {
+        let storyBoard: UIStoryboard = UIStoryboard(name: "Login", bundle: nil)
+        let loginView = storyBoard.instantiateViewController(identifier: "LoginViewController") as! LoginViewController
+        //loginView.fromHome = true
+        self.navigationController?.pushViewController(loginView, animated: true)
+    }
+    
+    @IBAction func seeMore(_ sender: Any) {
+        if UserDefaults.standard.string(forKey: "userName") != nil {
+            let data = articleModel.article[0]
+            let detailArticleVC = storyboard?.instantiateViewController(identifier: "detailArticle") as! DetailArticleViewController
+            detailArticleVC.articleTitle = data.title
+            detailArticleVC.articleImage = data.image
+            detailArticleVC.articleContent = data.content
+            
+            self.navigationController?.pushViewController(detailArticleVC, animated: true)
+        }
+        else {
+            showAlert(type: "Headline")
+        }
+    }
+    
+    @IBAction func allArticle(_ sender: Any) {
+        
+    }
+    
 }
 
 // MARK: - UICollectionView
@@ -79,15 +113,21 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let indexPath = articleModel.article[indexPath.row]
+        if UserDefaults.standard.string(forKey: "userName") != nil {
+            let indexPath = articleModel.article[indexPath.row]
+            
+            let storyBoard: UIStoryboard = UIStoryboard(name: "Article", bundle: nil)
+            let detailArticleVC = storyBoard.instantiateViewController(withIdentifier: "DetailArticleController") as! DetailArticleViewController
+            detailArticleVC.articleTitle = indexPath.title
+            detailArticleVC.articleImage = indexPath.image
+            detailArticleVC.articleContent = indexPath.content
+            
+            self.navigationController?.pushViewController(detailArticleVC, animated: true)
+        }
+        else {
+            showAlert(type: "Artikel")
+        }
         
-        let storyBoard: UIStoryboard = UIStoryboard(name: "Article", bundle: nil)
-        let detailArticleVC = storyBoard.instantiateViewController(withIdentifier: "DetailArticleController") as! DetailArticleViewController
-        detailArticleVC.articleTitle = indexPath.title
-        detailArticleVC.articleImage = indexPath.image
-        detailArticleVC.articleContent = indexPath.content
-        
-        self.navigationController?.pushViewController(detailArticleVC, animated: true)
     }
     
     
