@@ -151,7 +151,7 @@
                     <connections>
                         <outlet property="emailTextField" destination="ZKh-v5-pv7" id="FVw-sD-ai1"/>
                         <outlet property="passwordTextField" destination="1kU-ct-6XV" id="rsH-wh-amg"/>
-                        <outlet property="skipButton" destination="ubw-bI-9mW" id="FQY-dP-gRW"/>
+                        <outlet property="skipButton" destination="ubw-bI-9mW" id="Yq5-V6-zvZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="An6-we-mmn" sceneMemberID="firstResponder"/>
