@@ -12,11 +12,6 @@ enum APIError: Error {
     case custom(message: String)
 }
 
-protocol DoctorManagerDelegate {
-    func didReceiveTableData(doctor: DoctorModels?)
-    func didFailWithError(error: Error)
-}
-
 typealias Handler = (Swift.Result<Any?, APIError>) -> Void
 
 class APIManager {

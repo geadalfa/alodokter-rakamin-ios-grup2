@@ -8,23 +8,54 @@
 import UIKit
 
 class DoctorViewController: UIViewController {
-
     
     // Outlets
     @IBOutlet weak var tableView: UITableView!
     
     // Variables
     let searchController = UISearchController(searchResultsController: nil)
+    let activityIndicatorView = UIActivityIndicatorView(style: .large)
     let userDefaults = UserDefaults.standard
-    let doctorModel = DoctorModels()
+    var doctors = [Doctor]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        activityIndicatorView.center = view.center
+        activityIndicatorView.startAnimating()
+        view.addSubview(activityIndicatorView)
+        activityIndicatorView.isHidden = false
         
         tableView.register(UINib(nibName: "Doctor", bundle: nil), forCellReuseIdentifier: "cellIdentifier")
         tableView.rowHeight = 120
-        tableView.separatorStyle = .none
+        
+        displayData()
+        
     }
+    
+    func displayData() {
+        
+        guard let url = URL(string: "https://61a9916133e9df0017ea3e3d.mockapi.io/users") else { return }
+        
+        URLSession.shared.dataTask(with: url) { (data, response, error) in
+            if let data = data {
+                if let decodedPosts = try? JSONDecoder().decode([Doctor].self, from: data) {
+                    self.doctors = decodedPosts
+                    DispatchQueue.main.async {
+                        self.activityIndicatorView.stopAnimating()
+                        self.activityIndicatorView.isHidden = true
+                        self.tableView.reloadData()
+                        self.tableView.isHidden = false
+                    }
+                } else {
+                    debugPrint("Failure to decode posts.")
+                }
+            } else {
+                debugPrint("Failure to get data.")
+            }
+        }.resume()
+        
+    }
+    
     
     override func viewWillAppear(_ animated: Bool) {
         searchController.obscuresBackgroundDuringPresentation = false
@@ -40,9 +71,9 @@ class DoctorViewController: UIViewController {
         searchController.searchBar.delegate = self
     }
     
-
-  
-
+    
+    
+    
 }
 
 // MARK: - UITableViewDelegate
@@ -50,36 +81,20 @@ class DoctorViewController: UIViewController {
 extension DoctorViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        return doctors.count
         
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cellIdentifier", for: indexPath) as! DoctorCellTable
-        var title: String?
-        var content: String?
-        APIManager.shareInstance.callingDoctorAPI() { (result) in
-            switch result {
-            case .success(let json):
-                title = (json as! Doctor).results[indexPath.row].title
-                content = (json as! Doctor).results[indexPath.row].fullDescription
-                print("title")
-                
-            case .failure(let error):
-                print(error.localizedDescription)
-                
-            }
-        }
-        cell.doctorNameLabel.text = title
-        cell.doctorProfessionLabel.text = content
-//        cell.doctorImageView.image = UIImage(named: "\(index.image)")
-        
+        cell.setUpView(doctor: doctors[indexPath.row])
         return cell
     }
     
 }
 
-
+// MARK: - UISearchBar
 extension DoctorViewController: UISearchBarDelegate {
     
 }
+
