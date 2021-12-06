@@ -138,6 +138,7 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
                 detailDoctorVC.doctorProfession = indexPath.profession
                 detailDoctorVC.doctorDescrip = indexPath.desc
                 detailDoctorVC.hidesBottomBarWhenPushed = true
+                detailDoctorVC.navigationItem.title = indexPath.name
                 self.navigationController?.pushViewController(detailDoctorVC, animated: true)
             }
             else {
