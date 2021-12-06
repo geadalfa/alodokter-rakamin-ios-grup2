@@ -22,6 +22,7 @@ class ProfileViewController: UIViewController {
     @IBAction func changeProfile(_ sender: Any) {
         let storyBoard: UIStoryboard = UIStoryboard(name: "ChangeProfile", bundle: nil)
         let viewController = storyBoard.instantiateViewController(withIdentifier: "ChangeProfile")
+        viewController.hidesBottomBarWhenPushed = true
         self.navigationController?.pushViewController(viewController, animated: true)
     }
     

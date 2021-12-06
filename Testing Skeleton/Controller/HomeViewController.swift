@@ -16,7 +16,7 @@ class HomeViewController: UIViewController {
     
     // Variables
     let articleModel = ArticleModel()
-    let doctorModel = DoctorModel()
+    let doctorModel = DoctorModels()
     let userDefault = UserDefaults.standard
     
     override func viewDidLoad() {
@@ -131,9 +131,15 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
         else if collectionView == self.doctorCollectionView {
             if UserDefaults.standard.string(forKey: "userName") != nil {
                 let indexPath = doctorModel.doctor[indexPath.row]
-                let storyBoard: UIStoryboard = UIStoryboard(name: "Doctor", bundle: nil)
-                //let detailDoctorVC = storyBoard.instantiateViewController(withIdentifier: "") as! ViewController
-                //self.navigationController?.pushViewController(detailDoctorVC, animated: true)
+                let storyBoard: UIStoryboard = UIStoryboard(name: "DoctorStory", bundle: nil)
+                let detailDoctorVC = storyBoard.instantiateViewController(withIdentifier: "DoctorStoryController") as! DoctorStoryViewController
+                detailDoctorVC.doctorImageViews = indexPath.image
+                detailDoctorVC.doctorNames = indexPath.name
+                detailDoctorVC.doctorProfession = indexPath.profession
+                detailDoctorVC.doctorDescrip = indexPath.desc
+                detailDoctorVC.hidesBottomBarWhenPushed = true
+                detailDoctorVC.navigationItem.title = indexPath.name
+                self.navigationController?.pushViewController(detailDoctorVC, animated: true)
             }
             else {
                 showAlert(type: "Dokter")
