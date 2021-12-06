@@ -131,9 +131,13 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
         else if collectionView == self.doctorCollectionView {
             if UserDefaults.standard.string(forKey: "userName") != nil {
                 let indexPath = doctorModel.doctor[indexPath.row]
-                let storyBoard: UIStoryboard = UIStoryboard(name: "Doctor", bundle: nil)
-                //let detailDoctorVC = storyBoard.instantiateViewController(withIdentifier: "") as! ViewController
-                //self.navigationController?.pushViewController(detailDoctorVC, animated: true)
+                let storyBoard: UIStoryboard = UIStoryboard(name: "DoctorStory", bundle: nil)
+                let detailDoctorVC = storyBoard.instantiateViewController(withIdentifier: "DoctorStoryController") as! DoctorStoryViewController
+                detailDoctorVC.doctorImageViews = indexPath.image
+                detailDoctorVC.doctorNames = indexPath.name
+                detailDoctorVC.doctorProfession = indexPath.profession
+                detailDoctorVC.hidesBottomBarWhenPushed = true
+                self.navigationController?.pushViewController(detailDoctorVC, animated: true)
             }
             else {
                 showAlert(type: "Dokter")

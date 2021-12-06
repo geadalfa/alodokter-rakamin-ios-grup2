@@ -9,21 +9,26 @@ import UIKit
 
 class DoctorStoryViewController: UIViewController {
 
+    // Outlets
+    @IBOutlet weak var doctorImageView: UIImageView!
+    @IBOutlet weak var doctorName: UILabel!
+    @IBOutlet weak var doctorSpeciality: UILabel!
+    
+    // Variables
+    var doctorNames: String?
+    var doctorImageViews: String?
+    var doctorProfession: String?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        showDataDoctor()
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func showDataDoctor() {
+        doctorName.text = doctorNames ?? "Dr. Name"
+        doctorImageView.image = UIImage(named: "\(doctorImageViews ?? "Logo")")
+        doctorSpeciality.text = doctorProfession ?? "No Data"
     }
-    */
 
 }

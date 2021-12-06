@@ -23,7 +23,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WGM-N0-vNo" userLabel="Content View">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="1000"/>
                                         <subviews>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="S05-mQ-AxR" userLabel="DoctorImage">
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="doctor" translatesAutoresizingMaskIntoConstraints="NO" id="S05-mQ-AxR" userLabel="DoctorImage">
                                                 <rect key="frame" x="107" y="60" width="200" height="150"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="200" id="ggS-e8-RTu"/>
@@ -33,7 +33,7 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="bUG-o8-DKE">
                                                 <rect key="frame" x="148.5" y="235" width="117" height="58.5"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dr. Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y9O-uS-YuN">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dr. Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y9O-uS-YuN" userLabel="DrName">
                                                         <rect key="frame" x="0.0" y="0.0" width="117" height="33.5"/>
                                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="28"/>
                                                         <nil key="textColor"/>
@@ -100,6 +100,11 @@
                             <constraint firstItem="Ft6-FP-Ekw" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="uvh-EU-itO"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="doctorImageView" destination="S05-mQ-AxR" id="bZg-AG-dFj"/>
+                        <outlet property="doctorName" destination="y9O-uS-YuN" id="BLY-4x-5o3"/>
+                        <outlet property="doctorSpeciality" destination="WG2-13-AHF" id="QZ8-kJ-jeT"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -107,6 +112,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="doctor" width="1023" height="711"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
