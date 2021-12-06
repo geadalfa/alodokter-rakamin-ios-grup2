@@ -21,6 +21,7 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        passwordTextField.isSecureTextEntry = true
         if (fromHome) {
             skipButton.isEnabled = true
             self.navigationItem.setRightBarButton(nil, animated: true)
