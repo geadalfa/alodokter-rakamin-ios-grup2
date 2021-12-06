@@ -13,11 +13,13 @@ class DoctorStoryViewController: UIViewController {
     @IBOutlet weak var doctorImageView: UIImageView!
     @IBOutlet weak var doctorName: UILabel!
     @IBOutlet weak var doctorSpeciality: UILabel!
+    @IBOutlet weak var doctorDescription: UILabel!
     
     // Variables
     var doctorNames: String?
     var doctorImageViews: String?
     var doctorProfession: String?
+    var doctorDescrip: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,6 +31,7 @@ class DoctorStoryViewController: UIViewController {
         doctorName.text = doctorNames ?? "Dr. Name"
         doctorImageView.image = UIImage(named: "\(doctorImageViews ?? "Logo")")
         doctorSpeciality.text = doctorProfession ?? "No Data"
+        doctorDescription.text = doctorDescrip ?? "No Data"
     }
 
 }

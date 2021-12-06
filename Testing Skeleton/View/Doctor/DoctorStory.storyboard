@@ -101,6 +101,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="doctorDescription" destination="QoP-Gu-5Qi" id="9Ci-vN-Lol"/>
                         <outlet property="doctorImageView" destination="S05-mQ-AxR" id="bZg-AG-dFj"/>
                         <outlet property="doctorName" destination="y9O-uS-YuN" id="BLY-4x-5o3"/>
                         <outlet property="doctorSpeciality" destination="WG2-13-AHF" id="QZ8-kJ-jeT"/>
