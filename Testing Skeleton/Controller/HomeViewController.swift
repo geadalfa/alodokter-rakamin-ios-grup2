@@ -15,12 +15,21 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var signInButton: UIBarButtonItem!
     
     // Variables
+    let activityIndicatorView = UIActivityIndicatorView(style: .large)
     let articleModel = ArticleModel()
     let doctorModel = DoctorModels()
     let userDefault = UserDefaults.standard
+    var doctors = [Doctor]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        activityIndicatorView.center = doctorCollectionView.center
+        activityIndicatorView.startAnimating()
+        view.addSubview(activityIndicatorView)
+        activityIndicatorView.isHidden = false
+        
+        displayData()
         
         let label = UILabel()
         label.textColor = UIColor.black
@@ -76,13 +85,39 @@ class HomeViewController: UIViewController {
 
 extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     
+    func displayData() {
+        guard let url = URL(string: "https://61a9916133e9df0017ea3e3d.mockapi.io/users") else { return }
+        URLSession.shared.dataTask(with: url) { (data, response, error) in
+            if let data = data {
+                if let decodedPosts = try? JSONDecoder().decode([Doctor].self, from: data) {
+                    self.doctors = decodedPosts
+                    DispatchQueue.main.async {
+                        self.activityIndicatorView.stopAnimating()
+                        self.activityIndicatorView.isHidden = true
+                        self.doctorCollectionView.reloadData()
+                    }
+                } else {
+                    debugPrint("Failure to decode posts.")
+                    print(error?.localizedDescription)
+                }
+            } else {
+                debugPrint("Failure to get data.")
+            }
+        }.resume()
+    }
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if collectionView == self.articleCollectionView {
             return articleModel.article.count
         }
         
         if collectionView == self.doctorCollectionView {
-            return doctorModel.doctor.count
+            if doctors.count < 10 {
+                return doctors.count
+            }
+            else {
+                return 10
+            }
         }
         
         return 1
@@ -103,14 +138,10 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
         
         if collectionView == self.doctorCollectionView {
             let cellDoctor = collectionView.dequeueReusableCell(withReuseIdentifier: "doctorCollectionIdentifier", for: indexPath) as! DoctorCellCollection
-            let index = doctorModel.doctor[indexPath.row]
-            let image = UIImage(named: "\(index.image)")
-            cellDoctor.doctorImageView.image = image
-            cellDoctor.doctorNameLabel.text = index.name
-            cellDoctor.doctorProfessionLabel.text = index.profession
+            cellDoctor.doctorNameLabel.text = doctors[indexPath.row].name
+            cellDoctor.doctorProfessionLabel.text = doctors[indexPath.row].placeOfBirth
             
             return cellDoctor
-            
         }
         
         return UICollectionViewCell()
@@ -124,7 +155,7 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
             detailArticleVC.articleTitle = indexPath.title
             detailArticleVC.articleImage = indexPath.image
             detailArticleVC.articleContent = indexPath.content
-            detailArticleVC.hidesBottomBarWhenPushed = true // hide bottom bar in detail article screen
+            detailArticleVC.hidesBottomBarWhenPushed = true
             
             self.navigationController?.pushViewController(detailArticleVC, animated: true)
         }
