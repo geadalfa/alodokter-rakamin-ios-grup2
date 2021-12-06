@@ -9,6 +9,7 @@ import UIKit
 
 class ChangeProfileViewController: UIViewController {
     
+    // Outlets
     @IBOutlet var name: UITextField!
     @IBOutlet var imageProfile: UIImageView!
     @IBOutlet var changeImageButton: UIButton!
@@ -18,13 +19,17 @@ class ChangeProfileViewController: UIViewController {
     @IBOutlet var dateOfBirth: UITextField!
     @IBOutlet var saveButton: UIButton!
     
-    
+    // Variables
     let genderOption: [String] = ["Laki-laki", "Perempuan"]
     let pickerView = UIPickerView()
     var selectedGender: String?
+    let userDefault = UserDefaults.standard
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        getUserData()
+        
         imageProfile.layer.cornerRadius = imageProfile.frame.size.width/2
         imageProfile.clipsToBounds = true
         pickerView.delegate = self
@@ -46,6 +51,14 @@ class ChangeProfileViewController: UIViewController {
         dateOfBirth.text = formatDate(date: Date())
         
         self.imageProfile.contentMode = .scaleAspectFill
+        
+    }
+    
+    func getUserData() {
+        name.text = userDefault.object(forKey: "userName") as? String
+        address.text = userDefault.object(forKey: "userAddress") as? String
+        gender.text = userDefault.object(forKey: "userGender") as? String
+        dateOfBirth.text = userDefault.object(forKey: "userBirthDate") as? String
         
     }
     

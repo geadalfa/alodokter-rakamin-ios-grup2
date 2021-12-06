@@ -16,7 +16,6 @@ class Token {
     }
     
     func getToken() -> String {
-        //        userDefault.string(forKey: TokenKey.userLogin)
         if let token = userDefault.object(forKey: TokenKey.userLogin) as? String {
             return token
         } else {

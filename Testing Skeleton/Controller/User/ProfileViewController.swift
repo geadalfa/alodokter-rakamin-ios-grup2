@@ -9,13 +9,24 @@ import UIKit
 
 class ProfileViewController: UIViewController {
     
+    // Outlets
+    @IBOutlet weak var userName: UILabel!
+    @IBOutlet weak var userEmail: UILabel!
+    @IBOutlet weak var userBirth: UILabel!
+    
+    
     // Variables
     let userDefault = UserDefaults.standard
+    
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        userName.text = userDefault.object(forKey: "userName") as? String
+        userEmail.text = userDefault.object(forKey: "userEmail") as? String
+        userBirth.text = userDefault.object(forKey: "userBirthDate") as? String
+        
     }
     
 
