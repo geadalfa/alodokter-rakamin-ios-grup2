@@ -48,6 +48,7 @@ class DoctorViewController: UIViewController {
                     }
                 } else {
                     debugPrint("Failure to decode posts.")
+                    print(error?.localizedDescription)
                 }
             } else {
                 debugPrint("Failure to get data.")

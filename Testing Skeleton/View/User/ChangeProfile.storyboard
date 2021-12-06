@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina4_0" orientation="portrait" appearance="light"/>
+    <device id="retina6_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
@@ -14,66 +14,66 @@
             <objects>
                 <viewController storyboardIdentifier="ChangeProfile" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Z21-hn-z4P" customClass="ChangeProfileViewController" customModule="Testing_Skeleton" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="iem-Ba-DgT">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person.circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="j54-aC-WZW">
-                                <rect key="frame" x="100" y="16.5" width="120" height="119"/>
+                                <rect key="frame" x="147" y="61.000000000000007" width="120" height="118.66666666666667"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="120" id="o8k-pd-enK"/>
                                     <constraint firstAttribute="height" constant="120" id="wjR-qj-JQ8"/>
                                 </constraints>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="YFG-Pv-TbX">
-                                <rect key="frame" x="20" y="204" width="280" height="132"/>
+                                <rect key="frame" x="20" y="248" width="374" height="132"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Nama" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1w3-SU-3y7">
-                                        <rect key="frame" x="0.0" y="0.0" width="280" height="34"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Alamat" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MdW-Qt-kkL">
-                                        <rect key="frame" x="0.0" y="49" width="280" height="34"/>
+                                        <rect key="frame" x="0.0" y="49" width="374" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Nomor Hp" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xVl-8b-vVX">
-                                        <rect key="frame" x="0.0" y="98" width="280" height="34"/>
+                                        <rect key="frame" x="0.0" y="98" width="374" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="51t-qR-jdW">
-                                <rect key="frame" x="20" y="366" width="280" height="69.5"/>
+                                <rect key="frame" x="20" y="410" width="374" height="69.333333333333314"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="N6C-3r-tNh">
-                                        <rect key="frame" x="0.0" y="0.0" width="125" height="69.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="172" height="69.333333333333329"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Jenis Kelamin" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6F1-TQ-DK1">
-                                                <rect key="frame" x="0.0" y="0.0" width="125" height="20.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="172" height="20.333333333333332"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Pilih" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sZ3-Cw-MnR">
-                                                <rect key="frame" x="0.0" y="35.5" width="125" height="34"/>
+                                                <rect key="frame" x="0.0" y="35.333333333333314" width="172" height="34"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="h9W-Fm-FI7">
-                                        <rect key="frame" x="155" y="0.0" width="125" height="69.5"/>
+                                        <rect key="frame" x="202" y="0.0" width="172" height="69.333333333333329"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="Tanggal Lahir" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3B7-yB-G2I">
-                                                <rect key="frame" x="0.0" y="0.0" width="125" height="20.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="172" height="20.333333333333332"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Pilih" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="S2P-gU-72a">
-                                                <rect key="frame" x="0.0" y="35.5" width="125" height="34"/>
+                                                <rect key="frame" x="0.0" y="35.333333333333314" width="172" height="34"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
@@ -82,7 +82,7 @@
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LaY-ki-J3O">
-                                <rect key="frame" x="131" y="148" width="58.5" height="31"/>
+                                <rect key="frame" x="178" y="192" width="58.333333333333343" height="31"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Ubah"/>
                                 <connections>
@@ -90,7 +90,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zfl-IA-kze">
-                                <rect key="frame" x="20" y="483" width="280" height="60"/>
+                                <rect key="frame" x="20" y="777" width="374" height="60"/>
                                 <color key="backgroundColor" systemColor="systemBlueColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="tVG-NG-duY"/>
