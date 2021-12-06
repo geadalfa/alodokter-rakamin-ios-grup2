@@ -16,7 +16,7 @@ class HomeViewController: UIViewController {
     
     // Variables
     let articleModel = ArticleModel()
-    let doctorModel = DoctorModel()
+    let doctorModel = DoctorModels()
     let userDefault = UserDefaults.standard
     
     override func viewDidLoad() {

@@ -26,9 +26,10 @@
 		9F4D02CD2758D70300094C1A /* RegisterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F4D02CC2758D70300094C1A /* RegisterModel.swift */; };
 		9F4D02CF2758D73A00094C1A /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F4D02CE2758D73A00094C1A /* APIManager.swift */; };
 		9F4D02D12758D96600094C1A /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F4D02D02758D96600094C1A /* RegisterViewController.swift */; };
-		9F5244D4275CED4400DCC0FB /* DoctorModelAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F5244D3275CED4400DCC0FB /* DoctorModelAPI.swift */; };
+		9F5244D4275CED4400DCC0FB /* Doctor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F5244D3275CED4400DCC0FB /* Doctor.swift */; };
 		9F601A1B275834570066D41D /* ArticleCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9F7258622757ABD1001AEC39 /* ArticleCell.xib */; };
 		9F601A1C275834640066D41D /* ArticleCellCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F7258632757ABD1001AEC39 /* ArticleCellCollection.swift */; };
+		9F7AF8A8275DB16C008D674B /* DoctorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F7AF8A7275DB16C008D674B /* DoctorModel.swift */; };
 		9F8A68CD2755D9C20005E329 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F8A68CC2755D9C20005E329 /* AppDelegate.swift */; };
 		9F8A68D12755D9C20005E329 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F8A68D02755D9C20005E329 /* LoginViewController.swift */; };
 		9F8A68D42755D9C20005E329 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9F8A68D22755D9C20005E329 /* Main.storyboard */; };
@@ -42,8 +43,8 @@
 		9FFD38642758431D003EC14A /* ArticleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FFD38632758431D003EC14A /* ArticleModel.swift */; };
 		9FFD386627584343003EC14A /* Articles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FFD386527584343003EC14A /* Articles.swift */; };
 		9FFD38672758485B003EC14A /* DoctorCellCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F89269E2757B8E100354385 /* DoctorCellCollection.swift */; };
-		9FFD386927584942003EC14A /* Doctor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FFD386827584942003EC14A /* Doctor.swift */; };
-		9FFD386B2758496D003EC14A /* DoctorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FFD386A2758496D003EC14A /* DoctorModel.swift */; };
+		9FFD386927584942003EC14A /* Doctors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FFD386827584942003EC14A /* Doctors.swift */; };
+		9FFD386B2758496D003EC14A /* DoctorModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FFD386A2758496D003EC14A /* DoctorModels.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -68,9 +69,10 @@
 		9F4D02CC2758D70300094C1A /* RegisterModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterModel.swift; sourceTree = "<group>"; };
 		9F4D02CE2758D73A00094C1A /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
 		9F4D02D02758D96600094C1A /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
-		9F5244D3275CED4400DCC0FB /* DoctorModelAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoctorModelAPI.swift; sourceTree = "<group>"; };
+		9F5244D3275CED4400DCC0FB /* Doctor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Doctor.swift; sourceTree = "<group>"; };
 		9F7258622757ABD1001AEC39 /* ArticleCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ArticleCell.xib; sourceTree = "<group>"; };
 		9F7258632757ABD1001AEC39 /* ArticleCellCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleCellCollection.swift; sourceTree = "<group>"; };
+		9F7AF8A7275DB16C008D674B /* DoctorModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoctorModel.swift; sourceTree = "<group>"; };
 		9F89269E2757B8E100354385 /* DoctorCellCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoctorCellCollection.swift; sourceTree = "<group>"; };
 		9F8A68C92755D9C20005E329 /* Testing Skeleton.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Testing Skeleton.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9F8A68CC2755D9C20005E329 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -86,8 +88,8 @@
 		9FEACE59275C2BD200EE3FF2 /* Token.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Token.swift; sourceTree = "<group>"; };
 		9FFD38632758431D003EC14A /* ArticleModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleModel.swift; sourceTree = "<group>"; };
 		9FFD386527584343003EC14A /* Articles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Articles.swift; sourceTree = "<group>"; };
-		9FFD386827584942003EC14A /* Doctor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Doctor.swift; sourceTree = "<group>"; };
-		9FFD386A2758496D003EC14A /* DoctorModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoctorModel.swift; sourceTree = "<group>"; };
+		9FFD386827584942003EC14A /* Doctors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Doctors.swift; sourceTree = "<group>"; };
+		9FFD386A2758496D003EC14A /* DoctorModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoctorModels.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -206,7 +208,8 @@
 		9F5244D2275CED3800DCC0FB /* Doctor */ = {
 			isa = PBXGroup;
 			children = (
-				9F5244D3275CED4400DCC0FB /* DoctorModelAPI.swift */,
+				9F5244D3275CED4400DCC0FB /* Doctor.swift */,
+				9F7AF8A7275DB16C008D674B /* DoctorModel.swift */,
 			);
 			path = Doctor;
 			sourceTree = "<group>";
@@ -220,8 +223,8 @@
 				9F4D02CB2758D6F700094C1A /* Register */,
 				9FFD38632758431D003EC14A /* ArticleModel.swift */,
 				9FFD386527584343003EC14A /* Articles.swift */,
-				9FFD386827584942003EC14A /* Doctor.swift */,
-				9FFD386A2758496D003EC14A /* DoctorModel.swift */,
+				9FFD386827584942003EC14A /* Doctors.swift */,
+				9FFD386A2758496D003EC14A /* DoctorModels.swift */,
 				9F4B8F84275A032E007376FA /* ResponseModel.swift */,
 			);
 			path = Model;
@@ -447,7 +450,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9F5244D4275CED4400DCC0FB /* DoctorModelAPI.swift in Sources */,
+				9F5244D4275CED4400DCC0FB /* Doctor.swift in Sources */,
 				9F4D02CF2758D73A00094C1A /* APIManager.swift in Sources */,
 				9FFD386627584343003EC14A /* Articles.swift in Sources */,
 				9F8A68D12755D9C20005E329 /* LoginViewController.swift in Sources */,
@@ -459,10 +462,10 @@
 				9F4D02CA2758D62B00094C1A /* Constant.swift in Sources */,
 				9F01DDBF27587145006FCE6E /* ArticleViewController.swift in Sources */,
 				9FEACE5A275C2BD200EE3FF2 /* Token.swift in Sources */,
-				9FFD386927584942003EC14A /* Doctor.swift in Sources */,
+				9FFD386927584942003EC14A /* Doctors.swift in Sources */,
 				423B9B7B275B62A400484795 /* ChangePasswordViewController.swift in Sources */,
 				9F4B8F832759FEAB007376FA /* LoginResponseModel.swift in Sources */,
-				9FFD386B2758496D003EC14A /* DoctorModel.swift in Sources */,
+				9FFD386B2758496D003EC14A /* DoctorModels.swift in Sources */,
 				9F4D02CD2758D70300094C1A /* RegisterModel.swift in Sources */,
 				9F4B8F802759FA38007376FA /* LoginModel.swift in Sources */,
 				9F4D02D12758D96600094C1A /* RegisterViewController.swift in Sources */,
@@ -473,6 +476,7 @@
 				9F4B8F85275A032E007376FA /* ResponseModel.swift in Sources */,
 				9F23E66527578BE500E5D041 /* HomeViewController.swift in Sources */,
 				9FA485C0275B7AC200FD3404 /* DoctorViewController.swift in Sources */,
+				9F7AF8A8275DB16C008D674B /* DoctorModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

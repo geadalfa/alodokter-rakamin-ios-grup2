@@ -16,7 +16,7 @@ class DoctorViewController: UIViewController {
     // Variables
     let searchController = UISearchController(searchResultsController: nil)
     let userDefaults = UserDefaults.standard
-    let doctorModel = DoctorModel()
+    let doctorModel = DoctorModels()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,7 +50,7 @@ class DoctorViewController: UIViewController {
 extension DoctorViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return doctorModel.doctor.count
+        return 3
         
     }
     
@@ -61,9 +61,9 @@ extension DoctorViewController: UITableViewDelegate, UITableViewDataSource {
         APIManager.shareInstance.callingDoctorAPI() { (result) in
             switch result {
             case .success(let json):
-                title = (json as! DoctorModelAPI).articles[indexPath.row].content
-                content = (json as! DoctorModelAPI).articles[indexPath.row].content
-                print(title)
+                title = (json as! Doctor).results[indexPath.row].title
+                content = (json as! Doctor).results[indexPath.row].fullDescription
+                print("title")
                 
             case .failure(let error):
                 print(error.localizedDescription)

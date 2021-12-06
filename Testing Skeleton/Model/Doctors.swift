@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Doctor {
+struct Doctors {
     let image: String
     let name: String
     let profession: String

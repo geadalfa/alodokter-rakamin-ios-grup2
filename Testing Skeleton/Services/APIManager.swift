@@ -12,7 +12,13 @@ enum APIError: Error {
     case custom(message: String)
 }
 
+protocol DoctorManagerDelegate {
+    func didReceiveTableData(doctor: DoctorModels)
+}
+
 typealias Handler = (Swift.Result<Any?, APIError>) -> Void
+
+
 
 class APIManager {
     static let shareInstance = APIManager()
@@ -102,7 +108,7 @@ class APIManager {
             switch response.result {
             case .success(let data):
                 do {
-                    let json = try JSONDecoder().decode(DoctorModelAPI.self, from: data!)
+                    let json = try JSONDecoder().decode(Doctor.self, from: data!)
                     if response.response?.statusCode == 200 {
                         completionHandler(.success(json))
 
