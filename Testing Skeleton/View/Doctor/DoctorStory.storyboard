@@ -21,7 +21,7 @@
                                 <rect key="frame" x="0.0" y="44" width="414" height="852"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WGM-N0-vNo" userLabel="Content View">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="1000"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="617.5"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="doctor" translatesAutoresizingMaskIntoConstraints="NO" id="S05-mQ-AxR" userLabel="DoctorImage">
                                                 <rect key="frame" x="132" y="60" width="150" height="150"/>
@@ -78,7 +78,7 @@
                                             <constraint firstItem="S05-mQ-AxR" firstAttribute="centerX" secondItem="WGM-N0-vNo" secondAttribute="centerX" id="ISI-OY-IW8"/>
                                             <constraint firstAttribute="trailing" secondItem="QoP-Gu-5Qi" secondAttribute="trailing" constant="20" id="Nnf-dh-EwY"/>
                                             <constraint firstItem="S05-mQ-AxR" firstAttribute="top" secondItem="WGM-N0-vNo" secondAttribute="top" constant="60" id="O5g-ht-SY4"/>
-                                            <constraint firstAttribute="height" constant="1000" id="etb-0t-Ugs"/>
+                                            <constraint firstAttribute="bottom" secondItem="g57-rh-U4w" secondAttribute="bottom" constant="20" id="dyr-HL-Ck4"/>
                                             <constraint firstItem="QoP-Gu-5Qi" firstAttribute="leading" secondItem="WGM-N0-vNo" secondAttribute="leading" constant="20" id="hXz-lO-qsD"/>
                                             <constraint firstItem="bUG-o8-DKE" firstAttribute="top" secondItem="S05-mQ-AxR" secondAttribute="bottom" constant="25" id="hdP-0W-jT2"/>
                                             <constraint firstAttribute="trailing" secondItem="g57-rh-U4w" secondAttribute="trailing" constant="30" id="jAV-Jv-cqe"/>
