@@ -27,11 +27,13 @@ class DoctorCellTable: UITableViewCell {
         cellView.layer.masksToBounds = false
         cellView.layer.shadowOffset = CGSize(width: 0, height: 0 )
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    
+    
+    func setUpView(doctor: Doctor) {
+        doctorNameLabel.text = doctor.name
+        doctorProfessionLabel.text = doctor.address
+        doctorDescription.text = doctor.email
+        doctorImageView.image = UIImage(named: "logo")
     }
 
 }
