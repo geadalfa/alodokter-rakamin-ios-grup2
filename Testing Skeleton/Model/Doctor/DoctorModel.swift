@@ -8,8 +8,8 @@
 import Foundation
 
 struct DoctorModel {
-    var title: String
-    var content: String
-    var image: String
+    var title: String? ?? ""
+    var content: String? ""
+    var image: String? ?? ""
 }
 

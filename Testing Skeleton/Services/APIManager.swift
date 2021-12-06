@@ -13,15 +13,19 @@ enum APIError: Error {
 }
 
 protocol DoctorManagerDelegate {
-    func didReceiveTableData(doctor: DoctorModels)
+    func didReceiveTableData(doctor: DoctorModels?)
+    func didFailWithError(error: Error)
 }
 
 typealias Handler = (Swift.Result<Any?, APIError>) -> Void
 
-
-
 class APIManager {
     static let shareInstance = APIManager()
+}
+
+
+// MARK: - RegisterAPI
+extension APIManager {
     
     func callingRegisterAPI(register: RegisterModel, completionHandler: @escaping (Bool, String) -> ()) {
         let headers: HTTPHeaders = [
@@ -52,6 +56,11 @@ class APIManager {
             }
         }
     }
+}
+
+
+// MARK: - LoginAPI
+extension APIManager {
     
     func callingLoginAPI(login: LoginModel, completionHandler: @escaping Handler) {
         let headers: HTTPHeaders = [
@@ -67,7 +76,7 @@ class APIManager {
                     print(json)
                     if response.response?.statusCode == 200 {
                         completionHandler(.success(json))
-
+                        
                     } else {
                         completionHandler(.failure(.custom(message: "Mohon periksa kembali data dan koneksi internet anda")))
                     }
@@ -81,11 +90,16 @@ class APIManager {
             }
         }
     }
+}
+
+
+// MARK: - LogoutAPI
+extension APIManager {
     
     func callingLogoutAPI(_ viewController: UIViewController) {
         let headers: HTTPHeaders = [
             "user-token": "\(Token.tokenInstance.getToken)"
-            ]
+        ]
         
         AF.request(logoutURL, method: .get, headers: headers).response {
             response in
@@ -98,8 +112,11 @@ class APIManager {
             }
         }
     }
-    
-    
+}
+
+
+// MARK: - DoctorAPI
+extension APIManager {
     
     func callingDoctorAPI(completionHandler: @escaping Handler) {
         
@@ -111,7 +128,7 @@ class APIManager {
                     let json = try JSONDecoder().decode(Doctor.self, from: data!)
                     if response.response?.statusCode == 200 {
                         completionHandler(.success(json))
-
+                        
                     }
                 } catch {
                     print(error.localizedDescription)
