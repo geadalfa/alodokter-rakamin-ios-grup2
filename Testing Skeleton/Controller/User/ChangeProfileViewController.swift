@@ -54,7 +54,6 @@ class ChangeProfileViewController: UIViewController, UIImagePickerControllerDele
         
         imagePicker.delegate = self
         imagePicker.allowsEditing = false
-        imagePicker.sourceType = .camera
     }
     
         func getUserData() {
