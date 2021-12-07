@@ -36,7 +36,7 @@ extension APIManager {
                     print(json)
                     
                     if response.response?.statusCode == 200 {
-                        completionHandler(true, "Terima Kasih Sudah Mendaftar di AloDokter")
+                        completionHandler(true, "Terima Kasih Sudah Mendaftar di Alodokter")
                         
                     } else {
                         completionHandler(false, "Mohon periksa kembali data anda")

@@ -22,13 +22,13 @@
                                 <rect key="frame" x="0.0" y="88" width="414" height="808"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hEi-cf-LwF" userLabel="Content View">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="706"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="857.5"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="LFo-sb-N58">
-                                                <rect key="frame" x="20" y="8" width="374" height="170"/>
+                                                <rect key="frame" x="20" y="24" width="374" height="210"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="banner" translatesAutoresizingMaskIntoConstraints="NO" id="gqn-zT-Oqc">
-                                                        <rect key="frame" x="0.0" y="0.0" width="374" height="119"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="374" height="159"/>
                                                         <userDefinedRuntimeAttributes>
                                                             <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                                                 <integer key="value" value="16"/>
@@ -36,7 +36,7 @@
                                                         </userDefinedRuntimeAttributes>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Judul Artikel" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hfg-l2-uPn">
-                                                        <rect key="frame" x="0.0" y="124" width="374" height="24"/>
+                                                        <rect key="frame" x="0.0" y="164" width="374" height="24"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="24" id="RVr-dq-HNx"/>
                                                         </constraints>
@@ -45,7 +45,7 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <button opaque="NO" contentMode="left" semanticContentAttribute="forceLeftToRight" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="system" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jKk-4w-pwS">
-                                                        <rect key="frame" x="0.0" y="153" width="374" height="17"/>
+                                                        <rect key="frame" x="0.0" y="193" width="374" height="17"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="17" id="MW4-7u-oI5"/>
                                                         </constraints>
@@ -61,17 +61,17 @@
                                                     </button>
                                                 </subviews>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="170" id="CNj-9g-9h1"/>
+                                                    <constraint firstAttribute="height" constant="210" id="CNj-9g-9h1"/>
                                                 </constraints>
                                             </stackView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Artikel Terbaru" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Oc-4b-WmJ">
-                                                <rect key="frame" x="20" y="194" width="374" height="19.5"/>
+                                                <rect key="frame" x="20" y="258" width="374" height="19.5"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="XPg-II-NRZ">
-                                                <rect key="frame" x="20" y="213.5" width="374" height="24.5"/>
+                                                <rect key="frame" x="20" y="277.5" width="374" height="24.5"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Temukan artikel-artikel terbaru disini!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OQI-zu-rNU">
                                                         <rect key="frame" x="0.0" y="0.0" width="211" height="24.5"/>
@@ -93,7 +93,7 @@
                                                 </subviews>
                                             </stackView>
                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="OW3-dk-bLK">
-                                                <rect key="frame" x="0.0" y="241" width="414" height="171"/>
+                                                <rect key="frame" x="0.0" y="318" width="414" height="201.5"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="35w-Re-gc1">
                                                     <size key="itemSize" width="176" height="183"/>
@@ -103,7 +103,7 @@
                                                 </collectionViewFlowLayout>
                                                 <cells>
                                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="articleCollectionIdentifier" id="Xtm-Rk-2Gg" customClass="ArticleCellCollection" customModule="Testing_Skeleton" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="-6" width="176" height="183"/>
+                                                        <rect key="frame" x="0.0" y="9.5" width="176" height="183"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="rWX-KT-3CG">
                                                             <rect key="frame" x="0.0" y="0.0" width="176" height="183"/>
@@ -112,7 +112,7 @@
                                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="banner" translatesAutoresizingMaskIntoConstraints="NO" id="Gnv-td-KcW">
                                                                     <rect key="frame" x="0.0" y="0.0" width="176" height="104.5"/>
                                                                 </imageView>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lorem ipsum dolor sit amet ipsum chembar mono ipsum" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BYl-26-ICX" userLabel="articleLabel">
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lorem ipsum dolor sit amet ipsum chembar mono ipsum" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BYl-26-ICX" userLabel="articleLabel">
                                                                     <rect key="frame" x="8" y="104.5" width="160" height="43"/>
                                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
                                                                     <nil key="textColor"/>
@@ -143,13 +143,13 @@
                                                 </connections>
                                             </collectionView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dokter" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tJQ-Ri-SRe">
-                                                <rect key="frame" x="20" y="428" width="374" height="19.5"/>
+                                                <rect key="frame" x="20" y="543.5" width="374" height="19.5"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="EuF-yJ-bhS">
-                                                <rect key="frame" x="20" y="447.5" width="374" height="24.5"/>
+                                                <rect key="frame" x="20" y="563" width="374" height="24.5"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Temukan dokter-dokter hebat disini!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4DC-MM-eYd">
                                                         <rect key="frame" x="0.0" y="0.0" width="205" height="24.5"/>
@@ -171,7 +171,7 @@
                                                 </subviews>
                                             </stackView>
                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="XRG-kF-BXU">
-                                                <rect key="frame" x="0.0" y="475" width="414" height="191"/>
+                                                <rect key="frame" x="0.0" y="592.5" width="414" height="225"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="wLe-Iz-nZW">
                                                     <size key="itemSize" width="176" height="183"/>
@@ -181,7 +181,7 @@
                                                 </collectionViewFlowLayout>
                                                 <cells>
                                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="doctorCollectionIdentifier" id="SsZ-QS-Jab" customClass="DoctorCellCollection" customModule="Testing_Skeleton" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="4" width="176" height="183"/>
+                                                        <rect key="frame" x="0.0" y="21" width="176" height="183"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="VLS-s2-ffS">
                                                             <rect key="frame" x="0.0" y="0.0" width="176" height="183"/>
@@ -236,24 +236,24 @@
                                             <constraint firstAttribute="trailing" secondItem="OW3-dk-bLK" secondAttribute="trailing" id="6iO-of-lcb"/>
                                             <constraint firstAttribute="trailing" secondItem="EuF-yJ-bhS" secondAttribute="trailing" constant="20" id="79e-sa-jNi"/>
                                             <constraint firstItem="EuF-yJ-bhS" firstAttribute="leading" secondItem="hEi-cf-LwF" secondAttribute="leading" constant="20" id="ALG-yT-Y9g"/>
-                                            <constraint firstItem="OW3-dk-bLK" firstAttribute="top" secondItem="XPg-II-NRZ" secondAttribute="bottom" constant="3" id="AdS-Dg-XDC"/>
+                                            <constraint firstItem="OW3-dk-bLK" firstAttribute="top" secondItem="XPg-II-NRZ" secondAttribute="bottom" constant="16" id="AdS-Dg-XDC"/>
                                             <constraint firstAttribute="trailing" secondItem="XPg-II-NRZ" secondAttribute="trailing" constant="20" id="EcI-Tp-7Af"/>
                                             <constraint firstAttribute="trailing" secondItem="XRG-kF-BXU" secondAttribute="trailing" id="Je5-1l-KYO"/>
                                             <constraint firstItem="XPg-II-NRZ" firstAttribute="top" secondItem="5Oc-4b-WmJ" secondAttribute="bottom" id="Jti-aT-1BY"/>
-                                            <constraint firstItem="LFo-sb-N58" firstAttribute="top" secondItem="hEi-cf-LwF" secondAttribute="top" constant="8" id="KOk-Eq-7TW"/>
+                                            <constraint firstItem="LFo-sb-N58" firstAttribute="top" secondItem="hEi-cf-LwF" secondAttribute="top" constant="24" id="KOk-Eq-7TW"/>
                                             <constraint firstItem="XRG-kF-BXU" firstAttribute="height" secondItem="hEi-cf-LwF" secondAttribute="height" multiplier="0.225" constant="32" id="KWs-cn-YCI"/>
                                             <constraint firstAttribute="trailing" secondItem="LFo-sb-N58" secondAttribute="trailing" constant="20" id="M8w-DE-F8O"/>
                                             <constraint firstAttribute="trailing" secondItem="tJQ-Ri-SRe" secondAttribute="trailing" constant="20" id="MKE-xA-8fU"/>
                                             <constraint firstItem="XPg-II-NRZ" firstAttribute="leading" secondItem="hEi-cf-LwF" secondAttribute="leading" constant="20" id="OkS-P1-fbb"/>
                                             <constraint firstItem="tJQ-Ri-SRe" firstAttribute="leading" secondItem="hEi-cf-LwF" secondAttribute="leading" constant="20" id="Vng-Qv-g22"/>
                                             <constraint firstItem="EuF-yJ-bhS" firstAttribute="top" secondItem="tJQ-Ri-SRe" secondAttribute="bottom" id="bnc-jV-hpT"/>
-                                            <constraint firstItem="XRG-kF-BXU" firstAttribute="top" secondItem="EuF-yJ-bhS" secondAttribute="bottom" constant="3" id="lC8-96-ozA"/>
+                                            <constraint firstItem="XRG-kF-BXU" firstAttribute="top" secondItem="EuF-yJ-bhS" secondAttribute="bottom" constant="5" id="lC8-96-ozA"/>
                                             <constraint firstItem="OW3-dk-bLK" firstAttribute="leading" secondItem="hEi-cf-LwF" secondAttribute="leading" id="mzR-VM-37l"/>
                                             <constraint firstItem="OW3-dk-bLK" firstAttribute="height" secondItem="hEi-cf-LwF" secondAttribute="height" multiplier="0.2" constant="30" id="nXF-Qi-a8Q"/>
-                                            <constraint firstItem="5Oc-4b-WmJ" firstAttribute="top" secondItem="LFo-sb-N58" secondAttribute="bottom" constant="16" id="qvG-30-Akb"/>
+                                            <constraint firstItem="5Oc-4b-WmJ" firstAttribute="top" secondItem="LFo-sb-N58" secondAttribute="bottom" constant="24" id="qvG-30-Akb"/>
                                             <constraint firstItem="XRG-kF-BXU" firstAttribute="leading" secondItem="hEi-cf-LwF" secondAttribute="leading" id="sgg-1u-7AN"/>
                                             <constraint firstAttribute="trailing" secondItem="5Oc-4b-WmJ" secondAttribute="trailing" constant="20" id="ucH-dF-SRI"/>
-                                            <constraint firstItem="tJQ-Ri-SRe" firstAttribute="top" secondItem="OW3-dk-bLK" secondAttribute="bottom" constant="16" id="xX2-ji-PFh"/>
+                                            <constraint firstItem="tJQ-Ri-SRe" firstAttribute="top" secondItem="OW3-dk-bLK" secondAttribute="bottom" constant="24" id="xX2-ji-PFh"/>
                                             <constraint firstItem="LFo-sb-N58" firstAttribute="leading" secondItem="hEi-cf-LwF" secondAttribute="leading" constant="20" id="z9g-R8-rRS"/>
                                         </constraints>
                                     </view>
@@ -363,7 +363,7 @@
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="banner" translatesAutoresizingMaskIntoConstraints="NO" id="HEI-TJ-yhx">
                                                     <rect key="frame" x="0.0" y="0.0" width="176" height="104.5"/>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lorem ipsum dolor sit amet ipsum chembar mono ipsum" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WBw-Re-N9K">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lorem ipsum dolor sit amet ipsum chembar mono ipsum" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WBw-Re-N9K">
                                                     <rect key="frame" x="8" y="104.5" width="160" height="43"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
                                                     <nil key="textColor"/>

@@ -23,7 +23,7 @@ class ArticleViewController: UIViewController {
         
         
         articleTableView.register(UINib(nibName: "ArticleCell", bundle: nil), forCellReuseIdentifier: "articleIdentifier")
-        articleTableView.rowHeight = 100
+        articleTableView.rowHeight = 140
         displayData()
     }
     

@@ -23,14 +23,14 @@
                             <constraint firstAttribute="width" constant="80" id="2AU-tr-VYD"/>
                         </constraints>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lorem ipsum dolor sit amet tirto igo lame chim salat lorem" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r02-Th-NRb">
-                        <rect key="frame" x="105" y="5" width="253" height="41"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lorem ipsum dolor sit amet tirto igo lame chim salat lorem" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r02-Th-NRb">
+                        <rect key="frame" x="105" y="10" width="253" height="41"/>
                         <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="lorem ipsum dolor sit amet teta ret ciko kek chemalat lorem ipsum agis sim alet" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7hd-3e-qzc">
-                        <rect key="frame" x="105" y="49" width="253" height="33.5"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="lorem ipsum dolor sit amet teta ret ciko kek chemalat lorem ipsum agis sim alet" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7hd-3e-qzc">
+                        <rect key="frame" x="105" y="54" width="253" height="33.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -39,7 +39,7 @@
                 <constraints>
                     <constraint firstAttribute="bottom" secondItem="gHe-qW-4rR" secondAttribute="bottom" constant="5" id="5jt-qr-cEU"/>
                     <constraint firstAttribute="trailingMargin" secondItem="7hd-3e-qzc" secondAttribute="trailing" id="CZJ-BD-0ph"/>
-                    <constraint firstItem="r02-Th-NRb" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="JAQ-8B-jTJ"/>
+                    <constraint firstItem="r02-Th-NRb" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="JAQ-8B-jTJ"/>
                     <constraint firstItem="r02-Th-NRb" firstAttribute="leading" secondItem="gHe-qW-4rR" secondAttribute="trailing" constant="20" id="Ln9-Tw-qgW"/>
                     <constraint firstItem="gHe-qW-4rR" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="TrF-r8-eOo"/>
                     <constraint firstItem="gHe-qW-4rR" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="YGx-ww-TwG"/>

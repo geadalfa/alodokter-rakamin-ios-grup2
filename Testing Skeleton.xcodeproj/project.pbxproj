@@ -22,7 +22,6 @@
 		9F201D67275C98E400D44C8A /* ChangeProfile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9F201D66275C98E400D44C8A /* ChangeProfile.storyboard */; };
 		9F23E66527578BE500E5D041 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F23E66427578BE500E5D041 /* HomeViewController.swift */; };
 		9F4B8F802759FA38007376FA /* LoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F4B8F7F2759FA38007376FA /* LoginModel.swift */; };
-		9F4B8F832759FEAB007376FA /* LoginResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F4B8F822759FEAB007376FA /* LoginResponseModel.swift */; };
 		9F4B8F85275A032E007376FA /* ResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F4B8F84275A032E007376FA /* ResponseModel.swift */; };
 		9F4D02CA2758D62B00094C1A /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F4D02C92758D62B00094C1A /* Constant.swift */; };
 		9F4D02CD2758D70300094C1A /* RegisterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F4D02CC2758D70300094C1A /* RegisterModel.swift */; };
@@ -67,7 +66,6 @@
 		9F201D66275C98E400D44C8A /* ChangeProfile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ChangeProfile.storyboard; sourceTree = "<group>"; };
 		9F23E66427578BE500E5D041 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		9F4B8F7F2759FA38007376FA /* LoginModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginModel.swift; sourceTree = "<group>"; };
-		9F4B8F822759FEAB007376FA /* LoginResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginResponseModel.swift; sourceTree = "<group>"; };
 		9F4B8F84275A032E007376FA /* ResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseModel.swift; sourceTree = "<group>"; };
 		9F4D02C92758D62B00094C1A /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		9F4D02CC2758D70300094C1A /* RegisterModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterModel.swift; sourceTree = "<group>"; };
@@ -180,7 +178,7 @@
 			isa = PBXGroup;
 			children = (
 				9F4B8F7F2759FA38007376FA /* LoginModel.swift */,
-				9F4B8F822759FEAB007376FA /* LoginResponseModel.swift */,
+				9F4B8F84275A032E007376FA /* ResponseModel.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -206,6 +204,8 @@
 		9F5244D1275CED2200DCC0FB /* Article */ = {
 			isa = PBXGroup;
 			children = (
+				9FFD38632758431D003EC14A /* ArticleModel.swift */,
+				9FFD386527584343003EC14A /* Articles.swift */,
 			);
 			path = Article;
 			sourceTree = "<group>";
@@ -226,11 +226,8 @@
 				9F5244D1275CED2200DCC0FB /* Article */,
 				9F4B8F812759FA3E007376FA /* Login */,
 				9F4D02CB2758D6F700094C1A /* Register */,
-				9FFD38632758431D003EC14A /* ArticleModel.swift */,
-				9FFD386527584343003EC14A /* Articles.swift */,
 				9FFD386827584942003EC14A /* Doctors.swift */,
 				9FFD386A2758496D003EC14A /* DoctorModels.swift */,
-				9F4B8F84275A032E007376FA /* ResponseModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -472,7 +469,6 @@
 				9FEACE5A275C2BD200EE3FF2 /* Token.swift in Sources */,
 				9FFD386927584942003EC14A /* Doctors.swift in Sources */,
 				423B9B7B275B62A400484795 /* ChangePasswordViewController.swift in Sources */,
-				9F4B8F832759FEAB007376FA /* LoginResponseModel.swift in Sources */,
 				9FFD386B2758496D003EC14A /* DoctorModels.swift in Sources */,
 				9F4D02CD2758D70300094C1A /* RegisterModel.swift in Sources */,
 				9F4B8F802759FA38007376FA /* LoginModel.swift in Sources */,
@@ -634,7 +630,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = UPHGSM79H9;
+				DEVELOPMENT_TEAM = KL6VLPSW8Q;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Testing Skeleton/Info.plist";
 				INFOPLIST_KEY_NSCameraUsageDescription = "Please allow access.";
@@ -667,7 +663,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = UPHGSM79H9;
+				DEVELOPMENT_TEAM = KL6VLPSW8Q;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Testing Skeleton/Info.plist";
 				INFOPLIST_KEY_NSCameraUsageDescription = "Please allow access.";

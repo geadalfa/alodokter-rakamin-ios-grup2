@@ -211,9 +211,3 @@ extension HomeViewController {
         }.resume()
     }
 }
-
-//extension HomeViewController {
-//    static func shareInstance() -> HomeViewController {
-//        return HomeViewController()
-//    }
-//}
