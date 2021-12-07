@@ -33,7 +33,9 @@ class ArticleViewController: UIViewController {
 // MARK: - UICollectionView
 extension ArticleViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        
+        if ModelArticle.totalResults > 20 {
+            return 20
+        }
         return ModelArticle.totalResults
     }
     
@@ -70,11 +72,13 @@ extension ArticleViewController: UICollectionViewDelegate, UICollectionViewDataS
 // MARK: - UITableView
 extension ArticleViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if ModelArticle.totalResults > 20 {
+            return 20
+        }
         return ModelArticle.totalResults
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
         let cell = tableView.dequeueReusableCell(withIdentifier: "articleIdentifier", for: indexPath) as! ArticleTableViewCell
         let index = ModelArticle.articles?[indexPath.row]
         //let index = articleModel.article[indexPath.row]
@@ -114,11 +118,10 @@ extension ArticleViewController {
             if let data = data {
                 if let decodedPosts = try? JSONDecoder().decode(FetchArticle.self, from: data) {
                     self.ModelArticle = decodedPosts
+                    print("Debug: \(decodedPosts.articles?.count)")
                     DispatchQueue.main.async {
                         //self.activityIndicatorView.stopAnimating()
                         //self.activityIndicatorView.isHidden = true
-                        print(self.ModelArticle)
-                        print("Reload")
                         self.articleCollectionView.reloadData()
                         self.articleTableView.reloadData()
                     }

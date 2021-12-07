@@ -20,6 +20,7 @@ class HomeViewController: UIViewController {
     let doctorModel = DoctorModels()
     let userDefault = UserDefaults.standard
     var doctors = [Doctor]()
+    var article = FetchArticle(status: "", totalResults: 0, articles: nil)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,6 +31,7 @@ class HomeViewController: UIViewController {
         activityIndicatorView.isHidden = false
         
         displayData()
+        displayDataArticle()
         
         let label = UILabel()
         label.textColor = UIColor.black
@@ -108,7 +110,13 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if collectionView == self.articleCollectionView {
-            return articleModel.article.count
+            if article.totalResults < 10 {
+                return article.totalResults
+            }
+            else {
+                return 10
+            }
+            return 1
         }
         
         if collectionView == self.doctorCollectionView {
@@ -128,10 +136,10 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
         
         if collectionView == self.articleCollectionView {
             let cellArticle = collectionView.dequeueReusableCell(withReuseIdentifier: "articleCollectionIdentifier", for: indexPath) as! ArticleCellCollection
-            let index = articleModel.article[indexPath.row]
-            let image = UIImage(named: "\(index.image)")
+            let index = article.articles?[indexPath.row]
+            let image = UIImage(named: "corona")
             cellArticle.articleImageView.image = image
-            cellArticle.articleLabel.text = index.title
+            cellArticle.articleLabel.text = index?.title ?? ""
             
             return cellArticle
         }
@@ -149,12 +157,14 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if collectionView == self.articleCollectionView {
-            let indexPath = articleModel.article[indexPath.row]
+            let indexPath = article.articles?[indexPath.row]
             let storyBoard: UIStoryboard = UIStoryboard(name: "Article", bundle: nil)
             let detailArticleVC = storyBoard.instantiateViewController(withIdentifier: "DetailArticleController") as! DetailArticleViewController
-            detailArticleVC.articleTitle = indexPath.title
-            detailArticleVC.articleImage = indexPath.image
-            detailArticleVC.articleContent = indexPath.content
+            detailArticleVC.articleTitle = indexPath?.title
+            detailArticleVC.articleImage = "corona"
+            detailArticleVC.articleContent = indexPath?.content
+            detailArticleVC.articleAuthor = indexPath?.author
+            detailArticleVC.articleDate = indexPath?.publishedAt
             detailArticleVC.hidesBottomBarWhenPushed = true
             
             self.navigationController?.pushViewController(detailArticleVC, animated: true)
@@ -176,6 +186,29 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
                 showAlert(type: "Dokter")
             }
         }
+    }
+}
+
+extension HomeViewController {
+    func displayDataArticle() {
+        guard let url = URL(string: "https://newsapi.org/v2/top-headlines?country=id&apiKey=c910bfd484464746b4c911b0615c1028") else { return }
+        URLSession.shared.dataTask(with: url) { (data, response, error) in
+            if let data = data {
+                if let decodedPosts = try? JSONDecoder().decode(FetchArticle.self, from: data) {
+                    self.article = decodedPosts
+                    DispatchQueue.main.async {
+                        //self.activityIndicatorView.stopAnimating()
+                        //self.activityIndicatorView.isHidden = true
+                        self.articleCollectionView.reloadData()
+                    }
+                } else {
+                    debugPrint("Failure to decode posts.")
+                    print(error?.localizedDescription)
+                }
+            } else {
+                debugPrint("Failure to get data.")
+            }
+        }.resume()
     }
 }
 
