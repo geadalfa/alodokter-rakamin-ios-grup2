@@ -86,7 +86,7 @@ class HomeViewController: UIViewController {
 extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     
     func displayData() {
-        guard let url = URL(string: "https://61a9916133e9df0017ea3e3d.mockapi.io/users") else { return }
+        guard let url = URL(string: "https://61a9916133e9df0017ea3e3d.mockapi.io/doctor") else { return }
         URLSession.shared.dataTask(with: url) { (data, response, error) in
             if let data = data {
                 if let decodedPosts = try? JSONDecoder().decode([Doctor].self, from: data) {
