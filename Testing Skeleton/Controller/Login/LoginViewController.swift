@@ -6,20 +6,38 @@
 //
 
 import UIKit
+import IQKeyboardManagerSwift
 
 class LoginViewController: UIViewController {
 
     // Outlets
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
+    @IBOutlet weak var skipButton: UIBarButtonItem!
     
     // Variables
     let userDefault = UserDefaults.standard
+    var fromHome: Bool = false
+    let udService = UserDefaultService.instance
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        passwordTextField.isSecureTextEntry = true
+        if (fromHome) {
+            skipButton.isEnabled = true
+            self.navigationItem.setRightBarButton(nil, animated: true)
+        }
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        if !udService.isFirstLaunched {
+            let storyBoard : UIStoryboard = UIStoryboard(name: "Login", bundle:nil)
+            let welcomeVC = storyBoard.instantiateViewController(withIdentifier: "WelcomeVC") as! WelcomeVC
+            self.present(welcomeVC, animated:true, completion:nil)
+            return
+        }
+    }
+    
 
     @IBAction func skipPressed(_ sender: UIBarButtonItem) {
         print("Skip Pressed")
@@ -38,11 +56,19 @@ class LoginViewController: UIViewController {
             switch result {
             case .success(let json):
                 print(json)
-                let name = (json as! ResponseModel).name
-                let email = (json as! ResponseModel).email
+                let userName = (json as! ResponseModel).name
+                let userEmail = (json as! ResponseModel).email
+                let userAddress = (json as! ResponseModel).address
+                let userGender = (json as! ResponseModel).gender
+                let userBirthDate = (json as! ResponseModel).birthDate
                 let userToken = (json as! ResponseModel).userToken
                 
-                self.userDefault.set(name, forKey: "userName")
+                self.userDefault.set(userName, forKey: "userName")
+                self.userDefault.set(userEmail, forKey: "userEmail")
+                self.userDefault.set(userAddress, forKey: "userAddress")
+                self.userDefault.set(userGender, forKey: "userGender")
+                self.userDefault.set(userBirthDate, forKey: "userBirthDate")
+                
                 
                 Token.tokenInstance.saveToken(token: userToken)
                 let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)

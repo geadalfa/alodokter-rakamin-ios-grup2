@@ -3,8 +3,8 @@
 <plist version="1.0">
 <dict>
 	<key>NSPhotoLibraryUsageDescription</key>
-	<string>Please allow access.</string>
-	<key>NSCameraUsageDescription</key>
-	<string>Please allow access.</string>
+    <string>Please allow access.</string>
+    <key>NSCameraUsageDescription</key>
+    <string>Please allow access.</string>
 </dict>
 </plist>

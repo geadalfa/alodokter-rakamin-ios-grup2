@@ -104,7 +104,9 @@
                     </view>
                     <navigationItem key="navigationItem" title="Detail Artikel" id="urg-aS-wHD"/>
                     <connections>
+                        <outlet property="articleAuthorLabel" destination="2Jg-KZ-Wjd" id="rzf-Xf-okq"/>
                         <outlet property="articleContentLabel" destination="Ifv-tT-ymr" id="98x-UX-3gb"/>
+                        <outlet property="articleDateLabel" destination="QYe-Yx-uDn" id="yZr-UL-lYG"/>
                         <outlet property="articleImageView" destination="baB-U8-8Jr" id="De7-yK-Sb2"/>
                         <outlet property="articleTitleLabel" destination="BTa-Id-LtA" id="YVl-sL-j8h"/>
                     </connections>

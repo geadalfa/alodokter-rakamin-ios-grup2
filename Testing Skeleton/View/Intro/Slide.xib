@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="8fF-su-DiD" customClass="SlideView" customModule="Testing_Skeleton" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5Qc-n5-5xO">
+                    <rect key="frame" x="0.0" y="24" width="414" height="399.5"/>
+                    <subviews>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="illustrateOne" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vXJ-jn-btf">
+                            <rect key="frame" x="0.0" y="160" width="414" height="239"/>
+                        </imageView>
+                    </subviews>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstItem="vXJ-jn-btf" firstAttribute="leading" secondItem="5Qc-n5-5xO" secondAttribute="leading" id="A3Z-cE-T86"/>
+                        <constraint firstItem="vXJ-jn-btf" firstAttribute="centerX" secondItem="5Qc-n5-5xO" secondAttribute="centerX" id="ClP-ke-Xq2"/>
+                        <constraint firstAttribute="bottom" secondItem="vXJ-jn-btf" secondAttribute="bottom" constant="0.5" id="fRn-j2-AIq"/>
+                        <constraint firstAttribute="trailing" secondItem="vXJ-jn-btf" secondAttribute="trailing" id="lws-Op-dUm"/>
+                        <constraint firstItem="vXJ-jn-btf" firstAttribute="height" secondItem="5Qc-n5-5xO" secondAttribute="height" multiplier="0.598198" id="omT-rg-Cg6"/>
+                    </constraints>
+                </view>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="illustrateOne" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="t2m-0q-36u">
+                    <rect key="frame" x="0.0" y="241" width="320" height="588"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="588" id="b98-1I-aYZ"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lorem Ipsum" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Px7-fM-igm">
+                    <rect key="frame" x="20" y="477" width="374" height="32"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="32" id="CRP-1D-cSK"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lorem ipsum dolor sit amet dolor gat suga ben get samet" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="176-PP-ORc">
+                    <rect key="frame" x="30" y="517" width="354" height="36"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="pXm-JQ-0i0"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="t2m-0q-36u" firstAttribute="top" secondItem="pXm-JQ-0i0" secondAttribute="top" constant="241" id="315-ZV-Qcl"/>
+                <constraint firstItem="176-PP-ORc" firstAttribute="top" secondItem="Px7-fM-igm" secondAttribute="bottom" constant="8" id="31f-ok-sc4"/>
+                <constraint firstItem="t2m-0q-36u" firstAttribute="trailing" secondItem="Px7-fM-igm" secondAttribute="trailing" id="4DI-VN-mVZ"/>
+                <constraint firstItem="5Qc-n5-5xO" firstAttribute="centerX" secondItem="pXm-JQ-0i0" secondAttribute="centerX" id="OHy-3q-2Yp"/>
+                <constraint firstItem="Px7-fM-igm" firstAttribute="trailing" secondItem="pXm-JQ-0i0" secondAttribute="trailing" constant="-20" id="Ods-cy-u7p"/>
+                <constraint firstItem="t2m-0q-36u" firstAttribute="leading" secondItem="Px7-fM-igm" secondAttribute="leading" id="P13-tF-T36"/>
+                <constraint firstItem="pXm-JQ-0i0" firstAttribute="top" secondItem="5Qc-n5-5xO" secondAttribute="top" constant="20" id="QAZ-SN-BF5"/>
+                <constraint firstItem="5Qc-n5-5xO" firstAttribute="height" secondItem="pXm-JQ-0i0" secondAttribute="height" multiplier="0.488556" id="WCK-Qh-llJ"/>
+                <constraint firstItem="176-PP-ORc" firstAttribute="leading" secondItem="pXm-JQ-0i0" secondAttribute="leading" constant="30" id="aMd-4n-hRz"/>
+                <constraint firstItem="Px7-fM-igm" firstAttribute="centerY" secondItem="8fF-su-DiD" secondAttribute="centerY" constant="45" id="fVC-VW-Gbi"/>
+                <constraint firstItem="vXJ-jn-btf" firstAttribute="leading" secondItem="pXm-JQ-0i0" secondAttribute="leading" id="rt5-1F-ftq"/>
+                <constraint firstItem="Px7-fM-igm" firstAttribute="leading" secondItem="pXm-JQ-0i0" secondAttribute="leading" constant="20" id="xUi-m5-bdo"/>
+                <constraint firstItem="Px7-fM-igm" firstAttribute="centerX" secondItem="176-PP-ORc" secondAttribute="centerX" id="ysf-B5-SF9"/>
+            </constraints>
+            <variation key="default">
+                <mask key="subviews">
+                    <exclude reference="t2m-0q-36u"/>
+                </mask>
+            </variation>
+            <connections>
+                <outlet property="descriptionLabel" destination="176-PP-ORc" id="QSk-I5-aeT"/>
+                <outlet property="underImageLabel" destination="Px7-fM-igm" id="cYb-tg-ICw"/>
+                <outlet property="welcomeImage" destination="vXJ-jn-btf" id="ZO2-rZ-xIL"/>
+            </connections>
+            <point key="canvasLocation" x="-101.25" y="36.971830985915496"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="illustrateOne" width="1408" height="1023"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

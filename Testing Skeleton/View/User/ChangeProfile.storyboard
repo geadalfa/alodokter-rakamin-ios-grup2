@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <device id="retina6_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
@@ -18,75 +18,78 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person.circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="j54-aC-WZW">
-                                <rect key="frame" x="130" y="60.5" width="125.5" height="119"/>
+                                <rect key="frame" x="147" y="61.000000000000007" width="120" height="118.66666666666667"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="120" id="o8k-pd-enK"/>
                                     <constraint firstAttribute="height" constant="120" id="wjR-qj-JQ8"/>
                                 </constraints>
                             </imageView>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Nama" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1w3-SU-3y7">
-                                <rect key="frame" x="43" y="255" width="299.5" height="60"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="60" id="f2m-2Z-N6i"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Alamat" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MdW-Qt-kkL">
-                                <rect key="frame" x="43" y="330" width="299.5" height="60"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="60" id="0qd-dF-TlX"/>
-                                    <constraint firstAttribute="height" constant="60" id="Hnx-Eh-45m"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Jenis Kelamin" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6F1-TQ-DK1">
-                                <rect key="frame" x="43" y="495" width="112.5" height="20.5"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="20.5" id="cr8-iU-Wzf"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Pilih" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sZ3-Cw-MnR">
-                                <rect key="frame" x="43" y="531" width="154.5" height="50"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="CUU-ne-Rf2"/>
-                                    <constraint firstAttribute="width" constant="128" id="glh-Y9-U1a"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="Tanggal Lahir" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3B7-yB-G2I">
-                                <rect key="frame" x="226" y="495" width="109.5" height="20.5"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="20.5" id="qju-7h-Fbf"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Pilih" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="S2P-gU-72a">
-                                <rect key="frame" x="213.5" y="531" width="129" height="50"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="9gj-yx-Zae"/>
-                                    <constraint firstAttribute="width" constant="129" id="hvV-As-03n"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Nomor Hp" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xVl-8b-vVX">
-                                <rect key="frame" x="43" y="405" width="299.5" height="60"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="60" id="DSW-hQ-AGI"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="YFG-Pv-TbX">
+                                <rect key="frame" x="20" y="248" width="374" height="166"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nama" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tOQ-rk-2r6">
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Nama" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1w3-SU-3y7">
+                                        <rect key="frame" x="0.0" y="44" width="374" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Alamat" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eb0-eG-Mny">
+                                        <rect key="frame" x="0.0" y="88" width="374" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Alamat" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MdW-Qt-kkL">
+                                        <rect key="frame" x="0.0" y="132" width="374" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="51t-qR-jdW">
+                                <rect key="frame" x="20" y="444" width="374" height="69.333333333333371"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="N6C-3r-tNh">
+                                        <rect key="frame" x="0.0" y="0.0" width="172" height="69.333333333333329"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Jenis Kelamin" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6F1-TQ-DK1">
+                                                <rect key="frame" x="0.0" y="0.0" width="172" height="20.333333333333332"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Pilih" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sZ3-Cw-MnR">
+                                                <rect key="frame" x="0.0" y="35.333333333333314" width="172" height="34"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="h9W-Fm-FI7">
+                                        <rect key="frame" x="202" y="0.0" width="172" height="69.333333333333329"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="Tanggal Lahir" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3B7-yB-G2I">
+                                                <rect key="frame" x="0.0" y="0.0" width="172" height="20.333333333333332"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Pilih" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="S2P-gU-72a">
+                                                <rect key="frame" x="0.0" y="35.333333333333314" width="172" height="34"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LaY-ki-J3O">
-                                <rect key="frame" x="167" y="198" width="58.5" height="31"/>
+                                <rect key="frame" x="178" y="192" width="58.333333333333343" height="31"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Ubah"/>
                                 <connections>
@@ -94,10 +97,9 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zfl-IA-kze">
-                                <rect key="frame" x="20" y="777" width="338" height="60"/>
+                                <rect key="frame" x="20" y="777" width="374" height="60"/>
                                 <color key="backgroundColor" systemColor="systemBlueColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="338" id="ktC-6G-oWo"/>
                                     <constraint firstAttribute="height" constant="60" id="tVG-NG-duY"/>
                                 </constraints>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -115,36 +117,18 @@
                         <viewLayoutGuide key="safeArea" id="tKF-7r-LRL"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="xVl-8b-vVX" firstAttribute="top" secondItem="MdW-Qt-kkL" secondAttribute="bottom" constant="15" id="1jS-mN-w8J"/>
-                            <constraint firstItem="MdW-Qt-kkL" firstAttribute="top" secondItem="1w3-SU-3y7" secondAttribute="bottom" constant="15" id="2Iz-Rd-f5X"/>
-                            <constraint firstItem="S2P-gU-72a" firstAttribute="leading" secondItem="sZ3-Cw-MnR" secondAttribute="trailing" constant="16" id="3Xi-QX-0P4"/>
+                            <constraint firstItem="YFG-Pv-TbX" firstAttribute="leading" secondItem="tKF-7r-LRL" secondAttribute="leading" constant="20" id="4y8-Il-Dwg"/>
                             <constraint firstItem="tKF-7r-LRL" firstAttribute="bottom" secondItem="zfl-IA-kze" secondAttribute="bottom" constant="25" id="5EV-CL-gYO"/>
-                            <constraint firstItem="1w3-SU-3y7" firstAttribute="leading" secondItem="tKF-7r-LRL" secondAttribute="leading" constant="43" id="7zM-Ky-K9U"/>
-                            <constraint firstItem="3B7-yB-G2I" firstAttribute="top" secondItem="xVl-8b-vVX" secondAttribute="bottom" constant="30" id="9Yf-lU-0l2"/>
-                            <constraint firstItem="MdW-Qt-kkL" firstAttribute="top" secondItem="1w3-SU-3y7" secondAttribute="bottom" constant="15" id="9ch-1o-Yzv"/>
-                            <constraint firstItem="tKF-7r-LRL" firstAttribute="trailing" secondItem="xVl-8b-vVX" secondAttribute="trailing" constant="43" id="A1L-Gp-r8o"/>
-                            <constraint firstItem="1w3-SU-3y7" firstAttribute="top" secondItem="LaY-ki-J3O" secondAttribute="bottom" constant="26" id="GJG-SW-jbV"/>
-                            <constraint firstItem="3B7-yB-G2I" firstAttribute="leading" secondItem="6F1-TQ-DK1" secondAttribute="trailing" constant="70.5" id="HSB-SS-uds"/>
-                            <constraint firstItem="tKF-7r-LRL" firstAttribute="trailing" secondItem="1w3-SU-3y7" secondAttribute="trailing" constant="43" id="ILz-v9-piS"/>
-                            <constraint firstItem="MdW-Qt-kkL" firstAttribute="leading" secondItem="tKF-7r-LRL" secondAttribute="leading" constant="43" id="KYo-PH-CHF"/>
-                            <constraint firstItem="xVl-8b-vVX" firstAttribute="leading" secondItem="tKF-7r-LRL" secondAttribute="leading" constant="43" id="KqA-tC-Lkx"/>
+                            <constraint firstItem="51t-qR-jdW" firstAttribute="top" secondItem="YFG-Pv-TbX" secondAttribute="bottom" constant="30" id="OvD-v5-GoW"/>
+                            <constraint firstItem="LaY-ki-J3O" firstAttribute="centerX" secondItem="iem-Ba-DgT" secondAttribute="centerX" id="SDK-HB-j4l"/>
                             <constraint firstItem="j54-aC-WZW" firstAttribute="top" secondItem="tKF-7r-LRL" secondAttribute="top" constant="16" id="SG2-3b-lpA"/>
-                            <constraint firstItem="tKF-7r-LRL" firstAttribute="trailing" secondItem="LaY-ki-J3O" secondAttribute="trailing" constant="160" id="SY7-Bk-j5L"/>
-                            <constraint firstItem="LaY-ki-J3O" firstAttribute="top" secondItem="j54-aC-WZW" secondAttribute="bottom" constant="18" id="Thv-4A-JF2"/>
-                            <constraint firstItem="6F1-TQ-DK1" firstAttribute="leading" secondItem="tKF-7r-LRL" secondAttribute="leading" constant="43" id="UUX-NG-yTv"/>
-                            <constraint firstItem="sZ3-Cw-MnR" firstAttribute="top" secondItem="6F1-TQ-DK1" secondAttribute="bottom" constant="15.5" id="VOG-1H-gXS"/>
-                            <constraint firstItem="1w3-SU-3y7" firstAttribute="top" secondItem="LaY-ki-J3O" secondAttribute="bottom" constant="26" id="WgN-c0-5uX"/>
-                            <constraint firstItem="6F1-TQ-DK1" firstAttribute="top" secondItem="xVl-8b-vVX" secondAttribute="bottom" constant="30" id="Y6g-Q7-4UH"/>
-                            <constraint firstItem="tKF-7r-LRL" firstAttribute="trailing" secondItem="S2P-gU-72a" secondAttribute="trailing" constant="43" id="atk-SA-mdS"/>
-                            <constraint firstItem="S2P-gU-72a" firstAttribute="leading" secondItem="sZ3-Cw-MnR" secondAttribute="trailing" constant="16" id="cQp-JW-Y50"/>
-                            <constraint firstItem="tKF-7r-LRL" firstAttribute="trailing" secondItem="MdW-Qt-kkL" secondAttribute="trailing" constant="43" id="dBl-bK-5eF"/>
-                            <constraint firstItem="j54-aC-WZW" firstAttribute="leading" secondItem="tKF-7r-LRL" secondAttribute="leading" constant="130" id="f3U-xV-QPC"/>
-                            <constraint firstItem="3B7-yB-G2I" firstAttribute="leading" secondItem="6F1-TQ-DK1" secondAttribute="trailing" constant="70.5" id="iEn-cj-FbH"/>
-                            <constraint firstItem="S2P-gU-72a" firstAttribute="top" secondItem="3B7-yB-G2I" secondAttribute="bottom" constant="15.5" id="lA3-ZP-GSa"/>
-                            <constraint firstItem="sZ3-Cw-MnR" firstAttribute="leading" secondItem="tKF-7r-LRL" secondAttribute="leading" constant="43" id="rWK-3F-XsG"/>
-                            <constraint firstItem="tKF-7r-LRL" firstAttribute="trailing" secondItem="MdW-Qt-kkL" secondAttribute="trailing" constant="43" id="ugU-Jm-8Yx"/>
-                            <constraint firstItem="tKF-7r-LRL" firstAttribute="trailing" secondItem="3B7-yB-G2I" secondAttribute="trailing" constant="50" id="whs-Ap-aJc"/>
-                            <constraint firstItem="tKF-7r-LRL" firstAttribute="trailing" secondItem="j54-aC-WZW" secondAttribute="trailing" constant="130" id="wsj-l9-HCz"/>
+                            <constraint firstItem="LaY-ki-J3O" firstAttribute="top" secondItem="j54-aC-WZW" secondAttribute="bottom" constant="12" id="Thv-4A-JF2"/>
+                            <constraint firstItem="tKF-7r-LRL" firstAttribute="trailing" secondItem="51t-qR-jdW" secondAttribute="trailing" constant="20" id="XUN-ek-viS"/>
+                            <constraint firstItem="tKF-7r-LRL" firstAttribute="trailing" secondItem="zfl-IA-kze" secondAttribute="trailing" constant="20" id="cRM-J3-qrJ"/>
+                            <constraint firstItem="j54-aC-WZW" firstAttribute="centerX" secondItem="iem-Ba-DgT" secondAttribute="centerX" id="hby-g5-vIM"/>
+                            <constraint firstItem="tKF-7r-LRL" firstAttribute="trailing" secondItem="YFG-Pv-TbX" secondAttribute="trailing" constant="20" id="m6Q-N7-PmS"/>
+                            <constraint firstItem="YFG-Pv-TbX" firstAttribute="top" secondItem="LaY-ki-J3O" secondAttribute="bottom" constant="25" id="o2u-ZU-BIH"/>
+                            <constraint firstItem="51t-qR-jdW" firstAttribute="leading" secondItem="tKF-7r-LRL" secondAttribute="leading" constant="20" id="sHz-cw-ABe"/>
                             <constraint firstItem="zfl-IA-kze" firstAttribute="leading" secondItem="tKF-7r-LRL" secondAttribute="leading" constant="20" id="zSJ-7s-bKB"/>
                         </constraints>
                     </view>
@@ -156,13 +140,12 @@
                         <outlet property="gender" destination="sZ3-Cw-MnR" id="iD9-nb-PY7"/>
                         <outlet property="imageProfile" destination="j54-aC-WZW" id="JZr-MX-Das"/>
                         <outlet property="name" destination="1w3-SU-3y7" id="kIH-ua-dfX"/>
-                        <outlet property="phoneNumber" destination="xVl-8b-vVX" id="Vjc-ZN-bO3"/>
                         <outlet property="saveButton" destination="zfl-IA-kze" id="98f-Jt-yS0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cZS-cS-p8A" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1645" y="2273"/>
+            <point key="canvasLocation" x="1644.375" y="2272.1830985915494"/>
         </scene>
     </scenes>
     <resources>

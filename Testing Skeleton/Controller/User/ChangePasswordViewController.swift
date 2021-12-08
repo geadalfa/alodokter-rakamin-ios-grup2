@@ -9,10 +9,14 @@ import UIKit
 
 class ChangePasswordViewController: UIViewController {
 
+    @IBOutlet weak var oldPasswordTextField: UITextField!
+    @IBOutlet weak var newPasswordTextField: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
+        oldPasswordTextField.isSecureTextEntry = true
+        newPasswordTextField.isSecureTextEntry = true
     }
     
 

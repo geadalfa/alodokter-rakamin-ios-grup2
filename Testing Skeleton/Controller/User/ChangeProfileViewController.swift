@@ -7,8 +7,9 @@
 
 import UIKit
 
-class ChangeProfileViewController: UIViewController {
+class ChangeProfileViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
+    // Outlets
     @IBOutlet var name: UITextField!
     @IBOutlet var imageProfile: UIImageView!
     @IBOutlet var changeImageButton: UIButton!
@@ -18,13 +19,17 @@ class ChangeProfileViewController: UIViewController {
     @IBOutlet var dateOfBirth: UITextField!
     @IBOutlet var saveButton: UIButton!
     
-    
+    // Variables
     let genderOption: [String] = ["Laki-laki", "Perempuan"]
     let pickerView = UIPickerView()
     var selectedGender: String?
+    let userDefault = UserDefaults.standard
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        getUserData()
+        
         imageProfile.layer.cornerRadius = imageProfile.frame.size.width/2
         imageProfile.clipsToBounds = true
         pickerView.delegate = self
@@ -47,38 +52,71 @@ class ChangeProfileViewController: UIViewController {
         
         self.imageProfile.contentMode = .scaleAspectFill
         
+        imagePicker.delegate = self
+        imagePicker.allowsEditing = false
+    }
+    
+        func getUserData() {
+        name.text = userDefault.object(forKey: "userName") as? String
+        address.text = userDefault.object(forKey: "userAddress") as? String
+        gender.text = userDefault.object(forKey: "userGender") as? String
+        dateOfBirth.text = userDefault.object(forKey: "userBirthDate") as? String
+        
     }
     
     @IBAction func editImageBtn(_ sender: Any) {
-        let imagePickerController = UIImagePickerController()
-        imagePickerController.delegate = self
-        imagePickerController.allowsEditing = false
-        present(imagePickerController, animated: true)
+        actionSheet()
+    }
+    
+     let imagePicker = UIImagePickerController()
+    
+    func actionSheet() {
+        let alert = UIAlertController(title: "Choose Image", message: nil, preferredStyle: .actionSheet)
+        alert.addAction(UIAlertAction(title: "Camera", style: .default, handler: {_ in self.openCamera()}))
         
-        let actionSheet = UIAlertController(title: "Photo Source", message: "Choose a source", preferredStyle: .actionSheet)
-        actionSheet.addAction(UIAlertAction(title: "Camera", style: .default, handler: { (action: UIAlertAction) in
-            
-            if UIImagePickerController.isSourceTypeAvailable(.camera) {
-                imagePickerController.sourceType = .camera
-                self.present(imagePickerController, animated: true, completion: nil)
-            } else {
-                print("Camera not available")
-            }
-            
-            
-        }))
-        
-        actionSheet.addAction(UIAlertAction(title: "Photo Library", style: .default, handler: { (action: UIAlertAction) in
-            imagePickerController.sourceType = .photoLibrary
-            self.present(imagePickerController, animated: true, completion: nil)
-        }))
-        
-        actionSheet.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil ))
-        
-        self.present(actionSheet, animated: true, completion: nil)
+        alert.addAction(UIAlertAction(title: "Galery", style: .default, handler: {_ in self.openGalery()}))
+
+        alert.addAction(UIAlertAction.init(title: "Cancel", style: .cancel, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    func openCamera() {
+        if UIImagePickerController.isSourceTypeAvailable(UIImagePickerController.SourceType.camera) {
+            let imagePicker = UIImagePickerController()
+            imagePicker.delegate = self
+            imagePicker.sourceType = UIImagePickerController.SourceType.camera
+            imagePicker.allowsEditing = false
+            self.present(imagePicker, animated: true, completion: nil)
+        }
+        else {
+            let alert = UIAlertController(title: "Warning", message: "Your camera is broken", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+        }
+    }
+    
+    func openGalery() {
+        if UIImagePickerController.isSourceTypeAvailable(UIImagePickerController.SourceType.photoLibrary) {
+            let imagePicker = UIImagePickerController()
+            imagePicker.delegate = self
+            imagePicker.sourceType = UIImagePickerController.SourceType.photoLibrary
+            imagePicker.allowsEditing = true
+            self.present(imagePicker, animated: true, completion: nil)
+        } else {
+            let alert = UIAlertController(title: "Warning", message: "You dont have permission to access gallery", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+        }
     }
     
     
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+
+        let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage
+        imageProfile.image = image
+
+        picker.dismiss(animated: true, completion: nil)
+    }
     
     
     func dismissPickerView() {
@@ -109,24 +147,6 @@ class ChangeProfileViewController: UIViewController {
         formatter.dateFormat = "MMMM dd yyyy"
         return formatter.string(from: date)
     }
-}
-
-extension ChangeProfileViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-    
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info:
-                               [UIImagePickerController.InfoKey : Any]) {
-        
-        if let image = info [.originalImage] as?  UIImage {
-                        imageProfile.image = image
-        }
-        
-        picker.dismiss(animated: true, completion: nil)
-    }
-    
-    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
-        picker.dismiss(animated: true, completion: nil)
-    }
-    
 }
 
 // MARK: - UIPickerView

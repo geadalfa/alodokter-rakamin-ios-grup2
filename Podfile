@@ -7,5 +7,7 @@ target 'Testing Skeleton' do
 
   # Pods for Testing Skeleton
   pod 'Alamofire', '~> 5.4'
+  pod 'IQKeyboardManagerSwift'
+  pod 'SDWebImage'
 
 end

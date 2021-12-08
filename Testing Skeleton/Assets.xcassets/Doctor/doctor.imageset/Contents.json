@@ -2,16 +2,7 @@
   "images" : [
     {
       "filename" : "depositphotos_75196567-stock-photo-handsome-man-smiling.jpg",
-      "idiom" : "universal",
-      "scale" : "1x"
-    },
-    {
-      "idiom" : "universal",
-      "scale" : "2x"
-    },
-    {
-      "idiom" : "universal",
-      "scale" : "3x"
+      "idiom" : "universal"
     }
   ],
   "info" : {
