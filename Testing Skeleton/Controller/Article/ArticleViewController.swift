@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 class ArticleViewController: UIViewController {
     
@@ -42,9 +43,9 @@ extension ArticleViewController: UICollectionViewDelegate, UICollectionViewDataS
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cellArticle = collectionView.dequeueReusableCell(withReuseIdentifier: "articleCollectionIdentifier", for: indexPath) as! ArticleCellCollection
         let index = ModelArticle.articles?[indexPath.row]
-        //let index = articleModel.article[indexPath.row]
-        //let image = UIImage(named: "\(index.image)")
-        //cellArticle.articleImageView.image = image
+        let urlImage = URL(string: index?.urlToImage ?? "")
+        cellArticle.articleImageView.sd_imageIndicator = SDWebImageActivityIndicator.gray
+        cellArticle.articleImageView.sd_setImage(with: urlImage, placeholderImage: UIImage(named: "corona"))
         cellArticle.articleLabel.text = index?.title ?? ""
         
         return cellArticle
@@ -57,7 +58,7 @@ extension ArticleViewController: UICollectionViewDelegate, UICollectionViewDataS
         let storyBoard: UIStoryboard = UIStoryboard(name: "Article", bundle: nil)
         let detailArticleVC = storyBoard.instantiateViewController(withIdentifier: "DetailArticleController") as! DetailArticleViewController
         detailArticleVC.articleTitle = indexPath?.title
-        //detailArticleVC.articleImage = indexPath.image
+        detailArticleVC.articleImage = indexPath?.urlToImage
         detailArticleVC.articleAuthor = indexPath?.author
         detailArticleVC.articleDate = indexPath?.publishedAt
         detailArticleVC.articleContent = indexPath?.content
@@ -81,8 +82,9 @@ extension ArticleViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "articleIdentifier", for: indexPath) as! ArticleTableViewCell
         let index = ModelArticle.articles?[indexPath.row]
-        //let index = articleModel.article[indexPath.row]
-        //cell.articleImageView.image = UIImage(named: "\(index.image)")
+        let urlImage = URL(string: index?.urlToImage ?? "")
+        cell.articleImageView.sd_imageIndicator = SDWebImageActivityIndicator.gray
+        cell.articleImageView.sd_setImage(with: urlImage, placeholderImage: UIImage(named: "corona"))
         cell.articleTitleLabel.text = index?.title ?? ""
         cell.articleContentLabel.text = index?.description ?? ""
         cell.articleImageView.image = UIImage(named: "logo.png")
@@ -97,7 +99,7 @@ extension ArticleViewController: UITableViewDelegate, UITableViewDataSource {
         let storyBoard: UIStoryboard = UIStoryboard(name: "Article", bundle: nil)
         let detailArticleVC = storyBoard.instantiateViewController(withIdentifier: "DetailArticleController") as! DetailArticleViewController
         detailArticleVC.articleTitle = index?.title
-        //detailArticleVC.articleImage = index.image
+        detailArticleVC.articleImage = index?.urlToImage
         detailArticleVC.articleContent = index?.content
         detailArticleVC.articleAuthor = index?.author
         detailArticleVC.articleDate = index?.publishedAt
