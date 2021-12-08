@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 class HomeViewController: UIViewController {
     
@@ -145,6 +146,13 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
         
         if collectionView == self.doctorCollectionView {
             let cellDoctor = collectionView.dequeueReusableCell(withReuseIdentifier: "doctorCollectionIdentifier", for: indexPath) as! DoctorCellCollection
+            
+            // Get image from API
+            let urlString = doctors[indexPath.row].image
+            let url = URL(string:urlString)
+            cellDoctor.doctorImageView.sd_imageIndicator = SDWebImageActivityIndicator.gray
+            cellDoctor.doctorImageView.sd_setImage(with: url, placeholderImage: UIImage(named: "logo"))
+            
             cellDoctor.doctorNameLabel.text = doctors[indexPath.row].name
             cellDoctor.doctorProfessionLabel.text = doctors[indexPath.row].spesialis
             
@@ -173,7 +181,7 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
                 let indexPath = doctors[indexPath.row]
                 let storyBoard: UIStoryboard = UIStoryboard(name: "DoctorStory", bundle: nil)
                 let detailDoctorVC = storyBoard.instantiateViewController(withIdentifier: "DoctorStoryController") as! DoctorStoryViewController
-                detailDoctorVC.doctorImageViews = "corona"//indexPath.image
+                detailDoctorVC.doctorImageViews = indexPath.image // Get image URL from JSON API
                 detailDoctorVC.doctorNames = indexPath.name
                 detailDoctorVC.doctorProfession = indexPath.spesialis
                 detailDoctorVC.doctorDescrip = indexPath.desc

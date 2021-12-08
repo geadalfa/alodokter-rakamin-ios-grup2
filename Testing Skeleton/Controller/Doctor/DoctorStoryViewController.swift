@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 class DoctorStoryViewController: UIViewController {
 
@@ -29,9 +30,13 @@ class DoctorStoryViewController: UIViewController {
     
     func showDataDoctor() {
         doctorName.text = doctorNames ?? "Dr. Name"
-        doctorImageView.image = UIImage(named: "\(doctorImageViews ?? "Logo")")
+
         doctorSpeciality.text = doctorProfession ?? "No Data"
         doctorDescription.text = doctorDescrip ?? "No Data"
+        
+        // Get image from API
+        let url = URL(string: (doctorImageViews!))
+        doctorImageView.sd_setImage(with: url)
     }
 
 }

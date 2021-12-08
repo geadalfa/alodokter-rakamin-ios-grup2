@@ -8,7 +8,7 @@
 import Foundation
 
 struct Doctor: Codable {
-    let name, placeOfBirth, dateOfBirth, gender, spesialis, desc: String
+    let name, placeOfBirth, dateOfBirth, gender, spesialis, desc, image: String
     let address, email, password: String
     let telp: Int
     let id: String
@@ -17,6 +17,6 @@ struct Doctor: Codable {
         case name
         case placeOfBirth = "place_of_birth"
         case dateOfBirth = "date_of_birth"
-        case gender, address, email, password, telp, id, spesialis, desc
+        case gender, address, email, password, telp, id, spesialis, desc, image
     }
 }
