@@ -146,7 +146,7 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
         if collectionView == self.doctorCollectionView {
             let cellDoctor = collectionView.dequeueReusableCell(withReuseIdentifier: "doctorCollectionIdentifier", for: indexPath) as! DoctorCellCollection
             cellDoctor.doctorNameLabel.text = doctors[indexPath.row].name
-            cellDoctor.doctorProfessionLabel.text = doctors[indexPath.row].placeOfBirth
+            cellDoctor.doctorProfessionLabel.text = doctors[indexPath.row].spesialis
             
             return cellDoctor
         }
@@ -176,6 +176,7 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
                 let detailDoctorVC = storyBoard.instantiateViewController(withIdentifier: "DoctorStoryController") as! DoctorStoryViewController
                 detailDoctorVC.doctorImageViews = "corona"//indexPath.image
                 detailDoctorVC.doctorNames = indexPath.name
+                detailDoctorVC.doctorProfession = indexPath.spesialis
                 //detailDoctorVC.doctorProfession = indexPath.profession
                 //detailDoctorVC.doctorDescrip = indexPath.desc
                 detailDoctorVC.hidesBottomBarWhenPushed = true
