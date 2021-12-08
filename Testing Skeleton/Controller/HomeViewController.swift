@@ -60,7 +60,6 @@ class HomeViewController: UIViewController {
     }
     
     @IBAction func seeMore(_ sender: Any) {
-        
         let data = articleModel.article[0]
         let storyboard: UIStoryboard = UIStoryboard(name: "Article", bundle: nil)
         let detailArticleVC = storyboard.instantiateViewController(withIdentifier: "DetailArticleController") as! DetailArticleViewController
@@ -171,15 +170,17 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
         }
         else if collectionView == self.doctorCollectionView {
             if UserDefaults.standard.string(forKey: "userName") != nil {
-                let indexPath = doctorModel.doctor[indexPath.row]
+                //let indexPath = doctorModel.doctor[indexPath.row]
+                let indexPath = doctors[indexPath.row]
                 let storyBoard: UIStoryboard = UIStoryboard(name: "DoctorStory", bundle: nil)
                 let detailDoctorVC = storyBoard.instantiateViewController(withIdentifier: "DoctorStoryController") as! DoctorStoryViewController
-                detailDoctorVC.doctorImageViews = indexPath.image
+                detailDoctorVC.doctorImageViews = "corona"//indexPath.image
                 detailDoctorVC.doctorNames = indexPath.name
-                detailDoctorVC.doctorProfession = indexPath.profession
-                detailDoctorVC.doctorDescrip = indexPath.desc
+                //detailDoctorVC.doctorProfession = indexPath.profession
+                //detailDoctorVC.doctorDescrip = indexPath.desc
                 detailDoctorVC.hidesBottomBarWhenPushed = true
                 detailDoctorVC.navigationItem.title = indexPath.name
+                
                 self.navigationController?.pushViewController(detailDoctorVC, animated: true)
             }
             else {

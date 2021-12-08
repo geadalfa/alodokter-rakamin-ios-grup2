@@ -13,3 +13,7 @@ struct DoctorModel {
     var image: String
 }
 
+//struct FetchDoctor {
+//    var name: String
+//}
+
