@@ -39,6 +39,9 @@
 		9FA485C0275B7AC200FD3404 /* DoctorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FA485BF275B7AC200FD3404 /* DoctorViewController.swift */; };
 		9FA485C2275B815000FD3404 /* DoctorCellTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FA485C1275B815000FD3404 /* DoctorCellTable.swift */; };
 		9FA485C8275B884800FD3404 /* Doctor.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9FA485C7275B884800FD3404 /* Doctor.xib */; };
+		9FC16C7F2760294F0031F6AC /* WelcomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FC16C7E2760294F0031F6AC /* WelcomeVC.swift */; };
+		9FC16C8127602B020031F6AC /* SlideView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FC16C8027602B020031F6AC /* SlideView.swift */; };
+		9FC16C8327602B400031F6AC /* Slide.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9FC16C8227602B400031F6AC /* Slide.xib */; };
 		9FE7B10E2758A5F300D74FFB /* DetailArticleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FE7B10D2758A5F300D74FFB /* DetailArticleViewController.swift */; };
 		9FEACE5A275C2BD200EE3FF2 /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FEACE59275C2BD200EE3FF2 /* Token.swift */; };
 		9FFD38642758431D003EC14A /* ArticleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FFD38632758431D003EC14A /* ArticleModel.swift */; };
@@ -86,6 +89,9 @@
 		9FA485BF275B7AC200FD3404 /* DoctorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoctorViewController.swift; sourceTree = "<group>"; };
 		9FA485C1275B815000FD3404 /* DoctorCellTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoctorCellTable.swift; sourceTree = "<group>"; };
 		9FA485C7275B884800FD3404 /* Doctor.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Doctor.xib; sourceTree = "<group>"; };
+		9FC16C7E2760294F0031F6AC /* WelcomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeVC.swift; sourceTree = "<group>"; };
+		9FC16C8027602B020031F6AC /* SlideView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideView.swift; sourceTree = "<group>"; };
+		9FC16C8227602B400031F6AC /* Slide.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Slide.xib; sourceTree = "<group>"; };
 		9FE7B10D2758A5F300D74FFB /* DetailArticleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailArticleViewController.swift; sourceTree = "<group>"; };
 		9FEACE59275C2BD200EE3FF2 /* Token.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Token.swift; sourceTree = "<group>"; };
 		9FFD38632758431D003EC14A /* ArticleModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleModel.swift; sourceTree = "<group>"; };
@@ -235,6 +241,7 @@
 		9F601A1A2758308E0066D41D /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				9FC16C85276036200031F6AC /* Intro */,
 				9F201D6D275C99AF00D44C8A /* Doctor */,
 				9F201D6C275C999B00D44C8A /* Register */,
 				9F201D6B275C999300D44C8A /* Login */,
@@ -300,9 +307,27 @@
 			path = "Testing Skeleton";
 			sourceTree = "<group>";
 		};
+		9FC16C84276036080031F6AC /* Intro */ = {
+			isa = PBXGroup;
+			children = (
+				9FC16C8027602B020031F6AC /* SlideView.swift */,
+				9FC16C8227602B400031F6AC /* Slide.xib */,
+			);
+			path = Intro;
+			sourceTree = "<group>";
+		};
+		9FC16C85276036200031F6AC /* Intro */ = {
+			isa = PBXGroup;
+			children = (
+				9FC16C7E2760294F0031F6AC /* WelcomeVC.swift */,
+			);
+			path = Intro;
+			sourceTree = "<group>";
+		};
 		9FE7B10B2758A59F00D74FFB /* View */ = {
 			isa = PBXGroup;
 			children = (
+				9FC16C84276036080031F6AC /* Intro */,
 				9F201D6A275C995600D44C8A /* Register */,
 				9F201D69275C995100D44C8A /* Login */,
 				9F89269C2757B8D000354385 /* Doctor */,
@@ -402,6 +427,7 @@
 				9F8A68D62755D9C40005E329 /* Assets.xcassets in Resources */,
 				504BE3FC275DC07D008E83A3 /* DoctorStory.storyboard in Resources */,
 				9F8A68D42755D9C20005E329 /* Main.storyboard in Resources */,
+				9FC16C8327602B400031F6AC /* Slide.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -473,6 +499,8 @@
 				9F4D02CD2758D70300094C1A /* RegisterModel.swift in Sources */,
 				9F4B8F802759FA38007376FA /* LoginModel.swift in Sources */,
 				9F4D02D12758D96600094C1A /* RegisterViewController.swift in Sources */,
+				9FC16C7F2760294F0031F6AC /* WelcomeVC.swift in Sources */,
+				9FC16C8127602B020031F6AC /* SlideView.swift in Sources */,
 				9FFD38642758431D003EC14A /* ArticleModel.swift in Sources */,
 				423B9B7D275B62B700484795 /* ChangeProfileViewController.swift in Sources */,
 				9FFD38672758485B003EC14A /* DoctorCellCollection.swift in Sources */,

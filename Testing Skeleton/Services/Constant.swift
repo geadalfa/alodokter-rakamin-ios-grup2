@@ -16,3 +16,20 @@ let doctorURL = "https://newsdata.io/api/1/news?apikey=pub_2597fc4fb62dd6ddb0eea
 struct TokenKey {
     static let userLogin = "userLoginKey"
 }
+
+
+class UserDefaultService {
+    static let instance = UserDefaultService()
+    private let def = UserDefaults.standard
+    fileprivate let isFirstLaunchedKey = "welcomeShown"
+    
+    var isFirstLaunched: Bool {
+        get {
+            return def.bool(forKey: isFirstLaunchedKey)
+        }
+        set {
+            def.set(newValue, forKey: isFirstLaunchedKey)
+        }
+    }
+}
+

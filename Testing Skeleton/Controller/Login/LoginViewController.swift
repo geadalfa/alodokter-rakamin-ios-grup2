@@ -18,6 +18,7 @@ class LoginViewController: UIViewController {
     // Variables
     let userDefault = UserDefaults.standard
     var fromHome: Bool = false
+    let udService = UserDefaultService.instance
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,6 +28,16 @@ class LoginViewController: UIViewController {
             self.navigationItem.setRightBarButton(nil, animated: true)
         }
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        if !udService.isFirstLaunched {
+            let storyBoard : UIStoryboard = UIStoryboard(name: "Login", bundle:nil)
+            let welcomeVC = storyBoard.instantiateViewController(withIdentifier: "WelcomeVC") as! WelcomeVC
+            self.present(welcomeVC, animated:true, completion:nil)
+            return
+        }
+    }
+    
 
     @IBAction func skipPressed(_ sender: UIBarButtonItem) {
         print("Skip Pressed")
