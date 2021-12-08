@@ -177,8 +177,7 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
                 detailDoctorVC.doctorImageViews = "corona"//indexPath.image
                 detailDoctorVC.doctorNames = indexPath.name
                 detailDoctorVC.doctorProfession = indexPath.spesialis
-                //detailDoctorVC.doctorProfession = indexPath.profession
-                //detailDoctorVC.doctorDescrip = indexPath.desc
+                detailDoctorVC.doctorDescrip = indexPath.desc
                 detailDoctorVC.hidesBottomBarWhenPushed = true
                 detailDoctorVC.navigationItem.title = indexPath.name
                 
