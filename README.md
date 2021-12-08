@@ -2,6 +2,12 @@
 We're currently working on Development branch
 
 # Screenshot
-![alt text](https://github.com/geadalfa/alodokter-rakamin-ios-grup2/blob/master/Successful Image/1.png?raw=true)
-![alt text](https://github.com/geadalfa/alodokter-rakamin-ios-grup2/blob/master/Successful Image/2.png?raw=true)
-![alt text](https://github.com/geadalfa/alodokter-rakamin-ios-grup2/blob/master/Successful Image/3.png?raw=true)
+![alt text](https://github.com/geadalfa/alodokter-rakamin-ios-grup2/blob/master/images/1.png?raw=true)
+![alt text](https://github.com/geadalfa/alodokter-rakamin-ios-grup2/blob/master/images/2.png?raw=true)
+![alt text](https://github.com/geadalfa/alodokter-rakamin-ios-grup2/blob/master/images/3.png?raw=true)
+![alt text](https://github.com/geadalfa/alodokter-rakamin-ios-grup2/blob/master/images/4.png?raw=true)
+![alt text](https://github.com/geadalfa/alodokter-rakamin-ios-grup2/blob/master/images/5.png?raw=true)
+![alt text](https://github.com/geadalfa/alodokter-rakamin-ios-grup2/blob/master/images/6.png?raw=true)
+![alt text](https://github.com/geadalfa/alodokter-rakamin-ios-grup2/blob/master/images/7.png?raw=true
+![alt text](https://github.com/geadalfa/alodokter-rakamin-ios-grup2/blob/master/images/8.png?raw=true)
+![alt text](https://github.com/geadalfa/alodokter-rakamin-ios-grup2/blob/master/images/9.png?raw=true)
