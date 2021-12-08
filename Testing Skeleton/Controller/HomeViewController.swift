@@ -137,8 +137,9 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
         if collectionView == self.articleCollectionView {
             let cellArticle = collectionView.dequeueReusableCell(withReuseIdentifier: "articleCollectionIdentifier", for: indexPath) as! ArticleCellCollection
             let index = article.articles?[indexPath.row]
-            let image = UIImage(named: "corona")
-            cellArticle.articleImageView.image = image
+            let urlImage = URL(string: index?.urlToImage ?? "")
+            cellArticle.articleImageView.sd_imageIndicator = SDWebImageActivityIndicator.gray
+            cellArticle.articleImageView.sd_setImage(with: urlImage, placeholderImage: UIImage(named: "logo"))
             cellArticle.articleLabel.text = index?.title ?? ""
             
             return cellArticle
