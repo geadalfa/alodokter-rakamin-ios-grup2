@@ -85,6 +85,7 @@ extension ArticleViewController: UITableViewDelegate, UITableViewDataSource {
         //cell.articleImageView.image = UIImage(named: "\(index.image)")
         cell.articleTitleLabel.text = index?.title ?? ""
         cell.articleContentLabel.text = index?.description ?? ""
+        cell.articleImageView.image = UIImage(named: "logo.png")
         
         return cell
     }
