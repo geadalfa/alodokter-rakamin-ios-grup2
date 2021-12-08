@@ -307,6 +307,8 @@
                     </navigationItem>
                     <connections>
                         <outlet property="articleCollectionView" destination="OW3-dk-bLK" id="Xnh-jX-ykE"/>
+                        <outlet property="bannerTitleLabel" destination="Hfg-l2-uPn" id="gg1-Eo-cej"/>
+                        <outlet property="bannerView" destination="gqn-zT-Oqc" id="ggn-7y-t5h"/>
                         <outlet property="doctorCollectionView" destination="XRG-kF-BXU" id="Ouf-Gw-Jmh"/>
                         <outlet property="signInButton" destination="wfE-m9-VBG" id="Mj7-Tm-gto"/>
                     </connections>

@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 class DetailArticleViewController: UIViewController {
     
@@ -32,7 +33,8 @@ class DetailArticleViewController: UIViewController {
     
     func showDataArticle() {
         articleTitleLabel.text = articleTitle ?? "No Data"
-        articleImageView.image = UIImage(named: "\(articleImage ?? "Logo")")
+        articleImageView.sd_imageIndicator = SDWebImageActivityIndicator.gray
+        articleImageView.sd_setImage(with: URL(string: articleImage ?? ""), placeholderImage: UIImage(named: "corona"))
         articleContentLabel.text = articleContent ?? "No Data"
         articleAuthorLabel.text = "Penulis: \(articleAuthor ?? "")"
         articleDateLabel.text = "Tanggal: \(articleDate ?? "")"

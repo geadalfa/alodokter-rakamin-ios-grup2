@@ -14,6 +14,8 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var articleCollectionView: UICollectionView!
     @IBOutlet weak var doctorCollectionView: UICollectionView!
     @IBOutlet weak var signInButton: UIBarButtonItem!
+    @IBOutlet weak var bannerView: UIImageView!
+    @IBOutlet weak var bannerTitleLabel: UILabel!
     
     // Variables
     let activityIndicatorView = UIActivityIndicatorView(style: .large)
@@ -61,12 +63,13 @@ class HomeViewController: UIViewController {
     }
     
     @IBAction func seeMore(_ sender: Any) {
-        let data = articleModel.article[0]
         let storyboard: UIStoryboard = UIStoryboard(name: "Article", bundle: nil)
         let detailArticleVC = storyboard.instantiateViewController(withIdentifier: "DetailArticleController") as! DetailArticleViewController
-        detailArticleVC.articleTitle = data.title
-        detailArticleVC.articleImage = data.image
-        detailArticleVC.articleContent = data.content
+        detailArticleVC.articleTitle = article.articles?[10].title
+        detailArticleVC.articleImage = article.articles?[10].urlToImage
+        detailArticleVC.articleContent = article.articles?[10].content
+        detailArticleVC.articleAuthor = article.articles?[10].author
+        detailArticleVC.articleDate = article.articles?[10].publishedAt
         detailArticleVC.hidesBottomBarWhenPushed = true
         
         self.navigationController?.pushViewController(detailArticleVC, animated: true)
@@ -166,10 +169,11 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if collectionView == self.articleCollectionView {
             let indexPath = article.articles?[indexPath.row]
+            let urlImage = URL(string: indexPath?.urlToImage ?? "")
             let storyBoard: UIStoryboard = UIStoryboard(name: "Article", bundle: nil)
             let detailArticleVC = storyBoard.instantiateViewController(withIdentifier: "DetailArticleController") as! DetailArticleViewController
             detailArticleVC.articleTitle = indexPath?.title
-            detailArticleVC.articleImage = "corona"
+            detailArticleVC.articleImage = indexPath?.urlToImage
             detailArticleVC.articleContent = indexPath?.content
             detailArticleVC.articleAuthor = indexPath?.author
             detailArticleVC.articleDate = indexPath?.publishedAt
@@ -209,6 +213,7 @@ extension HomeViewController {
                         //self.activityIndicatorView.stopAnimating()
                         //self.activityIndicatorView.isHidden = true
                         self.articleCollectionView.reloadData()
+                        self.loadBanner()
                     }
                 } else {
                     debugPrint("Failure to decode posts.")
@@ -218,5 +223,14 @@ extension HomeViewController {
                 debugPrint("Failure to get data.")
             }
         }.resume()
+    }
+}
+
+extension HomeViewController {
+    func loadBanner() {
+        let urlImage = URL(string: article.articles?[10].urlToImage ?? "")
+        bannerView.sd_imageIndicator = SDWebImageActivityIndicator.gray
+        bannerView.sd_setImage(with: urlImage, placeholderImage: UIImage(named: "corona"))
+        bannerTitleLabel.text = article.articles?[10].title ?? ""
     }
 }
