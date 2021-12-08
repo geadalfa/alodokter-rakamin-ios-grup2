@@ -170,7 +170,6 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
         }
         else if collectionView == self.doctorCollectionView {
             if UserDefaults.standard.string(forKey: "userName") != nil {
-                //let indexPath = doctorModel.doctor[indexPath.row]
                 let indexPath = doctors[indexPath.row]
                 let storyBoard: UIStoryboard = UIStoryboard(name: "DoctorStory", bundle: nil)
                 let detailDoctorVC = storyBoard.instantiateViewController(withIdentifier: "DoctorStoryController") as! DoctorStoryViewController
