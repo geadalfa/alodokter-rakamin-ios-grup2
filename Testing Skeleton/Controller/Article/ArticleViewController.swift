@@ -17,11 +17,12 @@ class ArticleViewController: UIViewController {
     
     // Variables
     var ModelArticle = FetchArticle(status: "", totalResults: 0, articles: nil)
+    let activityIndicatorCollectionView = UIActivityIndicatorView(style: .large)
+    let activityIndicatorTableView = UIActivityIndicatorView(style: .large)
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
+        activateIndicator()
         articleTableView.register(UINib(nibName: "ArticleCell", bundle: nil), forCellReuseIdentifier: "articleIdentifier")
         articleTableView.rowHeight = 140
         displayData()
@@ -124,6 +125,10 @@ extension ArticleViewController {
                     DispatchQueue.main.async {
                         //self.activityIndicatorView.stopAnimating()
                         //self.activityIndicatorView.isHidden = true
+                        self.activityIndicatorCollectionView.stopAnimating()
+                        self.activityIndicatorCollectionView.isHidden = true
+                        self.activityIndicatorTableView.stopAnimating()
+                        self.activityIndicatorTableView.isHidden = true
                         self.articleCollectionView.reloadData()
                         self.articleTableView.reloadData()
                     }
@@ -135,5 +140,18 @@ extension ArticleViewController {
                 debugPrint("Failure to get data.")
             }
         }.resume()
+    }
+}
+
+extension ArticleViewController {
+    func activateIndicator() {
+        activityIndicatorCollectionView.center = articleCollectionView.center
+        activityIndicatorTableView.center = articleTableView.center
+        activityIndicatorCollectionView.startAnimating()
+        activityIndicatorTableView.startAnimating()
+        view.addSubview(activityIndicatorCollectionView)
+        view.addSubview(activityIndicatorTableView)
+        activityIndicatorCollectionView.isHidden = false
+        activityIndicatorTableView.isHidden = false
     }
 }

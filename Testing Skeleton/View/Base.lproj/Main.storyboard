@@ -39,11 +39,11 @@
                                                         </userDefinedRuntimeAttributes>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Judul Artikel" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hfg-l2-uPn">
-                                                        <rect key="frame" x="137.5" y="205" width="119.5" height="24"/>
+                                                        <rect key="frame" x="142.5" y="205" width="109.5" height="24"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="24" id="RVr-dq-HNx"/>
                                                         </constraints>
-                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
@@ -347,7 +347,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="gWa-Yb-ib3">
-                                <rect key="frame" x="0.0" y="362.5" width="414" height="533.5"/>
+                                <rect key="frame" x="0.0" y="374.5" width="414" height="521.5"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <connections>
                                     <outlet property="dataSource" destination="Dxe-fi-K00" id="UqR-47-OYt"/>
@@ -361,7 +361,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Semua Artikel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ScL-tU-m0G">
-                                <rect key="frame" x="20" y="328.5" width="374" height="26"/>
+                                <rect key="frame" x="20" y="340.5" width="374" height="26"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="21"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -384,10 +384,15 @@
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="banner" translatesAutoresizingMaskIntoConstraints="NO" id="HEI-TJ-yhx">
-                                                    <rect key="frame" x="0.0" y="0.0" width="176" height="104.5"/>
+                                                    <rect key="frame" x="5" y="5" width="166" height="104.5"/>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                            <integer key="value" value="10"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lorem ipsum dolor sit amet ipsum chembar mono ipsum" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WBw-Re-N9K">
-                                                    <rect key="frame" x="8" y="104.5" width="160" height="43"/>
+                                                    <rect key="frame" x="8" y="109.5" width="160" height="43"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -395,14 +400,19 @@
                                             </subviews>
                                             <color key="backgroundColor" systemColor="systemGray6Color"/>
                                             <constraints>
-                                                <constraint firstAttribute="trailing" secondItem="HEI-TJ-yhx" secondAttribute="trailing" id="0KX-iP-3a1"/>
+                                                <constraint firstAttribute="trailing" secondItem="HEI-TJ-yhx" secondAttribute="trailing" constant="5" id="0KX-iP-3a1"/>
                                                 <constraint firstItem="WBw-Re-N9K" firstAttribute="leading" secondItem="Ufy-gN-tFf" secondAttribute="leadingMargin" id="Bte-C4-YYD"/>
-                                                <constraint firstItem="HEI-TJ-yhx" firstAttribute="top" secondItem="Ufy-gN-tFf" secondAttribute="top" id="N99-d8-stD"/>
-                                                <constraint firstItem="HEI-TJ-yhx" firstAttribute="leading" secondItem="Ufy-gN-tFf" secondAttribute="leading" id="NiL-37-A0D"/>
+                                                <constraint firstItem="HEI-TJ-yhx" firstAttribute="top" secondItem="Ufy-gN-tFf" secondAttribute="top" constant="5" id="N99-d8-stD"/>
+                                                <constraint firstItem="HEI-TJ-yhx" firstAttribute="leading" secondItem="Ufy-gN-tFf" secondAttribute="leading" constant="5" id="NiL-37-A0D"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="WBw-Re-N9K" secondAttribute="trailing" id="OKs-Sy-M42"/>
                                                 <constraint firstItem="WBw-Re-N9K" firstAttribute="top" secondItem="HEI-TJ-yhx" secondAttribute="bottom" id="izm-LO-TkT"/>
                                                 <constraint firstItem="HEI-TJ-yhx" firstAttribute="height" secondItem="Ufy-gN-tFf" secondAttribute="height" multiplier="0.571429" id="ytk-7q-u7a"/>
                                             </constraints>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                    <integer key="value" value="10"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
                                         </collectionViewCellContentView>
                                         <size key="customSize" width="176" height="183"/>
                                         <connections>
@@ -427,7 +437,7 @@
                             <constraint firstItem="TB8-MV-llW" firstAttribute="trailing" secondItem="ScL-tU-m0G" secondAttribute="trailing" constant="20" id="WcH-7n-Fdj"/>
                             <constraint firstItem="Si5-hc-dYG" firstAttribute="leading" secondItem="TB8-MV-llW" secondAttribute="leading" id="WsZ-3L-LDL"/>
                             <constraint firstItem="gWa-Yb-ib3" firstAttribute="top" secondItem="ScL-tU-m0G" secondAttribute="bottom" constant="8" id="Xid-QE-y3e"/>
-                            <constraint firstItem="ScL-tU-m0G" firstAttribute="top" secondItem="Si5-hc-dYG" secondAttribute="bottom" constant="16" id="ZDI-sh-u7W"/>
+                            <constraint firstItem="ScL-tU-m0G" firstAttribute="top" secondItem="Si5-hc-dYG" secondAttribute="bottom" constant="28" id="ZDI-sh-u7W"/>
                             <constraint firstItem="ScL-tU-m0G" firstAttribute="leading" secondItem="TB8-MV-llW" secondAttribute="leading" constant="20" id="b6U-hg-KUg"/>
                             <constraint firstItem="TB8-MV-llW" firstAttribute="trailing" secondItem="gWa-Yb-ib3" secondAttribute="trailing" id="hGp-Ql-MwZ"/>
                             <constraint firstItem="zb9-ca-gnS" firstAttribute="top" secondItem="TB8-MV-llW" secondAttribute="top" constant="8" id="hgg-DW-wpS"/>
