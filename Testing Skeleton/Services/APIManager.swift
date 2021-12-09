@@ -16,6 +16,8 @@ typealias Handler = (Swift.Result<Any?, APIError>) -> Void
 
 class APIManager {
     static let shareInstance = APIManager()
+    let url = "https://unitedpaper.backendless.app/api/users/\(userDefault.object(forKey: "userID") as! String)"
+//    let userDefault = UserDefaults.standard
 }
 
 
@@ -67,7 +69,7 @@ extension APIManager {
             switch response.result {
             case .success(let data):
                 do {
-                    let json = try JSONDecoder().decode(ResponseModel.self, from: data!)
+                    let json = try JSONDecoder().decode(LoginResponseModel.self, from: data!)
                     print(json)
                     if response.response?.statusCode == 200 {
                         completionHandler(.success(json))
@@ -110,27 +112,65 @@ extension APIManager {
 }
 
 
-// MARK: - DoctorAPI
+
+// MARK: - UpdateUserData
 extension APIManager {
     
-    func callingDoctorAPI(completionHandler: @escaping Handler) {
+    func callingUpdateUserAPI(userProfile: UserProfile, completionHandler: @escaping Handler) {
+        let headers: HTTPHeaders = [
+            "Content-Type": "application/json",
+            "user-token": "\(userDefault.object(forKey: "userLoginKey")!)"
+        ]
         
-        AF.request(doctorURL).response { response in
+        AF.request(url, method: .put, parameters: userProfile, encoder: JSONParameterEncoder.default, headers: headers).response { response in
             debugPrint(response)
             switch response.result {
             case .success(let data):
                 do {
-                    let json = try JSONDecoder().decode(Doctor.self, from: data!)
+                    let json = try JSONDecoder().decode(UserResponseModel.self, from: data!)
+                    print(json)
                     if response.response?.statusCode == 200 {
                         completionHandler(.success(json))
                         
+                    } else {
+                        completionHandler(.failure(.custom(message: "Mohon periksa kembali data dan koneksi internet anda")))
                     }
                 } catch {
                     print(error.localizedDescription)
+                    completionHandler(.failure(.custom(message: "Mohon periksa kembali data anda")))
                 }
             case .failure(let error):
                 print(error.localizedDescription)
+                completionHandler(.failure(.custom(message: "Mohon periksa kembali data anda")))
             }
         }
     }
 }
+
+
+
+
+// MARK: - DoctorAPI
+//extension APIManager {
+//
+//    func callingDoctorAPI(completionHandler: @escaping Handler) {
+//
+//        AF.request(doctorURL).response { response in
+//            debugPrint(response)
+//            switch response.result {
+//            case .success(let data):
+//                do {
+//                    let json = try JSONDecoder().decode(Doctor.self, from: data!)
+//                    if response.response?.statusCode == 200 {
+//                        completionHandler(.success(json))
+//
+//                    }
+//                } catch {
+//                    print(error.localizedDescription)
+//                }
+//            case .failure(let error):
+//                print(error.localizedDescription)
+//            }
+//        }
+//    }
+//}

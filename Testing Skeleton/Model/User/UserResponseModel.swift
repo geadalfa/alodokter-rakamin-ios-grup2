@@ -1,28 +1,28 @@
 //
-//  ResponseModel.swift
+//  UserResponseModel.swift
 //  Testing Skeleton
 //
-//  Created by Prince Alvin Yusuf on 03/12/21.
+//  Created by Prince Alvin Yusuf on 09/12/21.
 //
 
 import Foundation
 
-struct ResponseModel: Codable {
+// MARK: - DoctorModel
+struct UserResponseModel: Codable {
     let lastLogin: Int
     let address, userStatus, gender: String
     let created: Int
     let accountType, ownerID, socialAccount, birthDate: String
-    let name, responseModelClass, blUserLocale, userToken: String
+    let name, doctorModelClass, blUserLocale: String
+    let updated: Int
     let email, objectID: String
 
     enum CodingKeys: String, CodingKey {
         case lastLogin, address, userStatus, gender, created, accountType
         case ownerID = "ownerId"
         case socialAccount, birthDate, name
-        case responseModelClass = "___class"
-        case blUserLocale
-        case userToken = "user-token"
-        case email
+        case doctorModelClass = "___class"
+        case blUserLocale, updated, email
         case objectID = "objectId"
     }
 }

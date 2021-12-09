@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 class DoctorViewController: UIViewController {
     
@@ -25,8 +26,8 @@ class DoctorViewController: UIViewController {
         view.addSubview(activityIndicatorView)
         activityIndicatorView.isHidden = false
         
-        tableView.register(UINib(nibName: "Doctor", bundle: nil), forCellReuseIdentifier: "cellIdentifier")
-        tableView.rowHeight = 120
+        tableView.register(UINib(nibName: "DoctorCell", bundle: nil), forCellReuseIdentifier: "cellIdentifier")
+        tableView.rowHeight = 85
         
         displayData()
         
@@ -88,10 +89,32 @@ extension DoctorViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cellIdentifier", for: indexPath) as! DoctorCellTable
-        cell.setUpView(doctor: doctors[indexPath.row])
+        let index = doctors[indexPath.row]
+        let urlImage = URL(string: index.image)
+        cell.doctorImageView.sd_imageIndicator = SDWebImageActivityIndicator.gray
+        cell.doctorImageView.sd_setImage(with: urlImage, placeholderImage: UIImage(named: "avatar"))
+        cell.doctorNameLabel.text = index.name
+        cell.doctorProfessionLabel.text = index.spesialis
+        cell.doctorImageView.layer.cornerRadius = 40.0
+        cell.doctorImageView.layer.masksToBounds = true
+
         return cell
     }
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let index = doctors[indexPath.row]
+        let storyBoard: UIStoryboard = UIStoryboard(name: "DoctorStory", bundle: nil)
+        let detailDoctorVC = storyBoard.instantiateViewController(withIdentifier: "DoctorStoryController") as! DoctorStoryViewController
+        detailDoctorVC.doctorImageViews = index.image // Get image URL from JSON API
+        detailDoctorVC.doctorNames = index.name
+        detailDoctorVC.doctorProfession = index.spesialis
+        detailDoctorVC.doctorDescrip = index.desc
+        detailDoctorVC.hidesBottomBarWhenPushed = true
+        detailDoctorVC.navigationItem.title = index.name
+        detailDoctorVC.hidesBottomBarWhenPushed = true // Removing bottom bar in detail article screen
+        self.navigationController?.pushViewController(detailDoctorVC, animated: true)
+        self.tableView.deselectRow(at: indexPath, animated: true)
+        
+    }
 }
 
 // MARK: - UISearchBar

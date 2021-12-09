@@ -56,18 +56,20 @@ class LoginViewController: UIViewController {
             switch result {
             case .success(let json):
                 print(json)
-                let userName = (json as! ResponseModel).name
-                let userEmail = (json as! ResponseModel).email
-                let userAddress = (json as! ResponseModel).address
-                let userGender = (json as! ResponseModel).gender
-                let userBirthDate = (json as! ResponseModel).birthDate
-                let userToken = (json as! ResponseModel).userToken
+                let userName = (json as! LoginResponseModel).name
+                let userEmail = (json as! LoginResponseModel).email
+                let userAddress = (json as! LoginResponseModel).address
+                let userGender = (json as! LoginResponseModel).gender
+                let userBirthDate = (json as! LoginResponseModel).birthDate
+                let userToken = (json as! LoginResponseModel).userToken
+                let userID = (json as! LoginResponseModel).objectID
                 
                 self.userDefault.set(userName, forKey: "userName")
                 self.userDefault.set(userEmail, forKey: "userEmail")
                 self.userDefault.set(userAddress, forKey: "userAddress")
                 self.userDefault.set(userGender, forKey: "userGender")
                 self.userDefault.set(userBirthDate, forKey: "userBirthDate")
+                self.userDefault.set(userID, forKey: "userID")
                 
                 
                 Token.tokenInstance.saveToken(token: userToken)

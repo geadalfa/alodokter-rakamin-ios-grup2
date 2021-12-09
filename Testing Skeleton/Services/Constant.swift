@@ -7,6 +7,8 @@
 
 import Foundation
 
+let userDefault = UserDefaults.standard
+
 let baseURL = "https://unitedpaper.backendless.app/api/users"
 let registerURL = "\(baseURL)/register"
 let loginURL = "\(baseURL)/login"
