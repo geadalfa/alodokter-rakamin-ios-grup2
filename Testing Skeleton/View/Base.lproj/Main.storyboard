@@ -347,7 +347,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="gWa-Yb-ib3">
-                                <rect key="frame" x="0.0" y="374.5" width="414" height="521.5"/>
+                                <rect key="frame" x="0.0" y="425.5" width="414" height="470.5"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <connections>
                                     <outlet property="dataSource" destination="Dxe-fi-K00" id="UqR-47-OYt"/>
@@ -355,19 +355,19 @@
                                 </connections>
                             </tableView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Artikel Terbaru" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zb9-ca-gnS">
-                                <rect key="frame" x="20" y="96" width="374" height="25.5"/>
+                                <rect key="frame" x="20" y="147" width="374" height="25.5"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="21"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Semua Artikel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ScL-tU-m0G">
-                                <rect key="frame" x="20" y="340.5" width="374" height="26"/>
+                                <rect key="frame" x="20" y="391.5" width="374" height="26"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="21"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Si5-hc-dYG">
-                                <rect key="frame" x="0.0" y="129.5" width="414" height="183"/>
+                                <rect key="frame" x="0.0" y="180.5" width="414" height="183"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="k2C-x5-xB9">
                                     <size key="itemSize" width="176" height="183"/>
@@ -426,12 +426,24 @@
                                     <outlet property="delegate" destination="Dxe-fi-K00" id="iab-z9-8xK"/>
                                 </connections>
                             </collectionView>
+                            <searchBar contentMode="redraw" placeholder="Enter Keywords" translatesAutoresizingMaskIntoConstraints="NO" id="tSI-gh-xUc">
+                                <rect key="frame" x="0.0" y="88" width="414" height="51"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <scopeButtonTitles>
+                                    <string>Title</string>
+                                    <string>Title</string>
+                                </scopeButtonTitles>
+                                <connections>
+                                    <outlet property="delegate" destination="Dxe-fi-K00" id="CeS-bN-hox"/>
+                                </connections>
+                            </searchBar>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="TB8-MV-llW"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="Si5-hc-dYG" firstAttribute="trailing" secondItem="TB8-MV-llW" secondAttribute="trailing" id="6Zb-do-U9A"/>
                             <constraint firstItem="TB8-MV-llW" firstAttribute="trailing" secondItem="zb9-ca-gnS" secondAttribute="trailing" constant="20" id="AQv-9J-2CV"/>
+                            <constraint firstItem="tSI-gh-xUc" firstAttribute="leading" secondItem="TB8-MV-llW" secondAttribute="leading" id="GZ0-Sl-NfD"/>
                             <constraint firstItem="Si5-hc-dYG" firstAttribute="top" secondItem="zb9-ca-gnS" secondAttribute="bottom" constant="8" id="PEz-w5-cME"/>
                             <constraint firstItem="Si5-hc-dYG" firstAttribute="height" secondItem="4Ct-Jr-vgS" secondAttribute="height" multiplier="0.204241" id="QUB-F2-FC9"/>
                             <constraint firstItem="TB8-MV-llW" firstAttribute="trailing" secondItem="ScL-tU-m0G" secondAttribute="trailing" constant="20" id="WcH-7n-Fdj"/>
@@ -439,17 +451,20 @@
                             <constraint firstItem="gWa-Yb-ib3" firstAttribute="top" secondItem="ScL-tU-m0G" secondAttribute="bottom" constant="8" id="Xid-QE-y3e"/>
                             <constraint firstItem="ScL-tU-m0G" firstAttribute="top" secondItem="Si5-hc-dYG" secondAttribute="bottom" constant="28" id="ZDI-sh-u7W"/>
                             <constraint firstItem="ScL-tU-m0G" firstAttribute="leading" secondItem="TB8-MV-llW" secondAttribute="leading" constant="20" id="b6U-hg-KUg"/>
+                            <constraint firstItem="zb9-ca-gnS" firstAttribute="top" secondItem="tSI-gh-xUc" secondAttribute="bottom" constant="8" id="cVw-8n-ddM"/>
                             <constraint firstItem="TB8-MV-llW" firstAttribute="trailing" secondItem="gWa-Yb-ib3" secondAttribute="trailing" id="hGp-Ql-MwZ"/>
-                            <constraint firstItem="zb9-ca-gnS" firstAttribute="top" secondItem="TB8-MV-llW" secondAttribute="top" constant="8" id="hgg-DW-wpS"/>
                             <constraint firstItem="gWa-Yb-ib3" firstAttribute="leading" secondItem="TB8-MV-llW" secondAttribute="leading" id="hjM-Tb-qvL"/>
                             <constraint firstItem="zb9-ca-gnS" firstAttribute="leading" secondItem="TB8-MV-llW" secondAttribute="leading" constant="20" id="na7-Wj-gKm"/>
                             <constraint firstAttribute="bottom" secondItem="gWa-Yb-ib3" secondAttribute="bottom" id="nsq-dn-9s3"/>
+                            <constraint firstItem="tSI-gh-xUc" firstAttribute="top" secondItem="TB8-MV-llW" secondAttribute="top" id="pwt-0y-zmg"/>
+                            <constraint firstItem="tSI-gh-xUc" firstAttribute="trailing" secondItem="TB8-MV-llW" secondAttribute="trailing" id="tQ1-FY-acA"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Artikel" id="0v6-44-sce"/>
                     <connections>
                         <outlet property="articleCollectionView" destination="Si5-hc-dYG" id="zPn-a4-wnq"/>
                         <outlet property="articleTableView" destination="gWa-Yb-ib3" id="RMs-BM-Pwt"/>
+                        <outlet property="searchBar" destination="tSI-gh-xUc" id="IFh-e6-DAb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="w1r-Zn-88c" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

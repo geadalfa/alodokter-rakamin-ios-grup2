@@ -8,17 +8,19 @@
 import UIKit
 import SDWebImage
 
-class ArticleViewController: UIViewController {
+class ArticleViewController: UIViewController, UISearchBarDelegate {
     
     // Outlets
     @IBOutlet weak var articleCollectionView: UICollectionView!
     @IBOutlet weak var articleTableView: UITableView!
+    @IBOutlet weak var searchBar: UISearchBar!
     
     
     // Variables
     var ModelArticle = FetchArticle(status: "", totalResults: 0, articles: nil)
     let activityIndicatorCollectionView = UIActivityIndicatorView(style: .large)
     let activityIndicatorTableView = UIActivityIndicatorView(style: .large)
+    var searchBarText: String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,8 +29,17 @@ class ArticleViewController: UIViewController {
         articleTableView.rowHeight = 140
         displayData()
     }
+}
+
+extension ArticleViewController {
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        print("Canceled!")
+        searchBar.endEditing(true)
+    }
     
-    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        print("Search Text: \(searchText)")
+    }
 }
 
 // MARK: - UICollectionView
