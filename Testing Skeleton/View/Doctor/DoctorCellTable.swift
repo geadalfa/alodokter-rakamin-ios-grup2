@@ -14,7 +14,6 @@ class DoctorCellTable: UITableViewCell {
     @IBOutlet var doctorNameLabel: UILabel!
     @IBOutlet var doctorImageView: UIImageView!
     @IBOutlet var doctorProfessionLabel: UILabel!
-    @IBOutlet var doctorDescription: UILabel!
     
     
     override func awakeFromNib() {
@@ -32,8 +31,10 @@ class DoctorCellTable: UITableViewCell {
     func setUpView(doctor: Doctor) {
         doctorNameLabel.text = doctor.name
         doctorProfessionLabel.text = doctor.address
-        doctorDescription.text = doctor.email
-        doctorImageView.image = UIImage(named: "logo")
+        doctorImageView.image = UIImage(named: "avatar")
+        doctorImageView.layer.borderWidth = 0.2
+        doctorImageView.layer.masksToBounds = false
+        doctorImageView.layer.borderColor = UIColor.white.cgColor
     }
 
 }

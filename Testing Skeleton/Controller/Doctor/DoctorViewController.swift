@@ -27,7 +27,7 @@ class DoctorViewController: UIViewController {
         activityIndicatorView.isHidden = false
         
         tableView.register(UINib(nibName: "DoctorCell", bundle: nil), forCellReuseIdentifier: "cellIdentifier")
-        tableView.rowHeight = 70
+        tableView.rowHeight = 85
         
         displayData()
         
@@ -95,7 +95,9 @@ extension DoctorViewController: UITableViewDelegate, UITableViewDataSource {
         cell.doctorImageView.sd_setImage(with: urlImage, placeholderImage: UIImage(named: "avatar"))
         cell.doctorNameLabel.text = index.name
         cell.doctorProfessionLabel.text = index.spesialis
-        
+        cell.doctorImageView.layer.cornerRadius = 40.0
+        cell.doctorImageView.layer.masksToBounds = true
+
         return cell
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
