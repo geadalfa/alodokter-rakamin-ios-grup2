@@ -16,7 +16,6 @@ class ArticleViewController: UIViewController {
     
     
     // Variables
-    let articleModel = ArticleModel()
     var ModelArticle = FetchArticle(status: "", totalResults: 0, articles: nil)
     
     override func viewDidLoad() {

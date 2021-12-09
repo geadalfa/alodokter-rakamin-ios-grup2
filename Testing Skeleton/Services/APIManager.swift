@@ -16,8 +16,7 @@ typealias Handler = (Swift.Result<Any?, APIError>) -> Void
 
 class APIManager {
     static let shareInstance = APIManager()
-    let url = "https://unitedpaper.backendless.app/api/users/\(userDefault.object(forKey: "userID") as! String)"
-//    let userDefault = UserDefaults.standard
+    let url = "https://unitedpaper.backendless.app/api/users/\(userDefault.object(forKey: "userID") ?? "")"
 }
 
 
@@ -35,7 +34,7 @@ extension APIManager {
             case .success(let data):
                 do {
                     let json = try JSONSerialization.jsonObject(with: data!, options: [])
-                    print(json)
+//                    print(json)
                     
                     if response.response?.statusCode == 200 {
                         completionHandler(true, "Terima Kasih Sudah Mendaftar di Alodokter")
@@ -70,7 +69,7 @@ extension APIManager {
             case .success(let data):
                 do {
                     let json = try JSONDecoder().decode(LoginResponseModel.self, from: data!)
-                    print(json)
+//                    print(json)
                     if response.response?.statusCode == 200 {
                         completionHandler(.success(json))
                         
@@ -128,7 +127,7 @@ extension APIManager {
             case .success(let data):
                 do {
                     let json = try JSONDecoder().decode(UserResponseModel.self, from: data!)
-                    print(json)
+//                    print(json)
                     if response.response?.statusCode == 200 {
                         completionHandler(.success(json))
                         
@@ -146,31 +145,3 @@ extension APIManager {
         }
     }
 }
-
-
-
-
-// MARK: - DoctorAPI
-//extension APIManager {
-//
-//    func callingDoctorAPI(completionHandler: @escaping Handler) {
-//
-//        AF.request(doctorURL).response { response in
-//            debugPrint(response)
-//            switch response.result {
-//            case .success(let data):
-//                do {
-//                    let json = try JSONDecoder().decode(Doctor.self, from: data!)
-//                    if response.response?.statusCode == 200 {
-//                        completionHandler(.success(json))
-//
-//                    }
-//                } catch {
-//                    print(error.localizedDescription)
-//                }
-//            case .failure(let error):
-//                print(error.localizedDescription)
-//            }
-//        }
-//    }
-//}

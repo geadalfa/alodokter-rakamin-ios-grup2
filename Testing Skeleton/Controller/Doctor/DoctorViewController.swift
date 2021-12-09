@@ -103,7 +103,7 @@ extension DoctorViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let index = doctors[indexPath.row]
         let storyBoard: UIStoryboard = UIStoryboard(name: "DoctorStory", bundle: nil)
-        let detailDoctorVC = storyBoard.instantiateViewController(withIdentifier: "DoctorStoryController") as! DoctorStoryViewController
+        let detailDoctorVC = storyBoard.instantiateViewController(withIdentifier: "DoctorStoryController") as! DoctorDetailViewController
         detailDoctorVC.doctorImageViews = index.image // Get image URL from JSON API
         detailDoctorVC.doctorNames = index.name
         detailDoctorVC.doctorProfession = index.spesialis

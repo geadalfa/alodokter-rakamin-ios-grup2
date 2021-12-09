@@ -8,7 +8,7 @@
 import UIKit
 import SDWebImage
 
-class DoctorStoryViewController: UIViewController {
+class DoctorDetailViewController: UIViewController {
 
     // Outlets
     @IBOutlet weak var doctorImageView: UIImageView!

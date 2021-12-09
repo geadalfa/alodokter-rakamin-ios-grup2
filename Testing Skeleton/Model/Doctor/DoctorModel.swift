@@ -12,8 +12,3 @@ struct DoctorModel {
     var content: String
     var image: String
 }
-
-//struct FetchDoctor {
-//    var name: String
-//}
-

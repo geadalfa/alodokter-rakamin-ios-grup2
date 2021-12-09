@@ -153,7 +153,7 @@ class ChangeProfileViewController: UIViewController, UIImagePickerControllerDele
         APIManager.shareInstance.callingUpdateUserAPI(userProfile: userProfile) { (result) in
             switch result {
             case .success(let json):
-                print(json)
+//                print(json)
                 let userName = (json as! UserResponseModel).name
                 let userAddress = (json as! UserResponseModel).address
                 let userGender = (json as! UserResponseModel).gender
