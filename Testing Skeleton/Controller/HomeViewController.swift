@@ -19,8 +19,6 @@ class HomeViewController: UIViewController {
     
     // Variables
     let activityIndicatorView = UIActivityIndicatorView(style: .large)
-    let articleModel = ArticleModel()
-    let doctorModel = DoctorModels()
     let userDefault = UserDefaults.standard
     var doctors = [Doctor]()
     var article = FetchArticle(status: "", totalResults: 0, articles: nil)
@@ -185,7 +183,7 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
             if UserDefaults.standard.string(forKey: "userName") != nil {
                 let indexPath = doctors[indexPath.row]
                 let storyBoard: UIStoryboard = UIStoryboard(name: "DoctorStory", bundle: nil)
-                let detailDoctorVC = storyBoard.instantiateViewController(withIdentifier: "DoctorStoryController") as! DoctorStoryViewController
+                let detailDoctorVC = storyBoard.instantiateViewController(withIdentifier: "DoctorStoryController") as! DoctorDetailViewController
                 detailDoctorVC.doctorImageViews = indexPath.image // Get image URL from JSON API
                 detailDoctorVC.doctorNames = indexPath.name
                 detailDoctorVC.doctorProfession = indexPath.spesialis

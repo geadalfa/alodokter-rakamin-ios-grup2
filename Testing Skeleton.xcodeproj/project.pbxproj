@@ -12,7 +12,7 @@
 		423B9B7B275B62A400484795 /* ChangePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423B9B7A275B62A400484795 /* ChangePasswordViewController.swift */; };
 		423B9B7D275B62B700484795 /* ChangeProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423B9B7C275B62B700484795 /* ChangeProfileViewController.swift */; };
 		504BE3FC275DC07D008E83A3 /* DoctorStory.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 504BE3FB275DC07D008E83A3 /* DoctorStory.storyboard */; };
-		504BE3FE275DC0CD008E83A3 /* DoctorStoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 504BE3FD275DC0CD008E83A3 /* DoctorStoryViewController.swift */; };
+		504BE3FE275DC0CD008E83A3 /* DoctorDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 504BE3FD275DC0CD008E83A3 /* DoctorDetailViewController.swift */; };
 		9F01DDBF27587145006FCE6E /* ArticleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F01DDBE27587145006FCE6E /* ArticleViewController.swift */; };
 		9F01DDC127587437006FCE6E /* ArticleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F01DDC027587437006FCE6E /* ArticleTableViewCell.swift */; };
 		9F201D5E275C8FA700D44C8A /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9F201D5D275C8FA700D44C8A /* Login.storyboard */; };
@@ -46,11 +46,8 @@
 		9FC16C8327602B400031F6AC /* Slide.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9FC16C8227602B400031F6AC /* Slide.xib */; };
 		9FE7B10E2758A5F300D74FFB /* DetailArticleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FE7B10D2758A5F300D74FFB /* DetailArticleViewController.swift */; };
 		9FEACE5A275C2BD200EE3FF2 /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FEACE59275C2BD200EE3FF2 /* Token.swift */; };
-		9FFD38642758431D003EC14A /* ArticleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FFD38632758431D003EC14A /* ArticleModel.swift */; };
-		9FFD386627584343003EC14A /* Articles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FFD386527584343003EC14A /* Articles.swift */; };
+		9FFD386627584343003EC14A /* Article.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FFD386527584343003EC14A /* Article.swift */; };
 		9FFD38672758485B003EC14A /* DoctorCellCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F89269E2757B8E100354385 /* DoctorCellCollection.swift */; };
-		9FFD386927584942003EC14A /* Doctors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FFD386827584942003EC14A /* Doctors.swift */; };
-		9FFD386B2758496D003EC14A /* DoctorModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FFD386A2758496D003EC14A /* DoctorModels.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -60,7 +57,7 @@
 		423B9B7C275B62B700484795 /* ChangeProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeProfileViewController.swift; sourceTree = "<group>"; };
 		45F5C13A364CD51D6296FDE0 /* Pods-Testing Skeleton.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Testing Skeleton.debug.xcconfig"; path = "Target Support Files/Pods-Testing Skeleton/Pods-Testing Skeleton.debug.xcconfig"; sourceTree = "<group>"; };
 		504BE3FB275DC07D008E83A3 /* DoctorStory.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DoctorStory.storyboard; sourceTree = "<group>"; };
-		504BE3FD275DC0CD008E83A3 /* DoctorStoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoctorStoryViewController.swift; sourceTree = "<group>"; };
+		504BE3FD275DC0CD008E83A3 /* DoctorDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoctorDetailViewController.swift; sourceTree = "<group>"; };
 		93696B5F7ABA25E0F8A8EA05 /* Pods-Testing Skeleton.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Testing Skeleton.release.xcconfig"; path = "Target Support Files/Pods-Testing Skeleton/Pods-Testing Skeleton.release.xcconfig"; sourceTree = "<group>"; };
 		9F01DDBE27587145006FCE6E /* ArticleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleViewController.swift; sourceTree = "<group>"; };
 		9F01DDC027587437006FCE6E /* ArticleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleTableViewCell.swift; sourceTree = "<group>"; };
@@ -98,10 +95,7 @@
 		9FC16C8227602B400031F6AC /* Slide.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Slide.xib; sourceTree = "<group>"; };
 		9FE7B10D2758A5F300D74FFB /* DetailArticleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailArticleViewController.swift; sourceTree = "<group>"; };
 		9FEACE59275C2BD200EE3FF2 /* Token.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Token.swift; sourceTree = "<group>"; };
-		9FFD38632758431D003EC14A /* ArticleModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleModel.swift; sourceTree = "<group>"; };
-		9FFD386527584343003EC14A /* Articles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Articles.swift; sourceTree = "<group>"; };
-		9FFD386827584942003EC14A /* Doctors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Doctors.swift; sourceTree = "<group>"; };
-		9FFD386A2758496D003EC14A /* DoctorModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoctorModels.swift; sourceTree = "<group>"; };
+		9FFD386527584343003EC14A /* Article.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Article.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -179,7 +173,7 @@
 			isa = PBXGroup;
 			children = (
 				9FA485BF275B7AC200FD3404 /* DoctorViewController.swift */,
-				504BE3FD275DC0CD008E83A3 /* DoctorStoryViewController.swift */,
+				504BE3FD275DC0CD008E83A3 /* DoctorDetailViewController.swift */,
 			);
 			path = Doctor;
 			sourceTree = "<group>";
@@ -223,8 +217,7 @@
 		9F5244D1275CED2200DCC0FB /* Article */ = {
 			isa = PBXGroup;
 			children = (
-				9FFD38632758431D003EC14A /* ArticleModel.swift */,
-				9FFD386527584343003EC14A /* Articles.swift */,
+				9FFD386527584343003EC14A /* Article.swift */,
 			);
 			path = Article;
 			sourceTree = "<group>";
@@ -246,8 +239,6 @@
 				9F5244D1275CED2200DCC0FB /* Article */,
 				9F4B8F812759FA3E007376FA /* Login */,
 				9F4D02CB2758D6F700094C1A /* Register */,
-				9FFD386827584942003EC14A /* Doctors.swift */,
-				9FFD386A2758496D003EC14A /* DoctorModels.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -495,10 +486,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				9F5244D4275CED4400DCC0FB /* Doctor.swift in Sources */,
-				504BE3FE275DC0CD008E83A3 /* DoctorStoryViewController.swift in Sources */,
+				504BE3FE275DC0CD008E83A3 /* DoctorDetailViewController.swift in Sources */,
 				9F3134D027620658008EA3B0 /* UserProfile.swift in Sources */,
 				9F4D02CF2758D73A00094C1A /* APIManager.swift in Sources */,
-				9FFD386627584343003EC14A /* Articles.swift in Sources */,
+				9FFD386627584343003EC14A /* Article.swift in Sources */,
 				9F8A68D12755D9C20005E329 /* LoginViewController.swift in Sources */,
 				9F8A68CD2755D9C20005E329 /* AppDelegate.swift in Sources */,
 				9FE7B10E2758A5F300D74FFB /* DetailArticleViewController.swift in Sources */,
@@ -508,16 +499,13 @@
 				9F4D02CA2758D62B00094C1A /* Constant.swift in Sources */,
 				9F01DDBF27587145006FCE6E /* ArticleViewController.swift in Sources */,
 				9FEACE5A275C2BD200EE3FF2 /* Token.swift in Sources */,
-				9FFD386927584942003EC14A /* Doctors.swift in Sources */,
 				423B9B7B275B62A400484795 /* ChangePasswordViewController.swift in Sources */,
-				9FFD386B2758496D003EC14A /* DoctorModels.swift in Sources */,
 				9F4D02CD2758D70300094C1A /* RegisterModel.swift in Sources */,
 				9F4B8F802759FA38007376FA /* LoginModel.swift in Sources */,
 				9F4D02D12758D96600094C1A /* RegisterViewController.swift in Sources */,
 				9FC16C7F2760294F0031F6AC /* WelcomeVC.swift in Sources */,
 				9F3134D2276211A4008EA3B0 /* UserResponseModel.swift in Sources */,
 				9FC16C8127602B020031F6AC /* SlideView.swift in Sources */,
-				9FFD38642758431D003EC14A /* ArticleModel.swift in Sources */,
 				423B9B7D275B62B700484795 /* ChangeProfileViewController.swift in Sources */,
 				9FFD38672758485B003EC14A /* DoctorCellCollection.swift in Sources */,
 				423B9B79275B628900484795 /* ProfileViewController.swift in Sources */,

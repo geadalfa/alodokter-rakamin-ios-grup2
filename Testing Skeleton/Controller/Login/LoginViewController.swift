@@ -55,7 +55,7 @@ class LoginViewController: UIViewController {
         APIManager.shareInstance.callingLoginAPI(login: loginModel) { (result) in
             switch result {
             case .success(let json):
-                print(json)
+//                print(json)
                 let userName = (json as! LoginResponseModel).name
                 let userEmail = (json as! LoginResponseModel).email
                 let userAddress = (json as! LoginResponseModel).address
