@@ -112,6 +112,9 @@
                                         <integer key="value" value="16"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="savePressed:" destination="Z21-hn-z4P" eventType="touchUpInside" id="f73-67-jhQ"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="tKF-7r-LRL"/>
@@ -140,7 +143,6 @@
                         <outlet property="gender" destination="sZ3-Cw-MnR" id="iD9-nb-PY7"/>
                         <outlet property="imageProfile" destination="j54-aC-WZW" id="JZr-MX-Das"/>
                         <outlet property="name" destination="1w3-SU-3y7" id="kIH-ua-dfX"/>
-                        <outlet property="saveButton" destination="zfl-IA-kze" id="98f-Jt-yS0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cZS-cS-p8A" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

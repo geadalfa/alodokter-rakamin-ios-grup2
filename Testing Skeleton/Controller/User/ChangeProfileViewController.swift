@@ -14,10 +14,8 @@ class ChangeProfileViewController: UIViewController, UIImagePickerControllerDele
     @IBOutlet var imageProfile: UIImageView!
     @IBOutlet var changeImageButton: UIButton!
     @IBOutlet var address: UITextField!
-    @IBOutlet var phoneNumber: UITextField!
     @IBOutlet var gender: UITextField!
     @IBOutlet var dateOfBirth: UITextField!
-    @IBOutlet var saveButton: UIButton!
     
     // Variables
     let genderOption: [String] = ["Laki-laki", "Perempuan"]
@@ -147,6 +145,40 @@ class ChangeProfileViewController: UIViewController, UIImagePickerControllerDele
         formatter.dateFormat = "MMMM dd yyyy"
         return formatter.string(from: date)
     }
+    
+    @IBAction func savePressed(_ sender: UIButton) {
+        
+        print("Save Profile Pressed")
+        let userProfile = UserProfile(name: name.text ?? userDefault.object(forKey: "userName") as! String, address: address.text ?? userDefault.object(forKey: "userAddress") as! String , gender: gender.text ?? userDefault.object(forKey: "userGender") as! String , birthDate: dateOfBirth.text ?? userDefault.object(forKey: "userBirthDate") as! String)
+        APIManager.shareInstance.callingUpdateUserAPI(userProfile: userProfile) { (result) in
+            switch result {
+            case .success(let json):
+                print(json)
+                let userName = (json as! UserResponseModel).name
+                let userAddress = (json as! UserResponseModel).address
+                let userGender = (json as! UserResponseModel).gender
+                let userBirthDate = (json as! UserResponseModel).birthDate
+                
+                self.userDefault.set(userName, forKey: "userName")
+                self.userDefault.set(userAddress, forKey: "userAddress")
+                self.userDefault.set(userGender, forKey: "userGender")
+                self.userDefault.set(userBirthDate, forKey: "userBirthDate")
+                
+                self.dismiss(animated: true, completion: nil)
+                
+            case .failure(let error):
+                print(error.localizedDescription)
+                let alertController = UIAlertController(title: "Terjadi Kesalahan", message:
+                                                            "Mohon Periksa Kembali Data dan Jaringan Internet Anda", preferredStyle: .alert)
+                let action = UIAlertAction(title: "Tutup", style: .default)
+                
+                alertController.addAction(action)
+                self.present(alertController, animated: true, completion: nil)
+            }
+        }
+        
+    }
+    
 }
 
 // MARK: - UIPickerView
