@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 class DoctorViewController: UIViewController {
     
@@ -26,7 +27,7 @@ class DoctorViewController: UIViewController {
         activityIndicatorView.isHidden = false
         
         tableView.register(UINib(nibName: "Doctor", bundle: nil), forCellReuseIdentifier: "cellIdentifier")
-        tableView.rowHeight = 120
+        tableView.rowHeight = 70
         
         displayData()
         
@@ -88,7 +89,13 @@ extension DoctorViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cellIdentifier", for: indexPath) as! DoctorCellTable
-        cell.setUpView(doctor: doctors[indexPath.row])
+        let index = doctors[indexPath.row]
+        let urlImage = URL(string: index.image)
+        cell.doctorImageView.sd_imageIndicator = SDWebImageActivityIndicator.gray
+        cell.doctorImageView.sd_setImage(with: urlImage, placeholderImage: UIImage(named: "avatar"))
+        cell.doctorNameLabel.text = index.name
+        cell.doctorProfessionLabel.text = index.spesialis
+        
         return cell
     }
     
