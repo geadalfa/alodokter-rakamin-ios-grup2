@@ -26,7 +26,7 @@ class DoctorViewController: UIViewController {
         view.addSubview(activityIndicatorView)
         activityIndicatorView.isHidden = false
         
-        tableView.register(UINib(nibName: "Doctor", bundle: nil), forCellReuseIdentifier: "cellIdentifier")
+        tableView.register(UINib(nibName: "DoctorCell", bundle: nil), forCellReuseIdentifier: "cellIdentifier")
         tableView.rowHeight = 70
         
         displayData()
@@ -98,7 +98,21 @@ extension DoctorViewController: UITableViewDelegate, UITableViewDataSource {
         
         return cell
     }
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let index = doctors[indexPath.row]
+        let storyBoard: UIStoryboard = UIStoryboard(name: "DoctorStory", bundle: nil)
+        let detailDoctorVC = storyBoard.instantiateViewController(withIdentifier: "DoctorStoryController") as! DoctorStoryViewController
+        detailDoctorVC.doctorImageViews = index.image // Get image URL from JSON API
+        detailDoctorVC.doctorNames = index.name
+        detailDoctorVC.doctorProfession = index.spesialis
+        detailDoctorVC.doctorDescrip = index.desc
+        detailDoctorVC.hidesBottomBarWhenPushed = true
+        detailDoctorVC.navigationItem.title = index.name
+        detailDoctorVC.hidesBottomBarWhenPushed = true // Removing bottom bar in detail article screen
+        self.navigationController?.pushViewController(detailDoctorVC, animated: true)
+        self.tableView.deselectRow(at: indexPath, animated: true)
+        
+    }
 }
 
 // MARK: - UISearchBar
