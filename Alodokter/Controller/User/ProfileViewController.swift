@@ -21,6 +21,7 @@ class ProfileViewController: UIViewController {
     
     // Variables
     let userDefault = UserDefaults.standard
+    let illustrateImage = IlustrateImage()
     
 
     override func viewDidLoad() {
@@ -28,49 +29,19 @@ class ProfileViewController: UIViewController {
 
         if userDefault.object(forKey: "userLoginKey") as? String != nil {
             print("token available")
-            userName.text = userDefault.object(forKey: "userName") as? String
-            userEmail.text = userDefault.object(forKey: "userEmail") as? String
-            userBirth.text = userDefault.object(forKey: "userBirthDate") as? String
+//            userName.text = userDefault.object(forKey: "userName") as? String
+//            userEmail.text = userDefault.object(forKey: "userEmail") as? String
+//            userBirth.text = userDefault.object(forKey: "userBirthDate") as? String
             loginBarButtonItem.isEnabled = false
             self.navigationItem.setRightBarButton(nil, animated: true)
         } else {
             print("token not available")
-            getImage()
+            illustrateImage.getImage(view: view)
             stackViewOne.isHidden = true
             stackViewTwo.isHidden = true
             logOutButton.isHidden = true
         }
         
-    }
-    
-    func getImage() {
-        let illustrationImage = UIImage(named: "loginImage.png")
-        
-        let myImageView:UIImageView = UIImageView()
-        myImageView.contentMode = UIView.ContentMode.scaleAspectFit
-        myImageView.frame.size.width = 300
-        myImageView.frame.size.height = 300
-        myImageView.image = illustrationImage
-        
-        let label = UILabel(frame: CGRect(x: 0, y: 0, width: 200, height: 40))
-        label.font = UIFont.boldSystemFont(ofSize: 16.0)
-        label.textAlignment = .center
-        label.numberOfLines = 0
-        label.text = "Harap login dahulu untuk menikmati fitur ini"
-
-        //imageview constraint
-        view.addSubview(myImageView)
-        myImageView.translatesAutoresizingMaskIntoConstraints = false
-        myImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        myImageView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
-        myImageView.widthAnchor.constraint(equalToConstant: 300 ).isActive = true
-        myImageView.heightAnchor.constraint(equalToConstant: 300).isActive = true
-        
-        //label constraint
-        view.addSubview(label)
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.topAnchor.constraint(equalTo: myImageView.bottomAnchor, constant: 20).isActive = true
-        label.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
     }
 
     
@@ -119,3 +90,33 @@ class ProfileViewController: UIViewController {
     
 }
 
+// MARK: - Display User Information
+//extension ProfileViewController {
+//    func displayData() {
+//        guard let url = URL(string: "https://newsapi.org/v2/top-headlines?country=id&apiKey=c910bfd484464746b4c911b0615c1028") else { return }
+//        URLSession.shared.dataTask(with: url) { (data, response, error) in
+//            if let data = data {
+//                if let decodedPosts = try? JSONDecoder().decode(FetchArticle.self, from: data) {
+//                    self.ModelArticle = decodedPosts
+//                    print("Debug: \(decodedPosts.articles?.count)")
+//                    DispatchQueue.main.async {
+//                        //self.activityIndicatorView.stopAnimating()
+//                        //self.activityIndicatorView.isHidden = true
+//                        self.activityIndicatorCollectionView.stopAnimating()
+//                        self.activityIndicatorCollectionView.isHidden = true
+//                        self.activityIndicatorTableView.stopAnimating()
+//                        self.activityIndicatorTableView.isHidden = true
+//                        self.articleCollectionView.reloadData()
+//                        self.articleTableView.reloadData()
+//                    }
+//                } else {
+//                    debugPrint("Failure to decode posts.")
+//                    print(error?.localizedDescription)
+//                }
+//            } else {
+//                debugPrint("Failure to get data.")
+//            }
+//        }.resume()
+//    }
+//}
+//

@@ -15,6 +15,7 @@
 		5323F2C47545DB666D587857 /* Pods_Alodokter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58BC808D213CAE4CD20C256D /* Pods_Alodokter.framework */; };
 		9F01DDBF27587145006FCE6E /* ArticleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F01DDBE27587145006FCE6E /* ArticleViewController.swift */; };
 		9F01DDC127587437006FCE6E /* ArticleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F01DDC027587437006FCE6E /* ArticleTableViewCell.swift */; };
+		9F0E9B682763652F009C7629 /* IllustrateLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F0E9B672763652F009C7629 /* IllustrateLogin.swift */; };
 		9F1465BE27635CB400EFAD5E /* UserPassword.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F1465BD27635CB400EFAD5E /* UserPassword.swift */; };
 		9F201D5E275C8FA700D44C8A /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9F201D5D275C8FA700D44C8A /* Login.storyboard */; };
 		9F201D60275C8FBF00D44C8A /* Register.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9F201D5F275C8FBF00D44C8A /* Register.storyboard */; };
@@ -63,6 +64,7 @@
 		93696B5F7ABA25E0F8A8EA05 /* Pods-Testing Skeleton.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Testing Skeleton.release.xcconfig"; path = "Target Support Files/Pods-Testing Skeleton/Pods-Testing Skeleton.release.xcconfig"; sourceTree = "<group>"; };
 		9F01DDBE27587145006FCE6E /* ArticleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleViewController.swift; sourceTree = "<group>"; };
 		9F01DDC027587437006FCE6E /* ArticleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleTableViewCell.swift; sourceTree = "<group>"; };
+		9F0E9B672763652F009C7629 /* IllustrateLogin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IllustrateLogin.swift; sourceTree = "<group>"; };
 		9F1465BD27635CB400EFAD5E /* UserPassword.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPassword.swift; sourceTree = "<group>"; };
 		9F201D5D275C8FA700D44C8A /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		9F201D5F275C8FBF00D44C8A /* Register.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Register.storyboard; sourceTree = "<group>"; };
@@ -137,6 +139,7 @@
 			children = (
 				9F201D64275C98AE00D44C8A /* ChangePassword.storyboard */,
 				9F201D66275C98E400D44C8A /* ChangeProfile.storyboard */,
+				9F0E9B672763652F009C7629 /* IllustrateLogin.swift */,
 			);
 			path = User;
 			sourceTree = "<group>";
@@ -502,6 +505,7 @@
 				9FE7B10E2758A5F300D74FFB /* DetailArticleViewController.swift in Sources */,
 				9F01DDC127587437006FCE6E /* ArticleTableViewCell.swift in Sources */,
 				9F601A1C275834640066D41D /* ArticleCellCollection.swift in Sources */,
+				9F0E9B682763652F009C7629 /* IllustrateLogin.swift in Sources */,
 				9FA485C2275B815000FD3404 /* DoctorCellTable.swift in Sources */,
 				9F4D02CA2758D62B00094C1A /* Constant.swift in Sources */,
 				9F01DDBF27587145006FCE6E /* ArticleViewController.swift in Sources */,
