@@ -7,7 +7,7 @@
 
 import Foundation
 
-// MARK: - DoctorModel
+// MARK: - UserResponseModel
 struct UserResponseModel: Codable {
     let lastLogin: Int
     let address, userStatus, gender: String

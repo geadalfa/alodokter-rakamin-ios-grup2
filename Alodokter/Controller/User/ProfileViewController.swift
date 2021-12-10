@@ -32,6 +32,7 @@ class ProfileViewController: UIViewController {
 //            userName.text = userDefault.object(forKey: "userName") as? String
 //            userEmail.text = userDefault.object(forKey: "userEmail") as? String
 //            userBirth.text = userDefault.object(forKey: "userBirthDate") as? String
+            displayData()
             loginBarButtonItem.isEnabled = false
             self.navigationItem.setRightBarButton(nil, animated: true)
         } else {
@@ -90,33 +91,25 @@ class ProfileViewController: UIViewController {
     
 }
 
+extension ProfileViewController {
+    
+
 // MARK: - Display User Information
-//extension ProfileViewController {
-//    func displayData() {
-//        guard let url = URL(string: "https://newsapi.org/v2/top-headlines?country=id&apiKey=c910bfd484464746b4c911b0615c1028") else { return }
-//        URLSession.shared.dataTask(with: url) { (data, response, error) in
-//            if let data = data {
-//                if let decodedPosts = try? JSONDecoder().decode(FetchArticle.self, from: data) {
-//                    self.ModelArticle = decodedPosts
-//                    print("Debug: \(decodedPosts.articles?.count)")
-//                    DispatchQueue.main.async {
-//                        //self.activityIndicatorView.stopAnimating()
-//                        //self.activityIndicatorView.isHidden = true
-//                        self.activityIndicatorCollectionView.stopAnimating()
-//                        self.activityIndicatorCollectionView.isHidden = true
-//                        self.activityIndicatorTableView.stopAnimating()
-//                        self.activityIndicatorTableView.isHidden = true
-//                        self.articleCollectionView.reloadData()
-//                        self.articleTableView.reloadData()
-//                    }
-//                } else {
-//                    debugPrint("Failure to decode posts.")
-//                    print(error?.localizedDescription)
-//                }
-//            } else {
-//                debugPrint("Failure to get data.")
-//            }
-//        }.resume()
-//    }
-//}
-//
+func displayData() {
+    APIManager.shareInstance.callingUserDataAPI()  { (result) in
+        switch result {
+        case .success(let json):
+            print(json)
+            DispatchQueue.main.async {
+                self.userName.text = (json as! UserResponseModel).name
+                self.userEmail.text = (json as! UserResponseModel).email
+                self.userBirth.text = (json as! UserResponseModel).birthDate
+            }
+        case .failure(let error):
+            print(error.localizedDescription)
+           
+        }
+    }
+}
+
+}

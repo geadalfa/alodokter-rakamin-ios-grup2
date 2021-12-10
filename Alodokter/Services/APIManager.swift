@@ -180,3 +180,34 @@ extension APIManager {
         }
     }
 }
+
+
+// MARK: - GetUserData
+extension APIManager {
+    
+    func callingUserDataAPI(completionHandler: @escaping Handler) {
+        
+        AF.request(url, method: .get).response { response in
+            debugPrint(response)
+            switch response.result {
+            case .success(let data):
+                do {
+                    let json = try JSONDecoder().decode(UserResponseModel.self, from: data!)
+//                    print(json)
+                    if response.response?.statusCode == 200 {
+                        completionHandler(.success(json))
+                        
+                    } else {
+                        completionHandler(.failure(.custom(message: "Mohon periksa kembali data dan koneksi internet anda")))
+                    }
+                } catch {
+                    print(error.localizedDescription)
+                    completionHandler(.failure(.custom(message: "Mohon periksa kembali data anda")))
+                }
+            case .failure(let error):
+                print(error.localizedDescription)
+                completionHandler(.failure(.custom(message: "Mohon periksa kembali data anda")))
+            }
+        }
+    }
+}
