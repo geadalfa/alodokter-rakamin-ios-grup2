@@ -8,6 +8,11 @@
 import UIKit
 import IQKeyboardManagerSwift
 
+protocol UserTokenAndIdDelegate {
+    func userTokenAndId(userToken: String, userID: String)
+    func loginHidden(login: Bool)
+}
+
 class LoginViewController: UIViewController {
 
     // Outlets
@@ -20,12 +25,12 @@ class LoginViewController: UIViewController {
     var fromHome: Bool = false
     let udService = UserDefaultService.instance
     let activityIndicatorView = UIActivityIndicatorView(style: .large)
+    var userTokenAndIdDelegate: UserTokenAndIdDelegate?
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         passwordTextField.isSecureTextEntry = true
-        
         
         if (fromHome) {
             skipButton.isEnabled = true
@@ -53,55 +58,108 @@ class LoginViewController: UIViewController {
     
     @IBAction func loginPressed(_ sender: UIButton) {
         print("Bt pressed")
+        
         activityIndicatorView.center = view.center
         activityIndicatorView.startAnimating()
         view.addSubview(activityIndicatorView)
         activityIndicatorView.isHidden = false
         
-        
-        guard let safeEmail = emailTextField.text else { return }
-        guard let safePassword = passwordTextField.text else { return }
-        let loginModel = LoginModel(login: safeEmail, password: safePassword)
-        APIManager.shareInstance.callingLoginAPI(login: loginModel) { (result) in
-            switch result {
-            case .success(let json):
-//                print(json)
-                self.activityIndicatorView.stopAnimating()
-                self.activityIndicatorView.isHidden = true
-                let userName = (json as! LoginResponseModel).name
-                let userEmail = (json as! LoginResponseModel).email
-                let userAddress = (json as! LoginResponseModel).address
-                let userGender = (json as! LoginResponseModel).gender
-                let userBirthDate = (json as! LoginResponseModel).birthDate
-                let userToken = (json as! LoginResponseModel).userToken
-                let userID = (json as! LoginResponseModel).objectID
-                
-                self.userDefault.set(userName, forKey: "userName")
-                self.userDefault.set(userEmail, forKey: "userEmail")
-                self.userDefault.set(userAddress, forKey: "userAddress")
-                self.userDefault.set(userGender, forKey: "userGender")
-                self.userDefault.set(userBirthDate, forKey: "userBirthDate")
-                self.userDefault.set(userID, forKey: "userID")
-                
-                
-                Token.tokenInstance.saveToken(token: userToken)
-                let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-                let viewController = storyBoard.instantiateViewController(withIdentifier: "HomeViewController")
-                viewController.modalPresentationStyle = .fullScreen
-                self.present(viewController, animated: true)
-                
-            case .failure(let error):
-                print(error.localizedDescription)
-                self.activityIndicatorView.stopAnimating()
-                self.activityIndicatorView.isHidden = true
-                let alertController = UIAlertController(title: "Terjadi Kesalahan", message:
-                                                            "Mohon Periksa Kembali Data dan Jaringan Internet Anda", preferredStyle: .alert)
-                let action = UIAlertAction(title: "Tutup", style: .default)
-                
-                alertController.addAction(action)
-                self.present(alertController, animated: true, completion: nil)
+        if (fromHome) {
+            guard let safeEmail = emailTextField.text else { return }
+            guard let safePassword = passwordTextField.text else { return }
+            let loginModel = LoginModel(login: safeEmail, password: safePassword)
+            APIManager.shareInstance.callingLoginAPI(login: loginModel) { (result) in
+                switch result {
+                case .success(let json):
+    //                print(json)
+                    self.activityIndicatorView.stopAnimating()
+                    self.activityIndicatorView.isHidden = true
+                    let userName = (json as! LoginResponseModel).name
+                    let userEmail = (json as! LoginResponseModel).email
+                    let userAddress = (json as! LoginResponseModel).address
+                    let userGender = (json as! LoginResponseModel).gender
+                    let userBirthDate = (json as! LoginResponseModel).birthDate
+                    let userToken = (json as! LoginResponseModel).userToken
+                    let userID = (json as! LoginResponseModel).objectID
+                    
+                    self.userDefault.set(userName, forKey: "userName")
+                    self.userDefault.set(userEmail, forKey: "userEmail")
+                    self.userDefault.set(userAddress, forKey: "userAddress")
+                    self.userDefault.set(userGender, forKey: "userGender")
+                    self.userDefault.set(userBirthDate, forKey: "userBirthDate")
+                    self.userDefault.set(userID, forKey: "userID")
+                    
+                    
+                    Token.tokenInstance.saveToken(token: userToken)
+                    
+                    self.userTokenAndIdDelegate?.userTokenAndId(userToken: userToken, userID: userID)
+                    
+                    self.userTokenAndIdDelegate?.loginHidden(login: false)
+                    
+                    self.navigationController?.popToRootViewController(animated: true)
+                    
+                case .failure(let error):
+                    print(error.localizedDescription)
+                    self.activityIndicatorView.stopAnimating()
+                    self.activityIndicatorView.isHidden = true
+                    let alertController = UIAlertController(title: "Terjadi Kesalahan", message:
+                                                                "Mohon Periksa Kembali Data dan Jaringan Internet Anda", preferredStyle: .alert)
+                    let action = UIAlertAction(title: "Tutup", style: .default)
+                    
+                    alertController.addAction(action)
+                    self.present(alertController, animated: true, completion: nil)
+                }
+            }
+        } else {
+            guard let safeEmail = emailTextField.text else { return }
+            guard let safePassword = passwordTextField.text else { return }
+            let loginModel = LoginModel(login: safeEmail, password: safePassword)
+            APIManager.shareInstance.callingLoginAPI(login: loginModel) { (result) in
+                switch result {
+                case .success(let json):
+    //                print(json)
+                    self.activityIndicatorView.stopAnimating()
+                    self.activityIndicatorView.isHidden = true
+                    let userName = (json as! LoginResponseModel).name
+                    let userEmail = (json as! LoginResponseModel).email
+                    let userAddress = (json as! LoginResponseModel).address
+                    let userGender = (json as! LoginResponseModel).gender
+                    let userBirthDate = (json as! LoginResponseModel).birthDate
+                    let userToken = (json as! LoginResponseModel).userToken
+                    let userID = (json as! LoginResponseModel).objectID
+                    
+                    self.userDefault.set(userName, forKey: "userName")
+                    self.userDefault.set(userEmail, forKey: "userEmail")
+                    self.userDefault.set(userAddress, forKey: "userAddress")
+                    self.userDefault.set(userGender, forKey: "userGender")
+                    self.userDefault.set(userBirthDate, forKey: "userBirthDate")
+                    self.userDefault.set(userID, forKey: "userID")
+                    
+                    
+                    Token.tokenInstance.saveToken(token: userToken)
+                    
+                    self.userTokenAndIdDelegate?.userTokenAndId(userToken: userToken, userID: userID)
+                    
+                    
+                    let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+                    let viewController = storyBoard.instantiateViewController(withIdentifier: "HomeViewController")
+                    viewController.modalPresentationStyle = .fullScreen
+                    self.present(viewController, animated: true)
+                    
+                case .failure(let error):
+                    print(error.localizedDescription)
+                    self.activityIndicatorView.stopAnimating()
+                    self.activityIndicatorView.isHidden = true
+                    let alertController = UIAlertController(title: "Terjadi Kesalahan", message:
+                                                                "Mohon Periksa Kembali Data dan Jaringan Internet Anda", preferredStyle: .alert)
+                    let action = UIAlertAction(title: "Tutup", style: .default)
+                    
+                    alertController.addAction(action)
+                    self.present(alertController, animated: true, completion: nil)
+                }
             }
         }
+        
         
     }
     
@@ -113,4 +171,3 @@ class LoginViewController: UIViewController {
     }
     
 }
-

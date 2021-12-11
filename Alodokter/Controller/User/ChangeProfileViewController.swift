@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Alamofire
 
 protocol ChangeProfileDelegate {
     func changeUserProfile(name: String, dateOfBirth: String)
@@ -28,9 +29,26 @@ class ChangeProfileViewController: UIViewController, UIImagePickerControllerDele
     let pickerView = UIPickerView()
     var selectedGender: String?
     let userDefault = UserDefaults.standard
+    var userId: String = ""
+    var userToken: String = ""
+    let imagePicker = UIImagePickerController()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        print("apakah kosong userID: \(userId), alternatif: \(userDefault.object(forKey: "userID") as! String)")
+        print("apakah kosong userToken: \(userToken), alternatif: \(userDefault.object(forKey: "userLoginKey") as! String)")
+        
+        if userId == "" {
+            userId = userDefault.object(forKey: "userID") as! String
+        }
+        
+        if userToken == "" {
+            userToken = userDefault.object(forKey: "userLoginKey") as! String
+        }
+        
+        
         
         getUserData()
         
@@ -60,7 +78,7 @@ class ChangeProfileViewController: UIViewController, UIImagePickerControllerDele
         imagePicker.allowsEditing = false
     }
     
-        func getUserData() {
+    func getUserData() {
         name.text = userDefault.object(forKey: "userName") as? String
         address.text = userDefault.object(forKey: "userAddress") as? String
         gender.text = userDefault.object(forKey: "userGender") as? String
@@ -72,17 +90,113 @@ class ChangeProfileViewController: UIViewController, UIImagePickerControllerDele
         actionSheet()
     }
     
-     let imagePicker = UIImagePickerController()
+    
+    func dismissPickerView() {
+        let toolBar = UIToolbar()
+        toolBar.sizeToFit()
+        let flexButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.flexibleSpace, target: nil, action: nil)
+        let button = UIBarButtonItem(title: "Selesai", style: .done, target: self, action: #selector(self.action))
+        
+        toolBar.setItems([flexButton, button], animated: true)
+        toolBar.isUserInteractionEnabled = true
+        gender.inputAccessoryView = toolBar
+        dateOfBirth.inputAccessoryView = toolBar
+    }
+    
+    
+    @IBAction func savePressed(_ sender: UIButton) {
+        
+        print("Save Profile Pressed")
+        let userProfile = UserProfile(name: name.text ?? userDefault.object(forKey: "userName") as! String, address: address.text ?? userDefault.object(forKey: "userAddress") as! String , gender: gender.text ?? userDefault.object(forKey: "userGender") as! String , birthDate: dateOfBirth.text ?? userDefault.object(forKey: "userBirthDate") as! String)
+        
+        updateData()
+        
+        
+    }
+    
+    func updateData() {
+        
+        let url = "https://unitedpaper.backendless.app/api/users/\(userId)"
+        
+        // Prepare a URL
+        let urlString = URL(string: url)
+        guard let requestURL = urlString else { fatalError() }
+        
+        // Prepare URL Request Object
+        var request = URLRequest(url: requestURL)
+        request.httpMethod = "PUT"
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.setValue("\(userToken)", forHTTPHeaderField: "user-token")
+        
+        
+        // Create model
+        struct UploadData: Codable {
+            let name: String
+            let address: String
+            let gender: String
+            let birthDate: String
+        }
+    
+        
+        // Add data to the model
+        let uploadDataModel = UploadData(name: name.text ?? "", address: address.text ?? "", gender: gender.text ?? "", birthDate: dateOfBirth.text ?? "")
+        
+        
+        // Convert model to JSON data
+        guard let jsonData = try? JSONEncoder().encode(uploadDataModel) else {
+            print("Error: Trying to convert model to JSON data")
+            return
+        }
+        
+        // Set HTTP Request Body
+        request.httpBody = jsonData
+        
+        // Perform HTTP Request
+        let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
+            
+            // Check for Error
+            if error != nil {
+                print("Error took place \(error!)")
+                return
+            }
+            
+            // Convert HTTP response data to a string
+            if let safeData = data {
+                let dataString = String(data: safeData, encoding: .utf8)
+                print("Response data string: \(dataString!)")
+            }
+            
+        }
+        
+        task.resume()
+        
+    }
+    
+}
+
+
+
+// MARK: - UIPickerView
+extension ChangeProfileViewController: UIPickerViewDelegate, UIPickerViewDataSource {
     
     func actionSheet() {
         let alert = UIAlertController(title: "Choose Image", message: nil, preferredStyle: .actionSheet)
         alert.addAction(UIAlertAction(title: "Camera", style: .default, handler: {_ in self.openCamera()}))
         
         alert.addAction(UIAlertAction(title: "Galery", style: .default, handler: {_ in self.openGalery()}))
-
+        
         alert.addAction(UIAlertAction.init(title: "Cancel", style: .cancel, handler: nil))
         self.present(alert, animated: true, completion: nil)
     }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        
+        let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage
+        imageProfile.image = image
+        
+        picker.dismiss(animated: true, completion: nil)
+    }
+    
     
     func openCamera() {
         if UIImagePickerController.isSourceTypeAvailable(UIImagePickerController.SourceType.camera) {
@@ -113,28 +227,6 @@ class ChangeProfileViewController: UIViewController, UIImagePickerControllerDele
         }
     }
     
-    
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-
-        let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage
-        imageProfile.image = image
-
-        picker.dismiss(animated: true, completion: nil)
-    }
-    
-    
-    func dismissPickerView() {
-        let toolBar = UIToolbar()
-        toolBar.sizeToFit()
-        let flexButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.flexibleSpace, target: nil, action: nil)
-        let button = UIBarButtonItem(title: "Selesai", style: .done, target: self, action: #selector(self.action))
-        
-        toolBar.setItems([flexButton, button], animated: true)
-        toolBar.isUserInteractionEnabled = true
-        gender.inputAccessoryView = toolBar
-        dateOfBirth.inputAccessoryView = toolBar
-    }
-    
     @objc func action()
     {
         view.endEditing(true)
@@ -151,55 +243,6 @@ class ChangeProfileViewController: UIViewController, UIImagePickerControllerDele
         formatter.dateFormat = "MMMM dd yyyy"
         return formatter.string(from: date)
     }
-    
-    @IBAction func savePressed(_ sender: UIButton) {
-        
-        print("Save Profile Pressed")
-        let userProfile = UserProfile(name: name.text ?? userDefault.object(forKey: "userName") as! String, address: address.text ?? userDefault.object(forKey: "userAddress") as! String , gender: gender.text ?? userDefault.object(forKey: "userGender") as! String , birthDate: dateOfBirth.text ?? userDefault.object(forKey: "userBirthDate") as! String)
-        APIManager.shareInstance.callingUpdateUserAPI(userProfile: userProfile) { (result) in
-            switch result {
-            case .success(let json):
-//                print(json)
-                let userName = (json as! UserResponseModel).name
-                let userAddress = (json as! UserResponseModel).address
-                let userGender = (json as! UserResponseModel).gender
-                let userBirthDate = (json as! UserResponseModel).birthDate
-                
-                self.userDefault.set(userName, forKey: "userName")
-                self.userDefault.set(userAddress, forKey: "userAddress")
-                self.userDefault.set(userGender, forKey: "userGender")
-                self.userDefault.set(userBirthDate, forKey: "userBirthDate")
-                
-                guard let safeName = self.name.text else { return }
-                guard let safeBirth = self.dateOfBirth.text else { return }
-                self.changeProfileDelegate?.changeUserProfile(name: safeName, dateOfBirth: safeBirth)
-                
-                let alertController = UIAlertController(title: "Berhasil", message:
-                                                            "Data Berhasil Diubah", preferredStyle: .alert)
-                let action = UIAlertAction(title: "Tutup", style: .default) { (action) in
-                    self.navigationController?.popViewController(animated: true)
-                }
-                
-                alertController.addAction(action)
-                self.present(alertController, animated: true, completion: nil)
-                
-            case .failure(let error):
-                print(error.localizedDescription)
-                let alertController = UIAlertController(title: "Terjadi Kesalahan", message:
-                                                            "Mohon Periksa Kembali Data dan Jaringan Internet Anda", preferredStyle: .alert)
-                let action = UIAlertAction(title: "Tutup", style: .default)
-                
-                alertController.addAction(action)
-                self.present(alertController, animated: true, completion: nil)
-            }
-        }
-        
-    }
-    
-}
-
-// MARK: - UIPickerView
-extension ChangeProfileViewController: UIPickerViewDelegate, UIPickerViewDataSource {
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
