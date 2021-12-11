@@ -10,7 +10,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="96" id="wNx-b0-5Hx" customClass="DoctorCellTable" customModule="Testing_Skeleton" customModuleProvider="target">
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="96" id="wNx-b0-5Hx" customClass="DoctorCellTable" customModule="Alodokter" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="378" height="96"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="wNx-b0-5Hx" id="lBh-WI-t68">
@@ -18,33 +18,33 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="c1Q-Gk-2tz">
-                        <rect key="frame" x="5" y="5" width="80" height="86"/>
+                        <rect key="frame" x="15" y="15" width="60" height="66"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="80" id="0fK-HP-rB1"/>
+                            <constraint firstAttribute="width" constant="60" id="0fK-HP-rB1"/>
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lorem ipsum dolor sit" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hdN-vG-oYF">
-                        <rect key="frame" x="105" y="5" width="253" height="20.5"/>
+                        <rect key="frame" x="95" y="5" width="263" height="20.5"/>
                         <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="lorem ipsum dolor sit amet" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fwV-zc-5aU">
-                        <rect key="frame" x="105" y="25.5" width="253" height="17"/>
+                        <rect key="frame" x="95" y="25.5" width="263" height="17"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="c1Q-Gk-2tz" firstAttribute="leading" secondItem="lBh-WI-t68" secondAttribute="leading" constant="5" id="6e7-hL-2gM"/>
+                    <constraint firstItem="c1Q-Gk-2tz" firstAttribute="leading" secondItem="lBh-WI-t68" secondAttribute="leading" constant="15" id="6e7-hL-2gM"/>
                     <constraint firstItem="c1Q-Gk-2tz" firstAttribute="centerY" secondItem="lBh-WI-t68" secondAttribute="centerY" id="MpK-hw-DJ9"/>
                     <constraint firstItem="hdN-vG-oYF" firstAttribute="top" secondItem="lBh-WI-t68" secondAttribute="top" constant="5" id="R4i-la-95S"/>
                     <constraint firstAttribute="trailingMargin" secondItem="hdN-vG-oYF" secondAttribute="trailing" id="SeJ-E5-YtQ"/>
                     <constraint firstItem="hdN-vG-oYF" firstAttribute="leading" secondItem="c1Q-Gk-2tz" secondAttribute="trailing" constant="20" id="U14-CS-CvH"/>
                     <constraint firstItem="fwV-zc-5aU" firstAttribute="top" secondItem="hdN-vG-oYF" secondAttribute="bottom" id="UWD-iD-KPB"/>
-                    <constraint firstAttribute="bottom" secondItem="c1Q-Gk-2tz" secondAttribute="bottom" constant="5" id="cOe-Qi-hM7"/>
-                    <constraint firstItem="c1Q-Gk-2tz" firstAttribute="top" secondItem="lBh-WI-t68" secondAttribute="top" constant="5" id="e5m-zQ-6Fq"/>
+                    <constraint firstAttribute="bottom" secondItem="c1Q-Gk-2tz" secondAttribute="bottom" constant="15" id="cOe-Qi-hM7"/>
+                    <constraint firstItem="c1Q-Gk-2tz" firstAttribute="top" secondItem="lBh-WI-t68" secondAttribute="top" constant="15" id="e5m-zQ-6Fq"/>
                     <constraint firstAttribute="trailingMargin" secondItem="fwV-zc-5aU" secondAttribute="trailing" id="gFd-8w-Rkm"/>
                     <constraint firstItem="fwV-zc-5aU" firstAttribute="leading" secondItem="hdN-vG-oYF" secondAttribute="leading" id="rYw-ep-EEu"/>
                 </constraints>

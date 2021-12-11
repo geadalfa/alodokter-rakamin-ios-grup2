@@ -95,7 +95,7 @@ extension DoctorViewController: UITableViewDelegate, UITableViewDataSource {
         cell.doctorImageView.sd_setImage(with: urlImage, placeholderImage: UIImage(named: "avatar"))
         cell.doctorNameLabel.text = index.name
         cell.doctorProfessionLabel.text = index.spesialis
-        cell.doctorImageView.layer.cornerRadius = 40.0
+        cell.doctorImageView.layer.cornerRadius = 29
         cell.doctorImageView.layer.masksToBounds = true
 
         return cell
