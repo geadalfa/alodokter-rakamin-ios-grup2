@@ -18,9 +18,21 @@ class DoctorViewController: UIViewController {
     let activityIndicatorView = UIActivityIndicatorView(style: .large)
     let userDefaults = UserDefaults.standard
     var doctors = [Doctor]()
+    let illustrateImage = IlustrateImage2()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // Hide doctor list if user not login yet
+        if userDefault.object(forKey: "userLoginKey") as? String != nil {
+            print("token available")
+            self.navigationItem.setRightBarButton(nil, animated: true)
+        } else {
+            print("token not available")
+            illustrateImage.getImage(view: view)
+            tableView.isHidden = true
+        }
+        
         activityIndicatorView.center = view.center
         activityIndicatorView.startAnimating()
         view.addSubview(activityIndicatorView)
