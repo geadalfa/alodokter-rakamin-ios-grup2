@@ -19,10 +19,14 @@ class LoginViewController: UIViewController {
     let userDefault = UserDefaults.standard
     var fromHome: Bool = false
     let udService = UserDefaultService.instance
+    let activityIndicatorView = UIActivityIndicatorView(style: .large)
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         passwordTextField.isSecureTextEntry = true
+        
+        
         if (fromHome) {
             skipButton.isEnabled = true
             self.navigationItem.setRightBarButton(nil, animated: true)
@@ -49,6 +53,12 @@ class LoginViewController: UIViewController {
     
     @IBAction func loginPressed(_ sender: UIButton) {
         print("Bt pressed")
+        activityIndicatorView.center = view.center
+        activityIndicatorView.startAnimating()
+        view.addSubview(activityIndicatorView)
+        activityIndicatorView.isHidden = false
+        
+        
         guard let safeEmail = emailTextField.text else { return }
         guard let safePassword = passwordTextField.text else { return }
         let loginModel = LoginModel(login: safeEmail, password: safePassword)
@@ -56,6 +66,8 @@ class LoginViewController: UIViewController {
             switch result {
             case .success(let json):
 //                print(json)
+                self.activityIndicatorView.stopAnimating()
+                self.activityIndicatorView.isHidden = true
                 let userName = (json as! LoginResponseModel).name
                 let userEmail = (json as! LoginResponseModel).email
                 let userAddress = (json as! LoginResponseModel).address
@@ -80,6 +92,8 @@ class LoginViewController: UIViewController {
                 
             case .failure(let error):
                 print(error.localizedDescription)
+                self.activityIndicatorView.stopAnimating()
+                self.activityIndicatorView.isHidden = true
                 let alertController = UIAlertController(title: "Terjadi Kesalahan", message:
                                                             "Mohon Periksa Kembali Data dan Jaringan Internet Anda", preferredStyle: .alert)
                 let action = UIAlertAction(title: "Tutup", style: .default)
