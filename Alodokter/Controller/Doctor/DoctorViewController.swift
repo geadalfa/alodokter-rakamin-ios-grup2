@@ -27,21 +27,23 @@ class DoctorViewController: UIViewController {
         if userDefault.object(forKey: "userLoginKey") as? String != nil {
             print("token available")
             self.navigationItem.setRightBarButton(nil, animated: true)
+            activityIndicatorView.center = view.center
+            activityIndicatorView.startAnimating()
+            view.addSubview(activityIndicatorView)
+            activityIndicatorView.isHidden = false
+            
+            tableView.register(UINib(nibName: "DoctorCell", bundle: nil), forCellReuseIdentifier: "cellIdentifier")
+            tableView.rowHeight = 85
+            
+            displayData()
         } else {
             print("token not available")
             illustrateImage.getImage(view: view)
             tableView.isHidden = true
+            searchController.searchBar.isHidden = true
         }
         
-        activityIndicatorView.center = view.center
-        activityIndicatorView.startAnimating()
-        view.addSubview(activityIndicatorView)
-        activityIndicatorView.isHidden = false
-        
-        tableView.register(UINib(nibName: "DoctorCell", bundle: nil), forCellReuseIdentifier: "cellIdentifier")
-        tableView.rowHeight = 85
-        
-        displayData()
+
         
     }
     
