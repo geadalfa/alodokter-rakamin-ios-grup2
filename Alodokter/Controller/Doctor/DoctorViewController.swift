@@ -18,18 +18,32 @@ class DoctorViewController: UIViewController {
     let activityIndicatorView = UIActivityIndicatorView(style: .large)
     let userDefaults = UserDefaults.standard
     var doctors = [Doctor]()
+    let illustrateImage = IlustrateImage2()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        activityIndicatorView.center = view.center
-        activityIndicatorView.startAnimating()
-        view.addSubview(activityIndicatorView)
-        activityIndicatorView.isHidden = false
         
-        tableView.register(UINib(nibName: "DoctorCell", bundle: nil), forCellReuseIdentifier: "cellIdentifier")
-        tableView.rowHeight = 85
+        // Hide doctor list if user not login yet
+        if userDefault.object(forKey: "userLoginKey") as? String != nil {
+            print("token available")
+            self.navigationItem.setRightBarButton(nil, animated: true)
+            activityIndicatorView.center = view.center
+            activityIndicatorView.startAnimating()
+            view.addSubview(activityIndicatorView)
+            activityIndicatorView.isHidden = false
+            
+            tableView.register(UINib(nibName: "DoctorCell", bundle: nil), forCellReuseIdentifier: "cellIdentifier")
+            tableView.rowHeight = 85
+            
+            displayData()
+        } else {
+            print("token not available")
+            illustrateImage.getImage(view: view)
+            tableView.isHidden = true
+            searchController.searchBar.isHidden = true
+        }
         
-        displayData()
+
         
     }
     
