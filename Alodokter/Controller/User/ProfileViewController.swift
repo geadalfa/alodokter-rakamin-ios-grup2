@@ -28,21 +28,21 @@ class ProfileViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        activityIndicatorView.center = view.center
-        activityIndicatorView.startAnimating()
-        view.addSubview(activityIndicatorView)
-        activityIndicatorView.isHidden = false
-        logOutButton.isHidden = true
-        stackViewOne.isHidden = true
-        stackViewTwo.isHidden = true
+//        activityIndicatorView.center = view.center
+//        activityIndicatorView.startAnimating()
+//        view.addSubview(activityIndicatorView)
+//        activityIndicatorView.isHidden = false
+//        logOutButton.isHidden = true
+//        stackViewOne.isHidden = true
+//        stackViewTwo.isHidden = true
         
 
         if userDefault.object(forKey: "userLoginKey") as? String != nil {
             print("token available")
-//            userName.text = userDefault.object(forKey: "userName") as? String
-//            userEmail.text = userDefault.object(forKey: "userEmail") as? String
-//            userBirth.text = userDefault.object(forKey: "userBirthDate") as? String
-            displayData()
+            userName.text = userDefault.object(forKey: "userName") as? String
+            userEmail.text = userDefault.object(forKey: "userEmail") as? String
+            userBirth.text = userDefault.object(forKey: "userBirthDate") as? String
+//            displayData()
             loginBarButtonItem.isEnabled = false
             self.navigationItem.setRightBarButton(nil, animated: true)
         } else {
@@ -105,26 +105,22 @@ extension ProfileViewController {
     
 
 // MARK: - Display User Information
-func displayData() {
-    APIManager.shareInstance.callingUserDataAPI()  { (result) in
-        switch result {
-        case .success(let json):
-            print(json)
-            DispatchQueue.main.async {
-                self.activityIndicatorView.stopAnimating()
-                self.activityIndicatorView.isHidden = true
-                self.logOutButton.isHidden = false
-                self.stackViewOne.isHidden = false
-                self.stackViewTwo.isHidden = false
-                self.userName.text = (json as! UserResponseModel).name
-                self.userEmail.text = (json as! UserResponseModel).email
-                self.userBirth.text = (json as! UserResponseModel).birthDate
-            }
-        case .failure(let error):
-            print(error.localizedDescription)
-           
-        }
-    }
-}
+//func displayData() {
+//    APIManager.shareInstance.callingUserDataAPI()  { (result) in
+//        switch result {
+//        case .success(let json):
+//            print(json)
+//            DispatchQueue.main.async {
+                
+//                self.userName.text = (json as! UserResponseModel).name
+//                self.userEmail.text = (json as! UserResponseModel).email
+//                self.userBirth.text = (json as! UserResponseModel).birthDate
+//            }
+//        case .failure(let error):
+//            print(error.localizedDescription)
+//
+//        }
+//    }
+//}
 
 }
