@@ -7,7 +7,13 @@
 
 import UIKit
 
+protocol ChangeProfileDelegate {
+    func changeUserProfile(name: String, dateOfBirth: String)
+}
+
 class ChangeProfileViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
+    var changeProfileDelegate: ChangeProfileDelegate?
     
     // Outlets
     @IBOutlet var name: UITextField!
@@ -163,6 +169,10 @@ class ChangeProfileViewController: UIViewController, UIImagePickerControllerDele
                 self.userDefault.set(userAddress, forKey: "userAddress")
                 self.userDefault.set(userGender, forKey: "userGender")
                 self.userDefault.set(userBirthDate, forKey: "userBirthDate")
+                
+                guard let safeName = self.name.text else { return }
+                guard let safeBirth = self.dateOfBirth.text else { return }
+                self.changeProfileDelegate?.changeUserProfile(name: safeName, dateOfBirth: safeBirth)
                 
                 let alertController = UIAlertController(title: "Berhasil", message:
                                                             "Data Berhasil Diubah", preferredStyle: .alert)

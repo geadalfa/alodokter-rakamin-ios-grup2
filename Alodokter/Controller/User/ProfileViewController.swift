@@ -28,21 +28,12 @@ class ProfileViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        activityIndicatorView.center = view.center
-//        activityIndicatorView.startAnimating()
-//        view.addSubview(activityIndicatorView)
-//        activityIndicatorView.isHidden = false
-//        logOutButton.isHidden = true
-//        stackViewOne.isHidden = true
-//        stackViewTwo.isHidden = true
-        
 
         if userDefault.object(forKey: "userLoginKey") as? String != nil {
             print("token available")
             userName.text = userDefault.object(forKey: "userName") as? String
             userEmail.text = userDefault.object(forKey: "userEmail") as? String
             userBirth.text = userDefault.object(forKey: "userBirthDate") as? String
-//            displayData()
             loginBarButtonItem.isEnabled = false
             self.navigationItem.setRightBarButton(nil, animated: true)
         } else {
@@ -59,8 +50,9 @@ class ProfileViewController: UIViewController {
 
     @IBAction func changeProfile(_ sender: Any) {
         let storyBoard: UIStoryboard = UIStoryboard(name: "ChangeProfile", bundle: nil)
-        let viewController = storyBoard.instantiateViewController(withIdentifier: "ChangeProfile")
+        let viewController = storyBoard.instantiateViewController(withIdentifier: "ChangeProfile") as! ChangeProfileViewController
         viewController.hidesBottomBarWhenPushed = true
+        viewController.changeProfileDelegate = self
         self.navigationController?.pushViewController(viewController, animated: true)
     }
     
@@ -101,26 +93,11 @@ class ProfileViewController: UIViewController {
     
 }
 
-extension ProfileViewController {
+extension ProfileViewController: ChangeProfileDelegate {
     
-
-// MARK: - Display User Information
-//func displayData() {
-//    APIManager.shareInstance.callingUserDataAPI()  { (result) in
-//        switch result {
-//        case .success(let json):
-//            print(json)
-//            DispatchQueue.main.async {
-                
-//                self.userName.text = (json as! UserResponseModel).name
-//                self.userEmail.text = (json as! UserResponseModel).email
-//                self.userBirth.text = (json as! UserResponseModel).birthDate
-//            }
-//        case .failure(let error):
-//            print(error.localizedDescription)
-//
-//        }
-//    }
-//}
+    func changeUserProfile(name: String, dateOfBirth: String) {
+        userName.text = name
+        userBirth.text = dateOfBirth
+    }
 
 }
