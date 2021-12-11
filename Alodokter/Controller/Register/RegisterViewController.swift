@@ -22,6 +22,7 @@ class RegisterViewController: UIViewController {
     let genderOptions: [String] = ["Laki-laki", "Perempuan"]
     let pickerView = UIPickerView()
     var selectedGender: String?
+    let activityIndicatorView = UIActivityIndicatorView(style: .large)
     
     
     override func viewDidLoad() {
@@ -74,6 +75,11 @@ class RegisterViewController: UIViewController {
     
     @IBAction func registerPressed(_ sender: UIButton) {
         
+        activityIndicatorView.center = view.center
+        activityIndicatorView.startAnimating()
+        view.addSubview(activityIndicatorView)
+        activityIndicatorView.isHidden = false
+        
         guard let safeName = nameTextField.text else { return }
         guard let safeEmail = emailTextField.text else { return }
         guard let safePassword = passwordTextField.text else { return }
@@ -86,9 +92,13 @@ class RegisterViewController: UIViewController {
             let register = RegisterModel(name: safeName, email: safeEmail, password: safePassword, address: safeAddress, gender: safeGender, birthDate: safeBirthDate)
             APIManager.shareInstance.callingRegisterAPI(register: register) { isSuccess, str in
                 if isSuccess {
+                    self.activityIndicatorView.stopAnimating()
+                    self.activityIndicatorView.isHidden = true
                     self.alert(title: "Terima Kasih", message: str)
                     
                 } else {
+                    self.activityIndicatorView.stopAnimating()
+                    self.activityIndicatorView.isHidden = true
                     self.alert(title: "Terjadi Kesalahan", message: str)
                 }
             }
@@ -96,6 +106,8 @@ class RegisterViewController: UIViewController {
             
             
         } else {
+            self.activityIndicatorView.stopAnimating()
+            self.activityIndicatorView.isHidden = true
             let alertController = UIAlertController(title: "Perhatian!", message:
                                                         "Konfirmasi Password Tidak Sesuai", preferredStyle: .alert)
             alertController.addAction(UIAlertAction(title: "Close", style: .default))
@@ -104,6 +116,8 @@ class RegisterViewController: UIViewController {
         }
         
         if nameTextField.text == "" || emailTextField.text == "" || addressTextField.text == "" || genderTextField.text == "" || passwordTextField.text == "" || confirmationPasswordTextField.text == "" {
+            self.activityIndicatorView.stopAnimating()
+            self.activityIndicatorView.isHidden = true
             let alertController = UIAlertController(title: "Data Belum Lengkap!", message:
                                                         "Mohon Lengkapi Biodata Anda", preferredStyle: .alert)
             alertController.addAction(UIAlertAction(title: "Terima Kasih", style: .default))
