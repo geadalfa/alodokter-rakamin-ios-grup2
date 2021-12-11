@@ -22,10 +22,20 @@ class ProfileViewController: UIViewController {
     // Variables
     let userDefault = UserDefaults.standard
     let illustrateImage = IlustrateImage()
+    let activityIndicatorView = UIActivityIndicatorView(style: .large)
     
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        activityIndicatorView.center = view.center
+        activityIndicatorView.startAnimating()
+        view.addSubview(activityIndicatorView)
+        activityIndicatorView.isHidden = false
+        logOutButton.isHidden = true
+        stackViewOne.isHidden = true
+        stackViewTwo.isHidden = true
+        
 
         if userDefault.object(forKey: "userLoginKey") as? String != nil {
             print("token available")
@@ -101,6 +111,11 @@ func displayData() {
         case .success(let json):
             print(json)
             DispatchQueue.main.async {
+                self.activityIndicatorView.stopAnimating()
+                self.activityIndicatorView.isHidden = true
+                self.logOutButton.isHidden = false
+                self.stackViewOne.isHidden = false
+                self.stackViewTwo.isHidden = false
                 self.userName.text = (json as! UserResponseModel).name
                 self.userEmail.text = (json as! UserResponseModel).email
                 self.userBirth.text = (json as! UserResponseModel).birthDate
