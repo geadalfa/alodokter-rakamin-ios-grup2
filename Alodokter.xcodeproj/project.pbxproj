@@ -17,7 +17,7 @@
 		9F01DDBF27587145006FCE6E /* ArticleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F01DDBE27587145006FCE6E /* ArticleViewController.swift */; };
 		9F01DDC127587437006FCE6E /* ArticleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F01DDC027587437006FCE6E /* ArticleTableViewCell.swift */; };
 		9F0E9B682763652F009C7629 /* IllustrateLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F0E9B672763652F009C7629 /* IllustrateLogin.swift */; };
-		9F1465BE27635CB400EFAD5E /* UserPassword.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F1465BD27635CB400EFAD5E /* UserPassword.swift */; };
+		9F1465BE27635CB400EFAD5E /* UploadDataPassword.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F1465BD27635CB400EFAD5E /* UploadDataPassword.swift */; };
 		9F201D5E275C8FA700D44C8A /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9F201D5D275C8FA700D44C8A /* Login.storyboard */; };
 		9F201D60275C8FBF00D44C8A /* Register.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9F201D5F275C8FBF00D44C8A /* Register.storyboard */; };
 		9F201D63275C94F500D44C8A /* Article.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9F201D62275C94F500D44C8A /* Article.storyboard */; };
@@ -41,7 +41,7 @@
 		9F8A68D42755D9C20005E329 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9F8A68D22755D9C20005E329 /* Main.storyboard */; };
 		9F8A68D62755D9C40005E329 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9F8A68D52755D9C40005E329 /* Assets.xcassets */; };
 		9F8A68D92755D9C40005E329 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9F8A68D72755D9C40005E329 /* LaunchScreen.storyboard */; };
-		9F9A68D52765A17300C1232E /* UploadData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F9A68D42765A17300C1232E /* UploadData.swift */; };
+		9F9A68D52765A17300C1232E /* UploadDataProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F9A68D42765A17300C1232E /* UploadDataProfile.swift */; };
 		9FA485C0275B7AC200FD3404 /* DoctorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FA485BF275B7AC200FD3404 /* DoctorViewController.swift */; };
 		9FA485C2275B815000FD3404 /* DoctorCellTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FA485C1275B815000FD3404 /* DoctorCellTable.swift */; };
 		9FA485C8275B884800FD3404 /* DoctorCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9FA485C7275B884800FD3404 /* DoctorCell.xib */; };
@@ -68,7 +68,7 @@
 		9F01DDBE27587145006FCE6E /* ArticleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleViewController.swift; sourceTree = "<group>"; };
 		9F01DDC027587437006FCE6E /* ArticleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleTableViewCell.swift; sourceTree = "<group>"; };
 		9F0E9B672763652F009C7629 /* IllustrateLogin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IllustrateLogin.swift; sourceTree = "<group>"; };
-		9F1465BD27635CB400EFAD5E /* UserPassword.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPassword.swift; sourceTree = "<group>"; };
+		9F1465BD27635CB400EFAD5E /* UploadDataPassword.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadDataPassword.swift; sourceTree = "<group>"; };
 		9F201D5D275C8FA700D44C8A /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		9F201D5F275C8FBF00D44C8A /* Register.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Register.storyboard; sourceTree = "<group>"; };
 		9F201D62275C94F500D44C8A /* Article.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Article.storyboard; sourceTree = "<group>"; };
@@ -95,7 +95,7 @@
 		9F8A68D52755D9C40005E329 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9F8A68D82755D9C40005E329 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9F8A68DA2755D9C40005E329 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		9F9A68D42765A17300C1232E /* UploadData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadData.swift; sourceTree = "<group>"; };
+		9F9A68D42765A17300C1232E /* UploadDataProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadDataProfile.swift; sourceTree = "<group>"; };
 		9FA485BF275B7AC200FD3404 /* DoctorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoctorViewController.swift; sourceTree = "<group>"; };
 		9FA485C1275B815000FD3404 /* DoctorCellTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoctorCellTable.swift; sourceTree = "<group>"; };
 		9FA485C7275B884800FD3404 /* DoctorCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DoctorCell.xib; sourceTree = "<group>"; };
@@ -195,8 +195,8 @@
 			children = (
 				9F3134CF27620658008EA3B0 /* UserProfile.swift */,
 				9F3134D1276211A4008EA3B0 /* UserResponseModel.swift */,
-				9F1465BD27635CB400EFAD5E /* UserPassword.swift */,
-				9F9A68D42765A17300C1232E /* UploadData.swift */,
+				9F1465BD27635CB400EFAD5E /* UploadDataPassword.swift */,
+				9F9A68D42765A17300C1232E /* UploadDataProfile.swift */,
 			);
 			path = User;
 			sourceTree = "<group>";
@@ -517,7 +517,7 @@
 				9F01DDBF27587145006FCE6E /* ArticleViewController.swift in Sources */,
 				9FEACE5A275C2BD200EE3FF2 /* Token.swift in Sources */,
 				423B9B7B275B62A400484795 /* ChangePasswordViewController.swift in Sources */,
-				9F9A68D52765A17300C1232E /* UploadData.swift in Sources */,
+				9F9A68D52765A17300C1232E /* UploadDataProfile.swift in Sources */,
 				9F4D02CD2758D70300094C1A /* RegisterModel.swift in Sources */,
 				9F4B8F802759FA38007376FA /* LoginModel.swift in Sources */,
 				9F4D02D12758D96600094C1A /* RegisterViewController.swift in Sources */,
@@ -532,7 +532,7 @@
 				9F23E66527578BE500E5D041 /* HomeViewController.swift in Sources */,
 				9FA485C0275B7AC200FD3404 /* DoctorViewController.swift in Sources */,
 				9F7AF8A8275DB16C008D674B /* DoctorModel.swift in Sources */,
-				9F1465BE27635CB400EFAD5E /* UserPassword.swift in Sources */,
+				9F1465BE27635CB400EFAD5E /* UploadDataPassword.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

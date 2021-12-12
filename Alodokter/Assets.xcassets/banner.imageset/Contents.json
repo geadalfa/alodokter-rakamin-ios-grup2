@@ -1,7 +1,7 @@
 {
   "images" : [
     {
-      "filename" : "0*ZV9sSND2omB4IhTG.jpg",
+      "filename" : "banner.jpg",
       "idiom" : "universal"
     },
     {
@@ -11,7 +11,7 @@
           "value" : "light"
         }
       ],
-      "filename" : "0*ZV9sSND2omB4IhTG-1.jpg",
+      "filename" : "banner-1.jpg",
       "idiom" : "universal"
     },
     {
@@ -21,7 +21,7 @@
           "value" : "dark"
         }
       ],
-      "filename" : "0*ZV9sSND2omB4IhTG-2.jpg",
+      "filename" : "banner-2.jpg",
       "idiom" : "universal"
     }
   ],

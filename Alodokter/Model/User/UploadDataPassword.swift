@@ -7,6 +7,6 @@
 
 import Foundation
 
-struct UserPassword: Encodable {
+struct UploadDataPassword: Encodable {
     let password: String
 }

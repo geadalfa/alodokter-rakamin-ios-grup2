@@ -139,7 +139,7 @@ class ChangeProfileViewController: UIViewController, UIImagePickerControllerDele
     
         
         // Add data to the model
-        let uploadDataModel = UploadData(name: name, address: address, gender: gender, birthDate: birth)
+        let uploadDataModel = UploadDataProfile(name: name, address: address, gender: gender, birthDate: birth)
         
         
         // Convert model to JSON data

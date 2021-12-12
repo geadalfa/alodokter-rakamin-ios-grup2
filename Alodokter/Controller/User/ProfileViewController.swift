@@ -44,6 +44,7 @@ class ProfileViewController: UIViewController {
             userName.text = userDefault.object(forKey: "userName") as? String
             userEmail.text = userDefault.object(forKey: "userEmail") as? String
             userBirth.text = userDefault.object(forKey: "userBirthDate") as? String
+            navigationItem.setRightBarButton(nil, animated: true)
         } else {
             print("token not available")
             getImage()

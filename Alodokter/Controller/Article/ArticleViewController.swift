@@ -56,7 +56,7 @@ extension ArticleViewController: UICollectionViewDelegate, UICollectionViewDataS
         let index = ModelArticle.articles?[indexPath.row]
         let urlImage = URL(string: index?.urlToImage ?? "")
         cellArticle.articleImageView.sd_imageIndicator = SDWebImageActivityIndicator.gray
-        cellArticle.articleImageView.sd_setImage(with: urlImage, placeholderImage: UIImage(named: "corona"))
+        cellArticle.articleImageView.sd_setImage(with: urlImage, placeholderImage: UIImage(named: "banner"))
         cellArticle.articleLabel.text = index?.title ?? ""
         
         return cellArticle
@@ -95,7 +95,7 @@ extension ArticleViewController: UITableViewDelegate, UITableViewDataSource {
         let index = ModelArticle.articles?[indexPath.row]
         let urlImage = URL(string: index?.urlToImage ?? "")
         cell.articleImageView.sd_imageIndicator = SDWebImageActivityIndicator.gray
-        cell.articleImageView.sd_setImage(with: urlImage, placeholderImage: UIImage(named: "corona"))
+        cell.articleImageView.sd_setImage(with: urlImage, placeholderImage: UIImage(named: "banner"))
         cell.articleTitleLabel.text = index?.title ?? ""
         cell.articleContentLabel.text = index?.description ?? ""
         cell.articleImageView.image = UIImage(named: "logo.png")

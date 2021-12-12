@@ -223,7 +223,7 @@ extension HomeViewController {
     func loadBanner() {
         let urlImage = URL(string: article.articles?[10].urlToImage ?? "")
         bannerView.sd_imageIndicator = SDWebImageActivityIndicator.gray
-        bannerView.sd_setImage(with: urlImage, placeholderImage: UIImage(named: "corona"))
+        bannerView.sd_setImage(with: urlImage, placeholderImage: UIImage(named: "banner"))
         bannerTitleLabel.text = article.articles?[10].title ?? ""
     }
 }

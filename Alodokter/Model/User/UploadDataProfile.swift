@@ -8,7 +8,7 @@
 import Foundation
 
 // Create model
-struct UploadData: Codable {
+struct UploadDataProfile: Codable {
     let name: String
     let address: String
     let gender: String
