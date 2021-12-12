@@ -34,26 +34,25 @@ class ProfileViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
         if userDefault.object(forKey: "userLoginKey") as? String != nil {
             print("token available")
             userName.text = userDefault.object(forKey: "userName") as? String
             userEmail.text = userDefault.object(forKey: "userEmail") as? String
             userBirth.text = userDefault.object(forKey: "userBirthDate") as? String
-            loginBarButtonItem.isEnabled = false
-            self.navigationItem.setRightBarButton(nil, animated: true)
         } else {
             print("token not available")
-            
-            
             getImage()
-            
             stackViewOne.isHidden = true
             stackViewTwo.isHidden = true
             logOutButton.isHidden = true
         }
-        
     }
+    
     
     func getImage() {
         

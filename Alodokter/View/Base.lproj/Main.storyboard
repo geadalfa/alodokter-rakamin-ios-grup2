@@ -299,19 +299,12 @@
                             <constraint firstItem="QD5-9M-HHE" firstAttribute="trailing" secondItem="2Gc-wB-Prz" secondAttribute="trailing" id="ywt-Pk-r46"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="Vxp-zW-hZN">
-                        <barButtonItem key="rightBarButtonItem" title="Masuk" id="wfE-m9-VBG">
-                            <connections>
-                                <action selector="signInButton:" destination="LtX-C6-Wjy" id="NIQ-vX-Bf2"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" id="Vxp-zW-hZN"/>
                     <connections>
                         <outlet property="articleCollectionView" destination="OW3-dk-bLK" id="Xnh-jX-ykE"/>
                         <outlet property="bannerTitleLabel" destination="Hfg-l2-uPn" id="gg1-Eo-cej"/>
                         <outlet property="bannerView" destination="gqn-zT-Oqc" id="ggn-7y-t5h"/>
                         <outlet property="doctorCollectionView" destination="XRG-kF-BXU" id="Ouf-Gw-Jmh"/>
-                        <outlet property="signInButton" destination="wfE-m9-VBG" id="Mj7-Tm-gto"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YH5-fu-reY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

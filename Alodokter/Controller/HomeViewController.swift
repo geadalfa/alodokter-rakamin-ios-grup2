@@ -13,7 +13,6 @@ class HomeViewController: UIViewController {
     // Outlets
     @IBOutlet weak var articleCollectionView: UICollectionView!
     @IBOutlet weak var doctorCollectionView: UICollectionView!
-    @IBOutlet weak var signInButton: UIBarButtonItem!
     @IBOutlet weak var bannerView: UIImageView!
     @IBOutlet weak var bannerTitleLabel: UILabel!
     
@@ -22,6 +21,7 @@ class HomeViewController: UIViewController {
     let userDefault = UserDefaults.standard
     var doctors = [Doctor]()
     var article = FetchArticle(status: "", totalResults: 0, articles: nil)
+    let label = UILabel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,13 +34,16 @@ class HomeViewController: UIViewController {
         displayData()
         displayDataArticle()
         
-        let label = UILabel()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
         label.textColor = UIColor.black
         label.text = "Hi, \(userDefault.string(forKey: "userName") ?? "Guest")"
         label.font = UIFont.boldSystemFont(ofSize: 24.0)
         self.navigationItem.leftBarButtonItem = UIBarButtonItem.init(customView: label)
         if (userDefault.string(forKey: "userName") != nil) {
-            signInButton.isEnabled = false
             self.navigationItem.setRightBarButton(nil, animated: true)
         }
     }
@@ -50,14 +53,6 @@ class HomeViewController: UIViewController {
         let action = UIAlertAction(title: "Close", style: .default)
         showAlert.addAction(action)
         self.present(showAlert, animated: true, completion: nil)
-    }
-    
-    @IBAction func signInButton(_ sender: Any) {
-        let storyBoard: UIStoryboard = UIStoryboard(name: "Login", bundle: nil)
-        let loginView = storyBoard.instantiateViewController(identifier: "LoginViewController") as! LoginViewController
-        loginView.fromHome = true
-        loginView.hidesBottomBarWhenPushed = true
-        self.navigationController?.pushViewController(loginView, animated: true)
     }
     
     @IBAction func seeMore(_ sender: Any) {
