@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_5" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Ubah Profil-->
+        <scene sceneID="08i-A8-SLy">
+            <objects>
+                <viewController storyboardIdentifier="ChangeProfile" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Z21-hn-z4P" customClass="ChangeProfileViewController" customModule="Testing_Skeleton" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="iem-Ba-DgT">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person.circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="j54-aC-WZW">
+                                <rect key="frame" x="147" y="61.000000000000007" width="120" height="118.66666666666667"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="120" id="o8k-pd-enK"/>
+                                    <constraint firstAttribute="height" constant="120" id="wjR-qj-JQ8"/>
+                                </constraints>
+                            </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="YFG-Pv-TbX">
+                                <rect key="frame" x="20" y="248" width="374" height="166"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nama" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tOQ-rk-2r6">
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Nama" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1w3-SU-3y7">
+                                        <rect key="frame" x="0.0" y="44" width="374" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Alamat" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eb0-eG-Mny">
+                                        <rect key="frame" x="0.0" y="88" width="374" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Alamat" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MdW-Qt-kkL">
+                                        <rect key="frame" x="0.0" y="132" width="374" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="51t-qR-jdW">
+                                <rect key="frame" x="20" y="444" width="374" height="69.333333333333371"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="N6C-3r-tNh">
+                                        <rect key="frame" x="0.0" y="0.0" width="172" height="69.333333333333329"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Jenis Kelamin" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6F1-TQ-DK1">
+                                                <rect key="frame" x="0.0" y="0.0" width="172" height="20.333333333333332"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Pilih" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sZ3-Cw-MnR">
+                                                <rect key="frame" x="0.0" y="35.333333333333314" width="172" height="34"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="h9W-Fm-FI7">
+                                        <rect key="frame" x="202" y="0.0" width="172" height="69.333333333333329"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="Tanggal Lahir" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3B7-yB-G2I">
+                                                <rect key="frame" x="0.0" y="0.0" width="172" height="20.333333333333332"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Pilih" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="S2P-gU-72a">
+                                                <rect key="frame" x="0.0" y="35.333333333333314" width="172" height="34"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LaY-ki-J3O">
+                                <rect key="frame" x="178" y="192" width="58.333333333333343" height="31"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Ubah"/>
+                                <connections>
+                                    <action selector="editImageBtn:" destination="Z21-hn-z4P" eventType="touchUpInside" id="uhg-1G-fWT"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zfl-IA-kze">
+                                <rect key="frame" x="20" y="777" width="374" height="60"/>
+                                <color key="backgroundColor" systemColor="systemBlueColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="tVG-NG-duY"/>
+                                </constraints>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Simpan">
+                                    <fontDescription key="titleFontDescription" type="boldSystem" pointSize="20"/>
+                                </buttonConfiguration>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="16"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="savePressed:" destination="Z21-hn-z4P" eventType="touchUpInside" id="f73-67-jhQ"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="tKF-7r-LRL"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="YFG-Pv-TbX" firstAttribute="leading" secondItem="tKF-7r-LRL" secondAttribute="leading" constant="20" id="4y8-Il-Dwg"/>
+                            <constraint firstItem="tKF-7r-LRL" firstAttribute="bottom" secondItem="zfl-IA-kze" secondAttribute="bottom" constant="25" id="5EV-CL-gYO"/>
+                            <constraint firstItem="51t-qR-jdW" firstAttribute="top" secondItem="YFG-Pv-TbX" secondAttribute="bottom" constant="30" id="OvD-v5-GoW"/>
+                            <constraint firstItem="LaY-ki-J3O" firstAttribute="centerX" secondItem="iem-Ba-DgT" secondAttribute="centerX" id="SDK-HB-j4l"/>
+                            <constraint firstItem="j54-aC-WZW" firstAttribute="top" secondItem="tKF-7r-LRL" secondAttribute="top" constant="16" id="SG2-3b-lpA"/>
+                            <constraint firstItem="LaY-ki-J3O" firstAttribute="top" secondItem="j54-aC-WZW" secondAttribute="bottom" constant="12" id="Thv-4A-JF2"/>
+                            <constraint firstItem="tKF-7r-LRL" firstAttribute="trailing" secondItem="51t-qR-jdW" secondAttribute="trailing" constant="20" id="XUN-ek-viS"/>
+                            <constraint firstItem="tKF-7r-LRL" firstAttribute="trailing" secondItem="zfl-IA-kze" secondAttribute="trailing" constant="20" id="cRM-J3-qrJ"/>
+                            <constraint firstItem="j54-aC-WZW" firstAttribute="centerX" secondItem="iem-Ba-DgT" secondAttribute="centerX" id="hby-g5-vIM"/>
+                            <constraint firstItem="tKF-7r-LRL" firstAttribute="trailing" secondItem="YFG-Pv-TbX" secondAttribute="trailing" constant="20" id="m6Q-N7-PmS"/>
+                            <constraint firstItem="YFG-Pv-TbX" firstAttribute="top" secondItem="LaY-ki-J3O" secondAttribute="bottom" constant="25" id="o2u-ZU-BIH"/>
+                            <constraint firstItem="51t-qR-jdW" firstAttribute="leading" secondItem="tKF-7r-LRL" secondAttribute="leading" constant="20" id="sHz-cw-ABe"/>
+                            <constraint firstItem="zfl-IA-kze" firstAttribute="leading" secondItem="tKF-7r-LRL" secondAttribute="leading" constant="20" id="zSJ-7s-bKB"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Ubah Profil" id="YEA-sd-wjY"/>
+                    <connections>
+                        <outlet property="address" destination="MdW-Qt-kkL" id="LKR-CZ-wzv"/>
+                        <outlet property="changeImageButton" destination="LaY-ki-J3O" id="k2n-LJ-abc"/>
+                        <outlet property="dateOfBirth" destination="S2P-gU-72a" id="Soe-eL-IEq"/>
+                        <outlet property="gender" destination="sZ3-Cw-MnR" id="iD9-nb-PY7"/>
+                        <outlet property="imageProfile" destination="j54-aC-WZW" id="JZr-MX-Das"/>
+                        <outlet property="name" destination="1w3-SU-3y7" id="kIH-ua-dfX"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cZS-cS-p8A" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1644.375" y="2272.1830985915494"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="person.circle.fill" catalog="system" width="128" height="121"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBlueColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>
