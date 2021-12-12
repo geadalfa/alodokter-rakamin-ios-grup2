@@ -32,6 +32,7 @@ class ChangeProfileViewController: UIViewController, UIImagePickerControllerDele
     var userId: String = ""
     var userToken: String = ""
     let imagePicker = UIImagePickerController()
+    let activityIndicatorView = UIActivityIndicatorView(style: .large)
     
     
     override func viewDidLoad() {
@@ -70,7 +71,7 @@ class ChangeProfileViewController: UIViewController, UIImagePickerControllerDele
         datePicker.maximumDate = Date()
         
         dateOfBirth.inputView = datePicker
-        dateOfBirth.text = formatDate(date: Date())
+//        dateOfBirth.text = formatDate(date: Date())
         
         self.imageProfile.contentMode = .scaleAspectFill
         
@@ -107,14 +108,22 @@ class ChangeProfileViewController: UIViewController, UIImagePickerControllerDele
     @IBAction func savePressed(_ sender: UIButton) {
         
         print("Save Profile Pressed")
-        let userProfile = UserProfile(name: name.text ?? userDefault.object(forKey: "userName") as! String, address: address.text ?? userDefault.object(forKey: "userAddress") as! String , gender: gender.text ?? userDefault.object(forKey: "userGender") as! String , birthDate: dateOfBirth.text ?? userDefault.object(forKey: "userBirthDate") as! String)
+        activityIndicatorView.center = view.center
+        activityIndicatorView.startAnimating()
+        view.addSubview(activityIndicatorView)
+        activityIndicatorView.isHidden = false
         
-        updateData()
+        guard let safeUsername = self.name.text else { return }
+        guard let safeAddress = self.address.text else { return }
+        guard let safeGender = self.gender.text else { return }
+        guard let safeBirth = self.dateOfBirth.text else { return }
+        
+        updateData(name: safeUsername, address: safeAddress, gender: safeGender, birth: safeBirth)
         
         
     }
     
-    func updateData() {
+    func updateData(name: String, address: String, gender: String, birth: String) {
         
         let url = "https://unitedpaper.backendless.app/api/users/\(userId)"
         
@@ -127,19 +136,10 @@ class ChangeProfileViewController: UIViewController, UIImagePickerControllerDele
         request.httpMethod = "PUT"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         request.setValue("\(userToken)", forHTTPHeaderField: "user-token")
-        
-        
-        // Create model
-        struct UploadData: Codable {
-            let name: String
-            let address: String
-            let gender: String
-            let birthDate: String
-        }
     
         
         // Add data to the model
-        let uploadDataModel = UploadData(name: name.text ?? "", address: address.text ?? "", gender: gender.text ?? "", birthDate: dateOfBirth.text ?? "")
+        let uploadDataModel = UploadData(name: name, address: address, gender: gender, birthDate: birth)
         
         
         // Convert model to JSON data
@@ -164,6 +164,28 @@ class ChangeProfileViewController: UIViewController, UIImagePickerControllerDele
             if let safeData = data {
                 let dataString = String(data: safeData, encoding: .utf8)
                 print("Response data string: \(dataString!)")
+                
+                self.userDefault.set(name, forKey: "userName")
+                self.userDefault.set(address, forKey: "userAddress")
+                self.userDefault.set(gender, forKey: "userGender")
+                self.userDefault.set(birth, forKey: "userBirthDate")
+                
+                DispatchQueue.main.async {
+                    self.activityIndicatorView.stopAnimating()
+                    self.activityIndicatorView.isHidden = true
+                    
+                    self.changeProfileDelegate?.changeUserProfile(name: name, dateOfBirth: birth)
+                    
+                    let alertController = UIAlertController(title: "Berhasil", message:
+                                                                "Data diri telah dirubah", preferredStyle: .alert)
+                    let action = UIAlertAction(title: "Tutup", style: .default) { (action) in
+                        self.navigationController?.popViewController(animated: true)
+                    }
+                    
+                    alertController.addAction(action)
+                    self.present(alertController, animated: true, completion: nil)
+                }
+                
             }
             
         }

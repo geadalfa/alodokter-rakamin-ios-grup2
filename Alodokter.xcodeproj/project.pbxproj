@@ -41,6 +41,7 @@
 		9F8A68D42755D9C20005E329 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9F8A68D22755D9C20005E329 /* Main.storyboard */; };
 		9F8A68D62755D9C40005E329 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9F8A68D52755D9C40005E329 /* Assets.xcassets */; };
 		9F8A68D92755D9C40005E329 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9F8A68D72755D9C40005E329 /* LaunchScreen.storyboard */; };
+		9F9A68D52765A17300C1232E /* UploadData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F9A68D42765A17300C1232E /* UploadData.swift */; };
 		9FA485C0275B7AC200FD3404 /* DoctorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FA485BF275B7AC200FD3404 /* DoctorViewController.swift */; };
 		9FA485C2275B815000FD3404 /* DoctorCellTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FA485C1275B815000FD3404 /* DoctorCellTable.swift */; };
 		9FA485C8275B884800FD3404 /* DoctorCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9FA485C7275B884800FD3404 /* DoctorCell.xib */; };
@@ -94,6 +95,7 @@
 		9F8A68D52755D9C40005E329 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9F8A68D82755D9C40005E329 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9F8A68DA2755D9C40005E329 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9F9A68D42765A17300C1232E /* UploadData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadData.swift; sourceTree = "<group>"; };
 		9FA485BF275B7AC200FD3404 /* DoctorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoctorViewController.swift; sourceTree = "<group>"; };
 		9FA485C1275B815000FD3404 /* DoctorCellTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoctorCellTable.swift; sourceTree = "<group>"; };
 		9FA485C7275B884800FD3404 /* DoctorCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DoctorCell.xib; sourceTree = "<group>"; };
@@ -194,6 +196,7 @@
 				9F3134CF27620658008EA3B0 /* UserProfile.swift */,
 				9F3134D1276211A4008EA3B0 /* UserResponseModel.swift */,
 				9F1465BD27635CB400EFAD5E /* UserPassword.swift */,
+				9F9A68D42765A17300C1232E /* UploadData.swift */,
 			);
 			path = User;
 			sourceTree = "<group>";
@@ -514,6 +517,7 @@
 				9F01DDBF27587145006FCE6E /* ArticleViewController.swift in Sources */,
 				9FEACE5A275C2BD200EE3FF2 /* Token.swift in Sources */,
 				423B9B7B275B62A400484795 /* ChangePasswordViewController.swift in Sources */,
+				9F9A68D52765A17300C1232E /* UploadData.swift in Sources */,
 				9F4D02CD2758D70300094C1A /* RegisterModel.swift in Sources */,
 				9F4B8F802759FA38007376FA /* LoginModel.swift in Sources */,
 				9F4D02D12758D96600094C1A /* RegisterViewController.swift in Sources */,
