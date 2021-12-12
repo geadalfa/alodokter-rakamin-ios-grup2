@@ -23,7 +23,11 @@ class DoctorViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Hide doctor list if user not login yet
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
         if userDefault.object(forKey: "userLoginKey") as? String != nil {
             print("token available")
             self.navigationItem.setRightBarButton(nil, animated: true)
@@ -43,9 +47,19 @@ class DoctorViewController: UIViewController {
             searchController.searchBar.isHidden = true
         }
         
-
         
+        searchController.obscuresBackgroundDuringPresentation = false
+        
+        if let doctorSearch = userDefaults.string(forKey: "doctorLabel") {
+            searchController.searchBar.placeholder = "Your Latest Search: \(doctorSearch)"
+        } else {
+            searchController.searchBar.placeholder = "Search by keywords"
+        }
+        
+        self.navigationItem.searchController = searchController
+        searchController.searchBar.delegate = self
     }
+    
     
     func displayData() {
         
@@ -71,24 +85,6 @@ class DoctorViewController: UIViewController {
         }.resume()
         
     }
-    
-    
-    override func viewWillAppear(_ animated: Bool) {
-        searchController.obscuresBackgroundDuringPresentation = false
-        
-        
-        if let doctorSearch = userDefaults.string(forKey: "doctorLabel") {
-            searchController.searchBar.placeholder = "Your Latest Search: \(doctorSearch)"
-        } else {
-            searchController.searchBar.placeholder = "Search by keywords"
-        }
-        
-        self.navigationItem.searchController = searchController
-        searchController.searchBar.delegate = self
-    }
-    
-    
-    
     
 }
 
