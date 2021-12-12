@@ -88,51 +88,78 @@ class RegisterViewController: UIViewController {
         guard let safeBirthDate = birthDateTextField.text else { return }
         guard let safeConfirmation = confirmationPasswordTextField.text else { return }
         
-        if safePassword == safeConfirmation && safePassword != "" {
-            let register = RegisterModel(name: safeName, email: safeEmail, password: safePassword, address: safeAddress, gender: safeGender, birthDate: safeBirthDate)
-            APIManager.shareInstance.callingRegisterAPI(register: register) { isSuccess, str in
-                if isSuccess {
-                    self.activityIndicatorView.stopAnimating()
-                    self.activityIndicatorView.isHidden = true
-                    self.alert(title: "Terima Kasih", message: str)
-                    
-                } else {
-                    self.activityIndicatorView.stopAnimating()
-                    self.activityIndicatorView.isHidden = true
-                    self.alert(title: "Terjadi Kesalahan", message: str)
-                }
-            }
+        if nameTextField.text == "" && emailTextField.text == "" && addressTextField.text == "" && genderTextField.text == "" && passwordTextField.text == "" {
             
-            
-            
-        } else {
             self.activityIndicatorView.stopAnimating()
             self.activityIndicatorView.isHidden = true
             let alertController = UIAlertController(title: "Perhatian!", message:
-                                                        "Konfirmasi Password Tidak Sesuai", preferredStyle: .alert)
-            alertController.addAction(UIAlertAction(title: "Close", style: .default))
-            
-            self.present(alertController, animated: true, completion: nil)
-        }
-        
-        if nameTextField.text == "" || emailTextField.text == "" || addressTextField.text == "" || genderTextField.text == "" || passwordTextField.text == "" || confirmationPasswordTextField.text == "" {
-            self.activityIndicatorView.stopAnimating()
-            self.activityIndicatorView.isHidden = true
-            let alertController = UIAlertController(title: "Data Belum Lengkap!", message:
-                                                        "Mohon Lengkapi Biodata Anda", preferredStyle: .alert)
+                                                        "Harap isi data diri anda", preferredStyle: .alert)
             alertController.addAction(UIAlertAction(title: "Terima Kasih", style: .default))
             
             self.present(alertController, animated: true, completion: nil)
             
+            
+        } else {
+            if safePassword == safeConfirmation && safePassword != "" && safeEmail.isValidEmail() {
+                let register = RegisterModel(name: safeName, email: safeEmail, password: safePassword, address: safeAddress, gender: safeGender, birthDate: safeBirthDate)
+                APIManager.shareInstance.callingRegisterAPI(register: register) { isSuccess, str in
+                    if isSuccess {
+                        self.activityIndicatorView.stopAnimating()
+                        self.activityIndicatorView.isHidden = true
+                        self.alertMove(title: "Terima Kasih", message: str)
+                        
+                    } else {
+                        self.activityIndicatorView.stopAnimating()
+                        self.activityIndicatorView.isHidden = true
+                        self.alertStay(title: "Terjadi Kesalahan", message: str)
+                    }
+                }
+                
+            }
+            
+            if nameTextField.text == "" || emailTextField.text == "" || addressTextField.text == "" || genderTextField.text == "" || passwordTextField.text == "" || confirmationPasswordTextField.text == "" {
+                self.activityIndicatorView.stopAnimating()
+                self.activityIndicatorView.isHidden = true
+                let alertController = UIAlertController(title: "Data Belum Lengkap!", message:
+                                                            "Mohon Lengkapi Biodata Anda", preferredStyle: .alert)
+                alertController.addAction(UIAlertAction(title: "Terima Kasih", style: .default))
+                
+                self.present(alertController, animated: true, completion: nil)
+                
+            } else {
+                self.activityIndicatorView.stopAnimating()
+                self.activityIndicatorView.isHidden = true
+                
+                if !safeEmail.isValidEmail() {
+                    let alertController = UIAlertController(title: "Perhatian!", message:
+                                                                "Format Email Valid", preferredStyle: .alert)
+                    alertController.addAction(UIAlertAction(title: "Terima Kasih", style: .default))
+                    
+                    self.present(alertController, animated: true, completion: nil)
+                }
+            }
         }
+        
+        
         
     }
     
-    func alert(title: String, message: String) {
+    func alertMove(title: String, message: String) {
         let alertController = UIAlertController(title: title, message:
                                                     message, preferredStyle: .alert)
-        let action = UIAlertAction(title: "Close", style: .default) { (action) in
+        let action = UIAlertAction(title: "Terima Kasih", style: .default) { (action) in
             self.navigationController?.popViewController(animated: true)
+        }
+        
+        alertController.addAction(action)
+        self.present(alertController, animated: true, completion: nil)
+    }
+    
+    func alertStay(title: String, message: String) {
+        let alertController = UIAlertController(title: title, message:
+                                                    message, preferredStyle: .alert)
+        let action = UIAlertAction(title: "Terima Kasih", style: .default) { (action) in
+            
         }
         
         alertController.addAction(action)
@@ -166,11 +193,10 @@ extension RegisterViewController: UIPickerViewDelegate, UIPickerViewDataSource {
 }
 
 // MARK: - String
-//
-//extension String {
-//    func isValidEmail() -> Bool {
-//        
-//        let regex = try! NSRegularExpression(pattern: "^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$", options: .caseInsensitive)
-//        return regex.firstMatch(in: self, options: [], range: NSRange(location: 0, length: count)) != nil
-//    }
-//}
+extension String {
+    func isValidEmail() -> Bool {
+        
+        let regex = try! NSRegularExpression(pattern: "^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$", options: .caseInsensitive)
+        return regex.firstMatch(in: self, options: [], range: NSRange(location: 0, length: count)) != nil
+    }
+}
