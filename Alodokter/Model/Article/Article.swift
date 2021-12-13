@@ -29,3 +29,18 @@ struct Source: Codable {
     let name: String?
 }
 
+struct Articles: Codable {
+    let title, welcomeDescription: String
+    let image: String
+    let datePosted, reference, idArtikel, id: String
+    
+    enum CodingKeys: String, CodingKey {
+        case title
+        case welcomeDescription = "description"
+        case image
+        case datePosted = "date-posted"
+        case reference
+        case idArtikel = "id_artikel"
+        case id
+    }
+}
