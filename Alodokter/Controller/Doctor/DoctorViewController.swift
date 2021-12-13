@@ -138,61 +138,55 @@ extension DoctorViewController: UITableViewDelegate, UITableViewDataSource {
 // MARK: - UISearchBar
 extension DoctorViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        print("Canceled!")
-        print(doctors.description.lowercased())
-        print(type(of: doctors.description.lowercased()))
+        print("Succeed!")
         searchBar.endEditing(true)
         if !loadingState {
             if searchBarText != "" {
                 //Call Search Function Here!
-                doctors = searchFilter(key: searchBarText)
+                //doctors = searchFilter(key: searchBarText)
+                doctors = searchFilter2(key: searchBarText)
                 tableView.reloadData()
+                print(searchBarText)
+    
+            }
+            else if searchBarText != "" {
+                    //Call Search Function Here!
+                    doctors = searchFilter(key: searchBarText)
+                    //doctors = searchFilter2(key: searchBarText)
+                    tableView.reloadData()
+                    print(searchBarText)
             }
             else {
-                tableView.reloadData()
                 displayData()
+                searchBarText = ""
             }
         }
     }
+    
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         print("Search Text: \(searchText)")
         searchBarText = searchText//.lowercased()
+        if searchBarText == "" {
+            displayData()
+        }
         if searchText == "" {
             displayData()
         }
     }
-    
-    
-//    func lowerValue() {
-//    var newDict = [String: String]()
-//    var newRobots = [String]()
-//        for mdict in doctors{
-//            var someDict = [String: String]()
-//        }
-//
-//        for (key, value) in mdict{
-//            newDict[key] = value.lowercased()}
-//          newRobots.append(newDict)
-//
-//        print(doctors)
-//    }
 
-    
-    
     func searchFilter(key: String) -> [Doctor]{
-        var lowerSpe = doctors.description.lowercased()
-        
-        
-//        let searchResult = doctors.filter { data in
-//            //return data.name.contains(key)
-//            return data.spesialis.contains(key)
-//        }
         let searchResult = doctors.filter { data in
-            //return data.name.contains(key)
-            return data.spesialis.contains(key)
+            return data.name.lowercased().contains(key.lowercased())
         }
         return searchResult
+    }
+    
+    func searchFilter2(key: String) -> [Doctor]{
+        let searchResult2 = doctors.filter { data in
+            return data.spesialis.lowercased().contains(key.lowercased())
+        }
+        return searchResult2
     }
 }
 
