@@ -8,15 +8,11 @@
 import Foundation
 
 struct Doctor: Codable {
-    let name, placeOfBirth, dateOfBirth, gender, spesialis, desc, image: String
-    let address, email, password: String
-    let telp: Int
-    let id: String
+    let name, spesialis, desc, image: String
+    let id, timetable: String
 
     enum CodingKeys: String, CodingKey {
-        case name
-        case placeOfBirth = "place_of_birth"
-        case dateOfBirth = "date_of_birth"
-        case gender, address, email, password, telp, id, spesialis, desc, image
+        case name, timetable
+        case id, spesialis, desc, image
     }
 }
