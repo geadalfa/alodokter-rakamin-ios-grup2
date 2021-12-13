@@ -19,6 +19,8 @@ class DoctorViewController: UIViewController {
     let userDefaults = UserDefaults.standard
     var doctors = [Doctor]()
     let illustrateImage = IlustrateImage2()
+    var searchBarText: String = ""
+    var loadingState = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -55,11 +57,16 @@ class DoctorViewController: UIViewController {
         } else {
             searchController.searchBar.placeholder = "Search by keywords"
         }
-        
+                
         self.navigationItem.searchController = searchController
         searchController.searchBar.delegate = self
+        var searchBar = searchController.searchBar
     }
-    
+//    func encode(to encoder: Encoder) throws {
+//            var con = encoder.container(keyedBy: doctors.self)
+//            try! con.encode(self.name.lowercased(), forKey: .name)
+//        try! con.encode(self.spesialis.lowercased(), forKey: .spesialis)
+//        }
     
     func displayData() {
         
@@ -74,6 +81,7 @@ class DoctorViewController: UIViewController {
                         self.activityIndicatorView.isHidden = true
                         self.tableView.reloadData()
                         self.tableView.isHidden = false
+                        self.loadingState = false
                     }
                 } else {
                     debugPrint("Failure to decode posts.")
@@ -129,6 +137,62 @@ extension DoctorViewController: UITableViewDelegate, UITableViewDataSource {
 
 // MARK: - UISearchBar
 extension DoctorViewController: UISearchBarDelegate {
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        print("Canceled!")
+        print(doctors.description.lowercased())
+        print(type(of: doctors.description.lowercased()))
+        searchBar.endEditing(true)
+        if !loadingState {
+            if searchBarText != "" {
+                //Call Search Function Here!
+                doctors = searchFilter(key: searchBarText)
+                tableView.reloadData()
+            }
+            else {
+                tableView.reloadData()
+                displayData()
+            }
+        }
+    }
     
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        print("Search Text: \(searchText)")
+        searchBarText = searchText//.lowercased()
+        if searchText == "" {
+            displayData()
+        }
+    }
+    
+    
+//    func lowerValue() {
+//    var newDict = [String: String]()
+//    var newRobots = [String]()
+//        for mdict in doctors{
+//            var someDict = [String: String]()
+//        }
+//
+//        for (key, value) in mdict{
+//            newDict[key] = value.lowercased()}
+//          newRobots.append(newDict)
+//
+//        print(doctors)
+//    }
+
+    
+    
+    func searchFilter(key: String) -> [Doctor]{
+        var lowerSpe = doctors.description.lowercased()
+        
+        
+//        let searchResult = doctors.filter { data in
+//            //return data.name.contains(key)
+//            return data.spesialis.contains(key)
+//        }
+        let searchResult = doctors.filter { data in
+            //return data.name.contains(key)
+            return data.spesialis.contains(key)
+        }
+        return searchResult
+    }
 }
 
