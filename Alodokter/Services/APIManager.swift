@@ -16,7 +16,6 @@ typealias Handler = (Swift.Result<Any?, APIError>) -> Void
 
 class APIManager {
     static let shareInstance = APIManager()
-//    let url = "https://unitedpaper.backendless.app/api/users/\(userDefault.object(forKey: "userID") ?? "")"
 }
 
 
@@ -34,7 +33,6 @@ extension APIManager {
             case .success(let data):
                 do {
                     let json = try JSONSerialization.jsonObject(with: data!, options: [])
-//                    print(json)
                     
                     if response.response?.statusCode == 200 {
                         completionHandler(true, "Terima Kasih Sudah Mendaftar di Alodokter")
@@ -69,7 +67,6 @@ extension APIManager {
             case .success(let data):
                 do {
                     let json = try JSONDecoder().decode(LoginResponseModel.self, from: data!)
-//                    print(json)
                     if response.response?.statusCode == 200 {
                         completionHandler(.success(json))
                         
@@ -105,38 +102,6 @@ extension APIManager {
             case .failure(let error):
                 print(error.localizedDescription)
                 
-            }
-        }
-    }
-}
-
-
-
-// MARK: - UpdateUserData
-extension APIManager {
-    
-    func callingUpdateUserAPI(userProfile: UserProfile, urlString: String, headers: HTTPHeaders,  completionHandler: @escaping Handler) {
-        
-        AF.request(urlString, method: .put, parameters: userProfile, encoder: JSONParameterEncoder.default, headers: headers).response { response in
-            debugPrint(response)
-            switch response.result {
-            case .success(let data):
-                do {
-                    let json = try JSONDecoder().decode(UserResponseModel.self, from: data!)
-//                    print(json)
-                    if response.response?.statusCode == 200 {
-                        completionHandler(.success(json))
-                        
-                    } else {
-                        completionHandler(.failure(.custom(message: "Mohon periksa kembali data dan koneksi internet anda")))
-                    }
-                } catch {
-                    print(error.localizedDescription)
-                    completionHandler(.failure(.custom(message: "Mohon periksa kembali data anda")))
-                }
-            case .failure(let error):
-                print(error.localizedDescription)
-                completionHandler(.failure(.custom(message: "Mohon periksa kembali data anda")))
             }
         }
     }
