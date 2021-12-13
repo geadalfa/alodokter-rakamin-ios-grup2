@@ -21,6 +21,7 @@ class ArticleViewController: UIViewController, UISearchBarDelegate {
     let activityIndicatorCollectionView = UIActivityIndicatorView(style: .large)
     let activityIndicatorTableView = UIActivityIndicatorView(style: .large)
     var searchBarText: String = ""
+    var loadingState = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,10 +36,25 @@ extension ArticleViewController {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         print("Canceled!")
         searchBar.endEditing(true)
+        if !loadingState {
+            if searchBarText != "" {
+                //Call Search Function Here!
+                ModelArticle = searchFilter(key: searchBarText)
+                articleTableView.reloadData()
+                articleCollectionView.reloadData()
+            }
+            else {
+                displayData()
+            }
+        }
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         print("Search Text: \(searchText)")
+        searchBarText = searchText
+        if searchText == "" {
+            displayData()
+        }
     }
 }
 
@@ -141,6 +157,7 @@ extension ArticleViewController {
                         self.activityIndicatorTableView.isHidden = true
                         self.articleCollectionView.reloadData()
                         self.articleTableView.reloadData()
+                        self.loadingState = false
                     }
                 } else {
                     debugPrint("Failure to decode posts.")
@@ -163,5 +180,14 @@ extension ArticleViewController {
         view.addSubview(activityIndicatorTableView)
         activityIndicatorCollectionView.isHidden = false
         activityIndicatorTableView.isHidden = false
+    }
+}
+
+extension ArticleViewController {
+    func searchFilter(key: String) -> [Articles]{
+        let searchResult = ModelArticle.filter { data in
+            return data.title.contains(key)
+        }
+        return searchResult
     }
 }
