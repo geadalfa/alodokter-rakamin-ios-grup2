@@ -17,7 +17,7 @@ class ArticleViewController: UIViewController, UISearchBarDelegate {
     
     
     // Variables
-    var ModelArticle = FetchArticle(status: "", totalResults: 0, articles: nil)
+    var ModelArticle = [Articles]()
     let activityIndicatorCollectionView = UIActivityIndicatorView(style: .large)
     let activityIndicatorTableView = UIActivityIndicatorView(style: .large)
     var searchBarText: String = ""
@@ -45,34 +45,34 @@ extension ArticleViewController {
 // MARK: - UICollectionView
 extension ArticleViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if ModelArticle.totalResults > 20 {
+        if ModelArticle.count > 20 {
             return 20
         }
-        return ModelArticle.totalResults
+        return ModelArticle.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cellArticle = collectionView.dequeueReusableCell(withReuseIdentifier: "articleCollectionIdentifier", for: indexPath) as! ArticleCellCollection
-        let index = ModelArticle.articles?[indexPath.row]
-        let urlImage = URL(string: index?.urlToImage ?? "")
+        let index = ModelArticle[indexPath.row]
+        let urlImage = URL(string: index.image)
         cellArticle.articleImageView.sd_imageIndicator = SDWebImageActivityIndicator.gray
         cellArticle.articleImageView.sd_setImage(with: urlImage, placeholderImage: UIImage(named: "banner"))
-        cellArticle.articleLabel.text = index?.title ?? ""
+        cellArticle.articleLabel.text = index.title
         
         return cellArticle
         
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let indexPath = ModelArticle.articles?[indexPath.row]
+        let indexPath = ModelArticle[indexPath.row]
         
         let storyBoard: UIStoryboard = UIStoryboard(name: "Article", bundle: nil)
         let detailArticleVC = storyBoard.instantiateViewController(withIdentifier: "DetailArticleController") as! DetailArticleViewController
-        detailArticleVC.articleTitle = indexPath?.title
-        detailArticleVC.articleImage = indexPath?.urlToImage
-        detailArticleVC.articleAuthor = indexPath?.author
-        detailArticleVC.articleDate = indexPath?.publishedAt
-        detailArticleVC.articleContent = indexPath?.content
+        detailArticleVC.articleTitle = indexPath.title
+        detailArticleVC.articleImage = indexPath.image
+        detailArticleVC.articleAuthor = indexPath.reference
+        detailArticleVC.articleDate = indexPath.datePosted
+        detailArticleVC.articleContent = indexPath.welcomeDescription
         detailArticleVC.hidesBottomBarWhenPushed = true // Removing bottom bar in detail article screen
         self.navigationController?.pushViewController(detailArticleVC, animated: true)
     }
@@ -84,36 +84,36 @@ extension ArticleViewController: UICollectionViewDelegate, UICollectionViewDataS
 // MARK: - UITableView
 extension ArticleViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if ModelArticle.totalResults > 20 {
+        if ModelArticle.count > 20 {
             return 20
         }
-        return ModelArticle.totalResults
+        return ModelArticle.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "articleIdentifier", for: indexPath) as! ArticleTableViewCell
-        let index = ModelArticle.articles?[indexPath.row]
-        let urlImage = URL(string: index?.urlToImage ?? "")
+        let index = ModelArticle[indexPath.row]
+        let urlImage = URL(string: index.image)
         cell.articleImageView.sd_imageIndicator = SDWebImageActivityIndicator.gray
         cell.articleImageView.sd_setImage(with: urlImage, placeholderImage: UIImage(named: "banner"))
-        cell.articleTitleLabel.text = index?.title ?? ""
-        cell.articleContentLabel.text = index?.description ?? ""
-        cell.articleImageView.image = UIImage(named: "logo.png")
+        cell.articleTitleLabel.text = index.title
+        cell.articleContentLabel.text = index.welcomeDescription
+        //cell.articleImageView.image = UIImage(named: "logo.png")
         
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        let index = ModelArticle.articles?[indexPath.row]
+        let index = ModelArticle[indexPath.row]
         
         let storyBoard: UIStoryboard = UIStoryboard(name: "Article", bundle: nil)
         let detailArticleVC = storyBoard.instantiateViewController(withIdentifier: "DetailArticleController") as! DetailArticleViewController
-        detailArticleVC.articleTitle = index?.title
-        detailArticleVC.articleImage = index?.urlToImage
-        detailArticleVC.articleContent = index?.content
-        detailArticleVC.articleAuthor = index?.author
-        detailArticleVC.articleDate = index?.publishedAt
+        detailArticleVC.articleTitle = index.title
+        detailArticleVC.articleImage = index.image
+        detailArticleVC.articleContent = index.welcomeDescription
+        detailArticleVC.articleAuthor = index.reference
+        detailArticleVC.articleDate = index.datePosted
         detailArticleVC.hidesBottomBarWhenPushed = true // Removing bottom bar in detail article screen
         self.navigationController?.pushViewController(detailArticleVC, animated: true)
         self.articleTableView.deselectRow(at: indexPath, animated: true)
@@ -127,12 +127,11 @@ extension ArticleViewController: UITableViewDelegate, UITableViewDataSource {
 //MARK: Fetch Article Data
 extension ArticleViewController {
     func displayData() {
-        guard let url = URL(string: "https://newsapi.org/v2/top-headlines?country=id&apiKey=c910bfd484464746b4c911b0615c1028") else { return }
+        guard let url = URL(string: "https://61af73793e2aba0017c49367.mockapi.io/articles/") else { return }
         URLSession.shared.dataTask(with: url) { (data, response, error) in
             if let data = data {
-                if let decodedPosts = try? JSONDecoder().decode(FetchArticle.self, from: data) {
+                if let decodedPosts = try? JSONDecoder().decode([Articles].self, from: data) {
                     self.ModelArticle = decodedPosts
-                    print("Debug: \(decodedPosts.articles?.count)")
                     DispatchQueue.main.async {
                         //self.activityIndicatorView.stopAnimating()
                         //self.activityIndicatorView.isHidden = true
