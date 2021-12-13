@@ -30,7 +30,6 @@ class DoctorCellTable: UITableViewCell {
     
     func setUpView(doctor: Doctor) {
         doctorNameLabel.text = doctor.name
-        doctorProfessionLabel.text = doctor.address
         doctorImageView.image = UIImage(named: "avatar")
         doctorImageView.layer.borderWidth = 0.2
         doctorImageView.layer.masksToBounds = false

@@ -788,7 +788,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="banner" width="1024" height="531"/>
+        <image name="banner" width="800" height="600"/>
         <image name="book" catalog="system" width="128" height="99"/>
         <image name="cross" catalog="system" width="128" height="116"/>
         <image name="doctor" width="1023" height="711"/>
