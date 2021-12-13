@@ -20,7 +20,7 @@ class HomeViewController: UIViewController {
     let activityIndicatorView = UIActivityIndicatorView(style: .large)
     let userDefault = UserDefaults.standard
     var doctors = [Doctor]()
-    var article = FetchArticle(status: "", totalResults: 0, articles: nil)
+    var article = [Articles]()
     let label = UILabel()
     
     override func viewDidLoad() {
@@ -58,11 +58,11 @@ class HomeViewController: UIViewController {
     @IBAction func seeMore(_ sender: Any) {
         let storyboard: UIStoryboard = UIStoryboard(name: "Article", bundle: nil)
         let detailArticleVC = storyboard.instantiateViewController(withIdentifier: "DetailArticleController") as! DetailArticleViewController
-        detailArticleVC.articleTitle = article.articles?[10].title
-        detailArticleVC.articleImage = article.articles?[10].urlToImage
-        detailArticleVC.articleContent = article.articles?[10].content
-        detailArticleVC.articleAuthor = article.articles?[10].author
-        detailArticleVC.articleDate = article.articles?[10].publishedAt
+        detailArticleVC.articleTitle = article.last?.title
+        detailArticleVC.articleImage = article.last?.image
+        detailArticleVC.articleContent = article.last?.welcomeDescription
+        detailArticleVC.articleAuthor = article.last?.reference
+        detailArticleVC.articleDate = article.last?.datePosted
         detailArticleVC.hidesBottomBarWhenPushed = true
         
         self.navigationController?.pushViewController(detailArticleVC, animated: true)
@@ -106,8 +106,8 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if collectionView == self.articleCollectionView {
-            if article.totalResults < 10 {
-                return article.totalResults
+            if article.count < 10 {
+                return article.count
             }
             else {
                 return 10
@@ -132,11 +132,12 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
         
         if collectionView == self.articleCollectionView {
             let cellArticle = collectionView.dequeueReusableCell(withReuseIdentifier: "articleCollectionIdentifier", for: indexPath) as! ArticleCellCollection
-            let index = article.articles?[indexPath.row]
-            let urlImage = URL(string: index?.urlToImage ?? "")
+            let index = article[indexPath.row]
+            let urlImage:URL = URL(string: index.image)!
+            print("debug: \(urlImage)")
             cellArticle.articleImageView.sd_imageIndicator = SDWebImageActivityIndicator.gray
             cellArticle.articleImageView.sd_setImage(with: urlImage, placeholderImage: UIImage(named: "logo"))
-            cellArticle.articleLabel.text = index?.title ?? ""
+            cellArticle.articleLabel.text = index.title
             
             return cellArticle
         }
@@ -161,15 +162,14 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if collectionView == self.articleCollectionView {
-            let indexPath = article.articles?[indexPath.row]
-            let urlImage = URL(string: indexPath?.urlToImage ?? "")
+            let indexPath = article[indexPath.row]
             let storyBoard: UIStoryboard = UIStoryboard(name: "Article", bundle: nil)
             let detailArticleVC = storyBoard.instantiateViewController(withIdentifier: "DetailArticleController") as! DetailArticleViewController
-            detailArticleVC.articleTitle = indexPath?.title
-            detailArticleVC.articleImage = indexPath?.urlToImage
-            detailArticleVC.articleContent = indexPath?.content
-            detailArticleVC.articleAuthor = indexPath?.author
-            detailArticleVC.articleDate = indexPath?.publishedAt
+            detailArticleVC.articleTitle = indexPath.title
+            detailArticleVC.articleImage = indexPath.image
+            detailArticleVC.articleContent = indexPath.welcomeDescription
+            detailArticleVC.articleAuthor = indexPath.reference
+            detailArticleVC.articleDate = indexPath.datePosted
             detailArticleVC.hidesBottomBarWhenPushed = true
             
             self.navigationController?.pushViewController(detailArticleVC, animated: true)
@@ -197,10 +197,10 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
 
 extension HomeViewController {
     func displayDataArticle() {
-        guard let url = URL(string: "https://newsapi.org/v2/top-headlines?country=id&apiKey=c910bfd484464746b4c911b0615c1028") else { return }
+        guard let url = URL(string: "https://61af73793e2aba0017c49367.mockapi.io/articles/") else { return }
         URLSession.shared.dataTask(with: url) { (data, response, error) in
             if let data = data {
-                if let decodedPosts = try? JSONDecoder().decode(FetchArticle.self, from: data) {
+                if let decodedPosts = try? JSONDecoder().decode([Articles].self, from: data) {
                     self.article = decodedPosts
                     DispatchQueue.main.async {
                         //self.activityIndicatorView.stopAnimating()
@@ -221,9 +221,10 @@ extension HomeViewController {
 
 extension HomeViewController {
     func loadBanner() {
-        let urlImage = URL(string: article.articles?[10].urlToImage ?? "")
+        let urlImage = URL(string: article.last?.image ?? "")
         bannerView.sd_imageIndicator = SDWebImageActivityIndicator.gray
         bannerView.sd_setImage(with: urlImage, placeholderImage: UIImage(named: "banner"))
-        bannerTitleLabel.text = article.articles?[10].title ?? ""
+        bannerTitleLabel.text = article.last?.title ?? ""
     }
 }
+
