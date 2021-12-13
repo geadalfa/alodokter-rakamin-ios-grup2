@@ -62,11 +62,6 @@ class DoctorViewController: UIViewController {
         searchController.searchBar.delegate = self
         var searchBar = searchController.searchBar
     }
-//    func encode(to encoder: Encoder) throws {
-//            var con = encoder.container(keyedBy: doctors.self)
-//            try! con.encode(self.name.lowercased(), forKey: .name)
-//        try! con.encode(self.spesialis.lowercased(), forKey: .spesialis)
-//        }
     
     func displayData() {
         
@@ -128,7 +123,7 @@ extension DoctorViewController: UITableViewDelegate, UITableViewDataSource {
         detailDoctorVC.doctorDescrip = index.desc
         detailDoctorVC.hidesBottomBarWhenPushed = true
         detailDoctorVC.navigationItem.title = index.name
-        detailDoctorVC.hidesBottomBarWhenPushed = true // Removing bottom bar in detail article screen
+        detailDoctorVC.hidesBottomBarWhenPushed = true // Removing bottom bar in detail doctor screen
         self.navigationController?.pushViewController(detailDoctorVC, animated: true)
         self.tableView.deselectRow(at: indexPath, animated: true)
         
@@ -143,18 +138,10 @@ extension DoctorViewController: UISearchBarDelegate {
         if !loadingState {
             if searchBarText != "" {
                 //Call Search Function Here!
-                //doctors = searchFilter(key: searchBarText)
-                doctors = searchFilter2(key: searchBarText)
+                doctors = searchFilter(key: searchBarText)
                 tableView.reloadData()
                 print(searchBarText)
     
-            }
-            else if searchBarText != "" {
-                    //Call Search Function Here!
-                    doctors = searchFilter(key: searchBarText)
-                    //doctors = searchFilter2(key: searchBarText)
-                    tableView.reloadData()
-                    print(searchBarText)
             }
             else {
                 displayData()
@@ -166,7 +153,7 @@ extension DoctorViewController: UISearchBarDelegate {
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         print("Search Text: \(searchText)")
-        searchBarText = searchText//.lowercased()
+        searchBarText = searchText
         if searchBarText == "" {
             displayData()
         }
@@ -176,15 +163,8 @@ extension DoctorViewController: UISearchBarDelegate {
     }
 
     func searchFilter(key: String) -> [Doctor]{
-        let searchResult = doctors.filter { data in
-            return data.name.lowercased().contains(key.lowercased())
-        }
-        return searchResult
-    }
-    
-    func searchFilter2(key: String) -> [Doctor]{
         let searchResult2 = doctors.filter { data in
-            return data.spesialis.lowercased().contains(key.lowercased())
+            return data.spesialis.lowercased().contains(key.lowercased()) || data.name.lowercased().contains(key.lowercased())
         }
         return searchResult2
     }
