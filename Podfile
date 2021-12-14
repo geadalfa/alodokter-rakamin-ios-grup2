@@ -7,6 +7,7 @@ target 'Alodokter' do
 
   # Pods for Alodokter
   pod 'Alamofire', '~> 5.4'
+  pod 'RealmSwift'
   pod 'IQKeyboardManagerSwift'
   pod 'SDWebImage'
 
