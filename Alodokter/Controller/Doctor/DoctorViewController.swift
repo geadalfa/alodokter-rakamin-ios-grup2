@@ -262,10 +262,11 @@ extension DoctorViewController: UISearchBarDelegate {
 
     // Search and match the keyword from user to doctor name/specialization
     func searchFilter(key: String) -> [Doctor]{
-        let searchResult2 = doctors.filter { data in
+        let searchResult = doctors.filter { data in
             return data.spesialis.lowercased().contains(key.lowercased()) || data.name.lowercased().contains(key.lowercased())
         }
-        return searchResult2
+        return searchResult
     }
+    
 }
 
