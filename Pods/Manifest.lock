@@ -1,6 +1,11 @@
 PODS:
   - Alamofire (5.4.4)
   - IQKeyboardManagerSwift (6.5.9)
+  - Realm (10.20.0):
+    - Realm/Headers (= 10.20.0)
+  - Realm/Headers (10.20.0)
+  - RealmSwift (10.20.0):
+    - Realm (= 10.20.0)
   - SDWebImage (5.12.1):
     - SDWebImage/Core (= 5.12.1)
   - SDWebImage/Core (5.12.1)
@@ -8,19 +13,24 @@ PODS:
 DEPENDENCIES:
   - Alamofire (~> 5.4)
   - IQKeyboardManagerSwift
+  - RealmSwift
   - SDWebImage
 
 SPEC REPOS:
   trunk:
     - Alamofire
     - IQKeyboardManagerSwift
+    - Realm
+    - RealmSwift
     - SDWebImage
 
 SPEC CHECKSUMS:
   Alamofire: f3b09a368f1582ab751b3fff5460276e0d2cf5c9
   IQKeyboardManagerSwift: 6e839c575c4aa1078d58a596e41244e77abe918f
+  Realm: ae32bdc1da7d19c7617e0400201a77acd4a211b9
+  RealmSwift: c95eec6a712924870b2e36c4c081d63ec07e5414
   SDWebImage: 4dc3e42d9ec0c1028b960a33ac6b637bb432207b
 
-PODFILE CHECKSUM: f4c696137bcb489d37a6e1c09a95935d93122a8d
+PODFILE CHECKSUM: ee6c08e9660eaaedaeb78a6f124185362da331ea
 
 COCOAPODS: 1.11.2

@@ -7,6 +7,7 @@
 
 import UIKit
 import SDWebImage
+import RealmSwift
 
 class DoctorViewController: UIViewController {
     
@@ -21,6 +22,10 @@ class DoctorViewController: UIViewController {
     let illustrateImage = IlustrateImage2()
     var searchBarText: String = ""
     var loadingState = true
+    var realm = try! Realm()
+    var consultationItem: Results<ConsultationObject>?
+    let sectionLabel = ["Jadwal Konsultasimu", "Daftar Dokter Terbaik"]
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,6 +34,8 @@ class DoctorViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
+        loadDatabase()
         
         if userDefault.object(forKey: "userLoginKey") as? String != nil {
             print("token available")
@@ -63,6 +70,13 @@ class DoctorViewController: UIViewController {
         var searchBar = searchController.searchBar
     }
     
+    func loadDatabase() {
+        
+        consultationItem = realm.objects(ConsultationObject.self)
+        tableView.reloadData()
+        
+    }
+    
     func displayData() {
         
         guard let url = URL(string: "https://61a9916133e9df0017ea3e3d.mockapi.io/doctor") else { return }
@@ -95,37 +109,83 @@ class DoctorViewController: UIViewController {
 
 extension DoctorViewController: UITableViewDelegate, UITableViewDataSource {
     
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 2
+    }
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return sectionLabel[section]
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return doctors.count
+        guard let safeConsultation = consultationItem?.count else { return 0 }
+        
+        if section == 0 {
+            return safeConsultation
+        }
+        
+        if section == 1 {
+            return doctors.count
+        }
+        
+        return 0
         
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cellIdentifier", for: indexPath) as! DoctorCellTable
-        let index = doctors[indexPath.row]
-        let urlImage = URL(string: index.image)
-        cell.doctorImageView.sd_imageIndicator = SDWebImageActivityIndicator.gray
-        cell.doctorImageView.sd_setImage(with: urlImage, placeholderImage: UIImage(named: "avatar"))
-        cell.doctorNameLabel.text = index.name
-        cell.doctorProfessionLabel.text = index.spesialis
-        cell.doctorImageView.layer.cornerRadius = 29
-        cell.doctorImageView.layer.masksToBounds = true
+        guard let safeConsultation = consultationItem else { return UITableViewCell() }
+        
+        if indexPath.section == 0 {
+            if indexPath.row < safeConsultation.count {
+                let cell = UITableViewCell(style: .subtitle, reuseIdentifier: "Cell")
+                
+                cell.textLabel?.text = "\(safeConsultation[indexPath.row].consultationDate)"
+                cell.detailTextLabel?.text = "\(safeConsultation[indexPath.row].name)"
+                cell.textLabel?.font = UIFont.boldSystemFont(ofSize: 18.0)
+                cell.detailTextLabel?.font = UIFont.boldSystemFont(ofSize: 14.0)
+                cell.detailTextLabel?.textColor = #colorLiteral(red: 0, green: 0.5898008943, blue: 1, alpha: 1)
+                cell.isUserInteractionEnabled = false
+                return cell
+            }
+            
+        }
+        
+        
+        if indexPath.section == 1 {
+            if indexPath.row < doctors.count {
+                let cell = tableView.dequeueReusableCell(withIdentifier: "cellIdentifier", for: indexPath) as! DoctorCellTable
+                let index = doctors[indexPath.row]
+                let urlImage = URL(string: index.image)
+                cell.doctorImageView.sd_imageIndicator = SDWebImageActivityIndicator.gray
+                cell.doctorImageView.sd_setImage(with: urlImage, placeholderImage: UIImage(named: "avatar"))
+                cell.doctorNameLabel.text = index.name
+                cell.doctorProfessionLabel.text = index.spesialis
+                cell.doctorImageView.layer.cornerRadius = 29
+                cell.doctorImageView.layer.masksToBounds = true
 
-        return cell
+                return cell
+            }
+        }
+
+        return UITableViewCell()
     }
+    
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let index = doctors[indexPath.row]
-        let storyBoard: UIStoryboard = UIStoryboard(name: "DoctorStory", bundle: nil)
-        let detailDoctorVC = storyBoard.instantiateViewController(withIdentifier: "DoctorStoryController") as! DoctorDetailViewController
-        detailDoctorVC.doctorImageViews = index.image // Get image URL from JSON API
-        detailDoctorVC.doctorNames = index.name
-        detailDoctorVC.doctorProfession = index.spesialis
-        detailDoctorVC.doctorDescrip = index.desc
-        detailDoctorVC.hidesBottomBarWhenPushed = true
-        detailDoctorVC.navigationItem.title = index.name
-        detailDoctorVC.hidesBottomBarWhenPushed = true // Removing bottom bar in detail doctor screen
-        self.navigationController?.pushViewController(detailDoctorVC, animated: true)
-        self.tableView.deselectRow(at: indexPath, animated: true)
+        if indexPath.section == 1 {
+            let index = doctors[indexPath.row]
+            let storyBoard: UIStoryboard = UIStoryboard(name: "DoctorStory", bundle: nil)
+            let detailDoctorVC = storyBoard.instantiateViewController(withIdentifier: "DoctorStoryController") as! DoctorDetailViewController
+            detailDoctorVC.doctorImageViews = index.image // Get image URL from JSON API
+            detailDoctorVC.doctorNames = index.name
+            detailDoctorVC.doctorProfession = index.spesialis
+            detailDoctorVC.doctorDescrip = index.desc
+            detailDoctorVC.hidesBottomBarWhenPushed = true
+            detailDoctorVC.navigationItem.title = index.name
+            detailDoctorVC.hidesBottomBarWhenPushed = true // Removing bottom bar in detail doctor screen
+            self.navigationController?.pushViewController(detailDoctorVC, animated: true)
+            self.tableView.deselectRow(at: indexPath, animated: true)
+        }
         
     }
 }
