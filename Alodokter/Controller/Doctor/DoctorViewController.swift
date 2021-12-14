@@ -19,11 +19,17 @@ class DoctorViewController: UIViewController {
     let userDefaults = UserDefaults.standard
     var doctors = [Doctor]()
     let illustrateImage = IlustrateImage2()
+    var searchBarText: String = ""
+    var loadingState = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Hide doctor list if user not login yet
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
         if userDefault.object(forKey: "userLoginKey") as? String != nil {
             print("token available")
             self.navigationItem.setRightBarButton(nil, animated: true)
@@ -43,8 +49,18 @@ class DoctorViewController: UIViewController {
             searchController.searchBar.isHidden = true
         }
         
-
         
+        searchController.obscuresBackgroundDuringPresentation = false
+        
+        if let doctorSearch = userDefaults.string(forKey: "doctorLabel") {
+            searchController.searchBar.placeholder = "Your Latest Search: \(doctorSearch)"
+        } else {
+            searchController.searchBar.placeholder = "Search by keywords"
+        }
+                
+        self.navigationItem.searchController = searchController
+        searchController.searchBar.delegate = self
+        var searchBar = searchController.searchBar
     }
     
     func displayData() {
@@ -60,6 +76,7 @@ class DoctorViewController: UIViewController {
                         self.activityIndicatorView.isHidden = true
                         self.tableView.reloadData()
                         self.tableView.isHidden = false
+                        self.loadingState = false
                     }
                 } else {
                     debugPrint("Failure to decode posts.")
@@ -71,24 +88,6 @@ class DoctorViewController: UIViewController {
         }.resume()
         
     }
-    
-    
-    override func viewWillAppear(_ animated: Bool) {
-        searchController.obscuresBackgroundDuringPresentation = false
-        
-        
-        if let doctorSearch = userDefaults.string(forKey: "doctorLabel") {
-            searchController.searchBar.placeholder = "Your Latest Search: \(doctorSearch)"
-        } else {
-            searchController.searchBar.placeholder = "Search by keywords"
-        }
-        
-        self.navigationItem.searchController = searchController
-        searchController.searchBar.delegate = self
-    }
-    
-    
-    
     
 }
 
@@ -124,7 +123,7 @@ extension DoctorViewController: UITableViewDelegate, UITableViewDataSource {
         detailDoctorVC.doctorDescrip = index.desc
         detailDoctorVC.hidesBottomBarWhenPushed = true
         detailDoctorVC.navigationItem.title = index.name
-        detailDoctorVC.hidesBottomBarWhenPushed = true // Removing bottom bar in detail article screen
+        detailDoctorVC.hidesBottomBarWhenPushed = true // Removing bottom bar in detail doctor screen
         self.navigationController?.pushViewController(detailDoctorVC, animated: true)
         self.tableView.deselectRow(at: indexPath, animated: true)
         
@@ -133,6 +132,41 @@ extension DoctorViewController: UITableViewDelegate, UITableViewDataSource {
 
 // MARK: - UISearchBar
 extension DoctorViewController: UISearchBarDelegate {
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        print("Succeed!")
+        searchBar.endEditing(true)
+        if !loadingState {
+            if searchBarText != "" {
+                //Call Search Function Here!
+                doctors = searchFilter(key: searchBarText)
+                tableView.reloadData()
+                print(searchBarText)
     
+            }
+            else {
+                displayData()
+                searchBarText = ""
+            }
+        }
+    }
+    
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        print("Search Text: \(searchText)")
+        searchBarText = searchText
+        if searchBarText == "" {
+            displayData()
+        }
+        if searchText == "" {
+            displayData()
+        }
+    }
+
+    func searchFilter(key: String) -> [Doctor]{
+        let searchResult2 = doctors.filter { data in
+            return data.spesialis.lowercased().contains(key.lowercased()) || data.name.lowercased().contains(key.lowercased())
+        }
+        return searchResult2
+    }
 }
 
