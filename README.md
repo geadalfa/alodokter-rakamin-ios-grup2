@@ -1,7 +1,26 @@
 # alodokter-rakamin-ios-grup2
-We're currently working on Development branch
+Alodokter Group 2 Mobile App - iOS Version
+Programming language - Swift
+Architecture - MVC
+Deployment target - iOS 13.5 and above
 
-# Screenshot
+# Features
+1. Home
+2. Articles
+3. Doctor
+4. Profile
+
+# Third-Party Libraries Used in this Project
+1. Alamofire
+2. SDWebImage
+3. IQKeyboardManager
+4. Realm
+
+# Installation
+1. Install pods first after Clone
+2. Open the Alodokter.xcworkspace instead of Alodokter.xcodeproj 
+
+# Screenshots
 ![alt text](https://github.com/geadalfa/alodokter-rakamin-ios-grup2/blob/master/images/1.png?raw=true)
 ![alt text](https://github.com/geadalfa/alodokter-rakamin-ios-grup2/blob/master/images/2.png?raw=true)
 ![alt text](https://github.com/geadalfa/alodokter-rakamin-ios-grup2/blob/master/images/3.png?raw=true)
