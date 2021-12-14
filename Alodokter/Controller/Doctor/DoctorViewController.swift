@@ -19,7 +19,11 @@ class DoctorViewController: UIViewController {
     let activityIndicatorView = UIActivityIndicatorView(style: .large)
     let userDefaults = UserDefaults.standard
     var doctors = [Doctor]()
-    let illustrateImage = IlustrateImage2()
+    
+    let illustrationImage = UIImage(named: "unlockPic.png")
+    let myImageView:UIImageView = UIImageView()
+    let label = UILabel(frame: CGRect(x: 0, y: 0, width: 200, height: 40))
+    
     var searchBarText: String = ""
     var loadingState = true
     var realm = try! Realm()
@@ -47,11 +51,13 @@ class DoctorViewController: UIViewController {
             
             tableView.register(UINib(nibName: "DoctorCell", bundle: nil), forCellReuseIdentifier: "cellIdentifier")
             tableView.rowHeight = 85
-            
+            myImageView.isHidden = true
+            label.isHidden = true
+    
             displayData()
         } else {
             print("token not available")
-            illustrateImage.getImage(view: view)
+            getImage()
             tableView.isHidden = true
             searchController.searchBar.isHidden = true
         }
@@ -67,6 +73,34 @@ class DoctorViewController: UIViewController {
                 
         self.navigationItem.searchController = searchController
         searchController.searchBar.delegate = self
+    }
+    
+    func getImage() {
+        //imageview properties
+        myImageView.contentMode = UIView.ContentMode.scaleAspectFit
+        myImageView.frame.size.width = 300
+        myImageView.frame.size.height = 300
+        myImageView.image = illustrationImage
+        
+        //label properties
+        label.font = UIFont.boldSystemFont(ofSize: 16.0)
+        label.textAlignment = .center
+        label.numberOfLines = 0
+        label.text = "Harap login dahulu untuk menikmati fitur ini"
+
+        //imageview constraint
+        view.addSubview(myImageView)
+        myImageView.translatesAutoresizingMaskIntoConstraints = false
+        myImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        myImageView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+        myImageView.widthAnchor.constraint(equalToConstant: 300 ).isActive = true
+        myImageView.heightAnchor.constraint(equalToConstant: 300).isActive = true
+        
+        //label constraint
+        view.addSubview(label)
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.topAnchor.constraint(equalTo: myImageView.bottomAnchor, constant: 20).isActive = true
+        label.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
     }
     
     func loadDatabase() {
