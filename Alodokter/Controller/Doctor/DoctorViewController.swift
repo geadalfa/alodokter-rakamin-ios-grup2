@@ -67,7 +67,6 @@ class DoctorViewController: UIViewController {
                 
         self.navigationItem.searchController = searchController
         searchController.searchBar.delegate = self
-        var searchBar = searchController.searchBar
     }
     
     func loadDatabase() {
@@ -210,7 +209,12 @@ extension DoctorViewController: UISearchBarDelegate {
         }
     }
     
+    // Display the doctor list when user click "cancel" on searchbar
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        displayData()
+    }
     
+    // Display the doctor list when the search bar is empty
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         print("Search Text: \(searchText)")
         searchBarText = searchText
@@ -222,6 +226,7 @@ extension DoctorViewController: UISearchBarDelegate {
         }
     }
 
+    // Search and match the keyword from user to doctor name/specialization
     func searchFilter(key: String) -> [Doctor]{
         let searchResult2 = doctors.filter { data in
             return data.spesialis.lowercased().contains(key.lowercased()) || data.name.lowercased().contains(key.lowercased())
