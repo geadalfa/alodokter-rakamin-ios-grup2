@@ -69,7 +69,10 @@ extension ArticleViewController: UICollectionViewDelegate, UICollectionViewDataS
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cellArticle = collectionView.dequeueReusableCell(withReuseIdentifier: "articleCollectionIdentifier", for: indexPath) as! ArticleCellCollection
-        let index = ModelArticle[indexPath.row]
+        var index = ModelArticle[(ModelArticle.count-1) - indexPath.row]
+        if ModelArticle.count > 20 {
+            index = ModelArticle[(20-1) - indexPath.row]
+        }
         let urlImage = URL(string: index.image)
         cellArticle.articleImageView.sd_imageIndicator = SDWebImageActivityIndicator.gray
         cellArticle.articleImageView.sd_setImage(with: urlImage, placeholderImage: UIImage(named: "banner"))
@@ -80,7 +83,10 @@ extension ArticleViewController: UICollectionViewDelegate, UICollectionViewDataS
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let indexPath = ModelArticle[indexPath.row]
+        var indexPath = ModelArticle[(ModelArticle.count-1) - indexPath.row]
+        if ModelArticle.count > 20 {
+            indexPath = ModelArticle[(20-1) - indexPath.row]
+        }
         
         let storyBoard: UIStoryboard = UIStoryboard(name: "Article", bundle: nil)
         let detailArticleVC = storyBoard.instantiateViewController(withIdentifier: "DetailArticleController") as! DetailArticleViewController
