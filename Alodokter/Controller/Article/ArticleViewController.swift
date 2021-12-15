@@ -61,9 +61,6 @@ extension ArticleViewController {
 // MARK: - UICollectionView
 extension ArticleViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if ModelArticle.count > 20 {
-            return 20
-        }
         return ModelArticle.count
     }
     
@@ -84,9 +81,6 @@ extension ArticleViewController: UICollectionViewDelegate, UICollectionViewDataS
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         var indexPath = ModelArticle[(ModelArticle.count-1) - indexPath.row]
-        if ModelArticle.count > 20 {
-            indexPath = ModelArticle[(20-1) - indexPath.row]
-        }
         
         let storyBoard: UIStoryboard = UIStoryboard(name: "Article", bundle: nil)
         let detailArticleVC = storyBoard.instantiateViewController(withIdentifier: "DetailArticleController") as! DetailArticleViewController
@@ -106,9 +100,6 @@ extension ArticleViewController: UICollectionViewDelegate, UICollectionViewDataS
 // MARK: - UITableView
 extension ArticleViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if ModelArticle.count > 20 {
-            return 20
-        }
         return ModelArticle.count
     }
     
