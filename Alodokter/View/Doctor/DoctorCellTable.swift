@@ -28,7 +28,7 @@ class DoctorCellTable: UITableViewCell {
     }
     
     
-    func setUpView(doctor: Doctor) {
+    func setUpView(doctor: Datum) {
         doctorNameLabel.text = doctor.name
         doctorImageView.image = UIImage(named: "avatar")
         doctorImageView.layer.borderWidth = 0.2

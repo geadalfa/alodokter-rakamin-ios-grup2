@@ -19,7 +19,8 @@ class HomeViewController: UIViewController {
     // Variables
     let activityIndicatorView = UIActivityIndicatorView(style: .large)
     let userDefault = UserDefaults.standard
-    var doctors = [Doctor]()
+    var doctorsArray: [Datum] = [Datum]()
+    var jsonData: Data?
     var article = [Articles]()
     let label = UILabel()
     
@@ -84,11 +85,30 @@ class HomeViewController: UIViewController {
 extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     
     func displayData() {
-        guard let url = URL(string: "https://61a9916133e9df0017ea3e3d.mockapi.io/doctor") else { return }
+        guard let url = URL(string: "https://alodokter-api.herokuapp.com/doctors/") else { return }
         URLSession.shared.dataTask(with: url) { (data, response, error) in
             if let data = data {
-                if let decodedPosts = try? JSONDecoder().decode([Doctor].self, from: data) {
-                    self.doctors = decodedPosts
+                if let decodedPosts = try? JSONDecoder().decode(Doctor.self, from: data) {
+                    //let json = try! JSONDecoder().decode(NestedJSONModel.self, from: jsonData)
+                    
+                    let dataArray = decodedPosts.data
+                    
+                    for item in dataArray {
+                        let name = item.name
+                        let spesialis = item.spesialis
+                        let image = item.img
+                        let desc = item.desc
+                        let id = item.id
+                        let timetable = item.timetable
+                        let nip = item.nip
+                        let location = item.location
+                        let phone = item.phone
+                        let createdAt = item.createdAt
+                        let updatedAt = item.updatedAt
+                        
+                        self.doctorsArray.append(
+                            Datum(id: id, name: name, nip: nip, spesialis: spesialis, location: location, timetable: timetable, phone: phone, img: image, desc: desc, createdAt: createdAt, updatedAt: updatedAt))
+                    }
                     DispatchQueue.main.async {
                         self.activityIndicatorView.stopAnimating()
                         self.activityIndicatorView.isHidden = true
@@ -116,8 +136,8 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
         }
         
         if collectionView == self.doctorCollectionView {
-            if doctors.count < 10 {
-                return doctors.count
+            if doctorsArray.count < 10 {
+                return doctorsArray.count
             }
             else {
                 return 10
@@ -146,13 +166,13 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
             let cellDoctor = collectionView.dequeueReusableCell(withReuseIdentifier: "doctorCollectionIdentifier", for: indexPath) as! DoctorCellCollection
             
             // Get image from API
-            let urlString = doctors[indexPath.row].image
+            let urlString = doctorsArray[indexPath.row].img
             let url = URL(string:urlString)
             cellDoctor.doctorImageView.sd_imageIndicator = SDWebImageActivityIndicator.gray
             cellDoctor.doctorImageView.sd_setImage(with: url, placeholderImage: UIImage(named: "logo"))
             
-            cellDoctor.doctorNameLabel.text = doctors[indexPath.row].name
-            cellDoctor.doctorProfessionLabel.text = doctors[indexPath.row].spesialis
+            cellDoctor.doctorNameLabel.text = doctorsArray[indexPath.row].name
+            cellDoctor.doctorProfessionLabel.text = doctorsArray[indexPath.row].spesialis
             
             return cellDoctor
         }
@@ -176,10 +196,10 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
         }
         else if collectionView == self.doctorCollectionView {
             if UserDefaults.standard.string(forKey: "userName") != nil {
-                let indexPath = doctors[indexPath.row]
+                let indexPath = doctorsArray[indexPath.row]
                 let storyBoard: UIStoryboard = UIStoryboard(name: "DoctorStory", bundle: nil)
                 let detailDoctorVC = storyBoard.instantiateViewController(withIdentifier: "DoctorStoryController") as! DoctorDetailViewController
-                detailDoctorVC.doctorImageViews = indexPath.image // Get image URL from JSON API
+                detailDoctorVC.doctorImageViews = indexPath.img // Get image URL from JSON API
                 detailDoctorVC.doctorNames = indexPath.name
                 detailDoctorVC.doctorProfession = indexPath.spesialis
                 detailDoctorVC.doctorDescrip = indexPath.desc

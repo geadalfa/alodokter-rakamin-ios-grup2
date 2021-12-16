@@ -18,7 +18,9 @@ class DoctorViewController: UIViewController {
     let searchController = UISearchController(searchResultsController: nil)
     let activityIndicatorView = UIActivityIndicatorView(style: .large)
     let userDefaults = UserDefaults.standard
-    var doctors = [Doctor]()
+    
+    var doctorsArray: [Datum] = [Datum]()
+    var jsonData: Data?
     
     let illustrationImage = UIImage(named: "unlockPic.png")
     let myImageView:UIImageView = UIImageView()
@@ -112,12 +114,34 @@ class DoctorViewController: UIViewController {
     
     func displayData() {
         
-        guard let url = URL(string: "https://61a9916133e9df0017ea3e3d.mockapi.io/doctor") else { return }
+        guard let url = URL(string: "https://alodokter-api.herokuapp.com/doctors/") else { return }
         
         URLSession.shared.dataTask(with: url) { (data, response, error) in
             if let data = data {
-                if let decodedPosts = try? JSONDecoder().decode([Doctor].self, from: data) {
-                    self.doctors = decodedPosts
+                if let decodedPosts = try? JSONDecoder().decode(Doctor.self, from: data) {
+                    //let json = try! JSONDecoder().decode(NestedJSONModel.self, from: jsonData)
+                    
+                    let dataArray = decodedPosts.data
+                    
+                    for item in dataArray {
+                        let name = item.name
+                        let spesialis = item.spesialis
+                        let image = item.img
+                        let desc = item.desc
+                        let id = item.id
+                        let timetable = item.timetable
+                        let nip = item.nip
+                        let location = item.location
+                        let phone = item.phone
+                        let createdAt = item.createdAt
+                        let updatedAt = item.updatedAt
+                        
+                        self.doctorsArray.append(
+                            Datum(id: id, name: name, nip: nip, spesialis: spesialis, location: location, timetable: timetable, phone: phone, img: image, desc: desc, createdAt: createdAt, updatedAt: updatedAt)
+                        )
+                    }
+                    
+                    //self.doctorsArray = decodedPosts
                     DispatchQueue.main.async {
                         self.activityIndicatorView.stopAnimating()
                         self.activityIndicatorView.isHidden = true
@@ -125,6 +149,7 @@ class DoctorViewController: UIViewController {
                         self.tableView.isHidden = false
                         self.loadingState = false
                     }
+                    //self.tableView.reloadData()
                 } else {
                     debugPrint("Failure to decode posts.")
                     print(error?.localizedDescription)
@@ -158,7 +183,7 @@ extension DoctorViewController: UITableViewDelegate, UITableViewDataSource {
         }
         
         if section == 1 {
-            return doctors.count
+            return doctorsArray.count
         }
         
         return 0
@@ -185,10 +210,10 @@ extension DoctorViewController: UITableViewDelegate, UITableViewDataSource {
         
         
         if indexPath.section == 1 {
-            if indexPath.row < doctors.count {
+            if indexPath.row < doctorsArray.count {
                 let cell = tableView.dequeueReusableCell(withIdentifier: "cellIdentifier", for: indexPath) as! DoctorCellTable
-                let index = doctors[indexPath.row]
-                let urlImage = URL(string: index.image)
+                let index = doctorsArray[indexPath.row]
+                let urlImage = URL(string: index.img)
                 cell.doctorImageView.sd_imageIndicator = SDWebImageActivityIndicator.gray
                 cell.doctorImageView.sd_setImage(with: urlImage, placeholderImage: UIImage(named: "avatar"))
                 cell.doctorNameLabel.text = index.name
@@ -206,10 +231,10 @@ extension DoctorViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.section == 1 {
-            let index = doctors[indexPath.row]
+            let index = doctorsArray[indexPath.row]
             let storyBoard: UIStoryboard = UIStoryboard(name: "DoctorStory", bundle: nil)
             let detailDoctorVC = storyBoard.instantiateViewController(withIdentifier: "DoctorStoryController") as! DoctorDetailViewController
-            detailDoctorVC.doctorImageViews = index.image // Get image URL from JSON API
+            detailDoctorVC.doctorImageViews = index.img // Get image URL from JSON API
             detailDoctorVC.doctorNames = index.name
             detailDoctorVC.doctorProfession = index.spesialis
             detailDoctorVC.doctorDescrip = index.desc
@@ -231,7 +256,7 @@ extension DoctorViewController: UISearchBarDelegate {
         if !loadingState {
             if searchBarText != "" {
                 //Call Search Function Here!
-                doctors = searchFilter(key: searchBarText)
+                doctorsArray = searchFilter(key: searchBarText)
                 tableView.reloadData()
                 print(searchBarText)
     
@@ -254,15 +279,17 @@ extension DoctorViewController: UISearchBarDelegate {
         searchBarText = searchText
         if searchBarText == "" {
             displayData()
+            tableView.reloadData()
         }
         if searchText == "" {
             displayData()
+            tableView.reloadData()
         }
     }
 
     // Search and match the keyword from user to doctor name/specialization
-    func searchFilter(key: String) -> [Doctor]{
-        let searchResult = doctors.filter { data in
+    func searchFilter(key: String) -> [Datum]{
+        let searchResult = doctorsArray.filter { data in
             return data.spesialis.lowercased().contains(key.lowercased()) || data.name.lowercased().contains(key.lowercased())
         }
         return searchResult
