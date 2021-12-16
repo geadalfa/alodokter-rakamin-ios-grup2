@@ -89,7 +89,6 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
         URLSession.shared.dataTask(with: url) { (data, response, error) in
             if let data = data {
                 if let decodedPosts = try? JSONDecoder().decode(Doctor.self, from: data) {
-                    //let json = try! JSONDecoder().decode(NestedJSONModel.self, from: jsonData)
                     
                     let dataArray = decodedPosts.data
                     

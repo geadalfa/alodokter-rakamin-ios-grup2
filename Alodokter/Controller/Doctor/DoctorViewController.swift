@@ -114,13 +114,14 @@ class DoctorViewController: UIViewController {
     
     func displayData() {
         
+        doctorsArray.removeAll()
+        
         guard let url = URL(string: "https://alodokter-api.herokuapp.com/doctors/") else { return }
         
         URLSession.shared.dataTask(with: url) { (data, response, error) in
             if let data = data {
                 if let decodedPosts = try? JSONDecoder().decode(Doctor.self, from: data) {
-                    //let json = try! JSONDecoder().decode(NestedJSONModel.self, from: jsonData)
-                    
+ 
                     let dataArray = decodedPosts.data
                     
                     for item in dataArray {
@@ -141,7 +142,6 @@ class DoctorViewController: UIViewController {
                         )
                     }
                     
-                    //self.doctorsArray = decodedPosts
                     DispatchQueue.main.async {
                         self.activityIndicatorView.stopAnimating()
                         self.activityIndicatorView.isHidden = true
@@ -262,6 +262,7 @@ extension DoctorViewController: UISearchBarDelegate {
     
             }
             else {
+                tableView.reloadData()
                 displayData()
                 searchBarText = ""
             }
@@ -279,11 +280,6 @@ extension DoctorViewController: UISearchBarDelegate {
         searchBarText = searchText
         if searchBarText == "" {
             displayData()
-            tableView.reloadData()
-        }
-        if searchText == "" {
-            displayData()
-            tableView.reloadData()
         }
     }
 
