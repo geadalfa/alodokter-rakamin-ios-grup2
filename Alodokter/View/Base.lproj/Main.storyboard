@@ -411,6 +411,11 @@
                                                             </userDefinedRuntimeAttributes>
                                                         </collectionViewCellContentView>
                                                         <size key="customSize" width="176" height="183"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                <integer key="value" value="10"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
                                                         <connections>
                                                             <outlet property="articleImageView" destination="HEI-TJ-yhx" id="knX-JB-1sU"/>
                                                             <outlet property="articleLabel" destination="WBw-Re-N9K" id="gRl-UW-OmU"/>
@@ -673,6 +678,7 @@
                     <connections>
                         <outlet property="logOutButton" destination="Gln-NP-Vcu" id="Fhk-k2-eM2"/>
                         <outlet property="loginBarButtonItem" destination="0zy-ca-mH9" id="i8d-Fs-SIT"/>
+                        <outlet property="profileImage" destination="Ivp-4P-K8c" id="m9P-4Q-m1D"/>
                         <outlet property="stackViewOne" destination="KwG-Ay-QTi" id="gj7-Bd-Ssj"/>
                         <outlet property="stackViewTwo" destination="ZJA-FE-Kf1" id="dF5-Uf-G5x"/>
                         <outlet property="userBirth" destination="9qc-yw-v1V" id="M2c-f8-L8L"/>

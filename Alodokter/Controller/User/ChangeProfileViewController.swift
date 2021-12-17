@@ -34,6 +34,11 @@ class ChangeProfileViewController: UIViewController, UIImagePickerControllerDele
     let imagePicker = UIImagePickerController()
     let activityIndicatorView = UIActivityIndicatorView(style: .large)
     
+    private var url: URL {
+            let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+            return paths[0].appendingPathComponent("imageProfile.jpg")
+    }
+    var tempImage = UIImage(systemName: "person.fill")
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,7 +54,10 @@ class ChangeProfileViewController: UIViewController, UIImagePickerControllerDele
             userToken = userDefault.object(forKey: "userLoginKey") as! String
         }
         
-        
+        if FileManager.default.fileExists(atPath: url.path) {
+            url.loadImage(&tempImage)
+            imageProfile.image = tempImage
+        }
         
         getUserData()
         
@@ -119,8 +127,10 @@ class ChangeProfileViewController: UIViewController, UIImagePickerControllerDele
         guard let safeBirth = self.dateOfBirth.text else { return }
         
         updateData(name: safeUsername, address: safeAddress, gender: safeGender, birth: safeBirth)
-        
-        
+        //Save Image
+        //saveImage(image: (imageProfile.image ?? (UIImage(named: "corona")!)) )
+        //saveImage(image: UIImage(named: "corona")!)
+        url.saveImage(imageProfile.image)
     }
     
     func updateData(name: String, address: String, gender: String, birth: String) {
@@ -286,6 +296,45 @@ extension ChangeProfileViewController: UIPickerViewDelegate, UIPickerViewDataSou
     
 }
 
+extension ChangeProfileViewController {
+    func documentDirectoryPath() -> URL? {
+        let path = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+        return path.first
+    }
+    
+    func saveImage(image: UIImage) {
+        if let imageData = image.pngData(),
+           let path = documentDirectoryPath()?.appendingPathComponent("examplePng.png") {
+            do {
+                try imageData.write(to: path)
+                FileManager.default.createFile(atPath: path.absoluteString, contents: imageData, attributes: nil)
+                print("debug: image saved!  \(path)")
+            }
+            catch {
+                print("debug: error saving image")
+            }
+        }
+    }
+}
+
+extension URL {
+    func loadImage(_ image: inout UIImage?) {
+        if let data = try? Data(contentsOf: self), let loaded = UIImage(data: data) {
+            image = loaded
+        } else {
+            image = nil
+        }
+    }
+    func saveImage(_ image: UIImage?) {
+        if let image = image {
+            if let data = image.jpegData(compressionQuality: 1.0) {
+                try? data.write(to: self)
+            }
+        } else {
+            try? FileManager.default.removeItem(at: self)
+        }
+    }
+}
 
 
 

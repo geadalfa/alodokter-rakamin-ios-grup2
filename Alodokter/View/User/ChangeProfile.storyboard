@@ -12,7 +12,7 @@
         <!--Ubah Profil-->
         <scene sceneID="08i-A8-SLy">
             <objects>
-                <viewController storyboardIdentifier="ChangeProfile" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Z21-hn-z4P" customClass="ChangeProfileViewController" customModule="Testing_Skeleton" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ChangeProfile" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Z21-hn-z4P" customClass="ChangeProfileViewController" customModule="Alodokter" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="iem-Ba-DgT">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

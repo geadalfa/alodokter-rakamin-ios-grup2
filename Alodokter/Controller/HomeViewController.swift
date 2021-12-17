@@ -35,6 +35,7 @@ class HomeViewController: UIViewController {
         displayData()
         displayDataArticle()
         
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {

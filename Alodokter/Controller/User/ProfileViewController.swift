@@ -17,6 +17,7 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var stackViewOne: UIStackView!
     @IBOutlet weak var stackViewTwo: UIStackView!
     @IBOutlet weak var logOutButton: UIButton!
+    @IBOutlet weak var profileImage: UIImageView!
     
     
     // Variables
@@ -30,14 +31,29 @@ class ProfileViewController: UIViewController {
     let myImageView:UIImageView = UIImageView()
     let label = UILabel(frame: CGRect(x: 0, y: 0, width: 200, height: 40))
     
-
+    private var url: URL {
+            let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+            return paths[0].appendingPathComponent("imageProfile.jpg")
+    }
+    var imageProf = UIImage(named: "corona")
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        url.loadImage(&imageProf)
+        profileImage.image = imageProf
+        profileImage.layer.cornerRadius = profileImage.frame.size.width/2
+        profileImage.clipsToBounds = true
+        profileImage.contentMode = .scaleAspectFill
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
+        url.loadImage(&imageProf)
+        profileImage.image = imageProf
+        profileImage.layer.cornerRadius = profileImage.frame.size.width/2
+        profileImage.clipsToBounds = true
+        profileImage.contentMode = .scaleAspectFill
         
         if userDefault.object(forKey: "userLoginKey") as? String != nil {
             print("token available")
@@ -161,4 +177,27 @@ extension ProfileViewController: UserTokenAndIdDelegate {
     }
     
     
+}
+
+extension ProfileViewController {
+    func documentDirectoryPath() -> URL? {
+        let path = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+        return path.first
+    }
+    func getProfileImage() {
+        let fileManager = FileManager.default
+        let imagePath = documentDirectoryPath()?.appendingPathComponent("examplePng.png")
+        print("debug: \(imagePath)")
+        print("debug: string \(imagePath?.absoluteString)")
+        if fileManager.fileExists(atPath: imagePath?.absoluteString ?? "") {
+            print("debug: image Exist!")
+            setProfileImage(image: (UIImage(contentsOfFile: imagePath?.absoluteString ?? "") ?? UIImage(named: "corona")!))
+        }
+        else {
+            print("debug: image doesn't Exist")
+        }
+    }
+    func setProfileImage(image: UIImage) {
+        profileImage.image = image
+    }
 }
