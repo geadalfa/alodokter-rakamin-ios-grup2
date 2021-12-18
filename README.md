@@ -33,3 +33,4 @@ Deployment target - iOS 13.5 and above
 ![alt text](https://github.com/geadalfa/alodokter-rakamin-ios-grup2/blob/master/images/10.png?raw=true)
 ![alt text](https://github.com/geadalfa/alodokter-rakamin-ios-grup2/blob/master/images/11.png?raw=true)
 ![alt text](https://github.com/geadalfa/alodokter-rakamin-ios-grup2/blob/master/images/12.png?raw=true)
+![alt text](https://github.com/geadalfa/alodokter-rakamin-ios-grup2/blob/master/images/13.png?raw=true)
