@@ -19,6 +19,9 @@ Deployment target - iOS 13.5 and above
 # Installation
 1. Install pods first after Clone
 2. Open the Alodokter.xcworkspace instead of Alodokter.xcodeproj 
+## Via Testflight
+1. Install testflight on the App Store
+2. Click this link https://testflight.apple.com/join/ZGT5tDJB
 
 # Screenshots
 ![alt text](https://github.com/geadalfa/alodokter-rakamin-ios-grup2/blob/master/images/1.png?raw=true)
